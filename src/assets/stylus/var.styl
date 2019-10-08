@@ -1,0 +1,89 @@
+// color
+$main_color = #3C68EB    // 主题色
+$nav_font_color = #0052BD // 导航激活色
+$orange_color = #ff7200  // 警告色
+$red_color = #ff2a00     // 危险色
+$white_color = #ffffff
+$bg_color = #f7f7f7      // 背景色
+$black_color = #333
+$border_color = #595959   // 边框色
+
+$font_grey_color = #666
+$font_light_color = #999
+$black_font_color = #262626
+
+
+$font_family = 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', 'Avenir', Helvetica, Arial, sans-serif
+
+// 字体大小
+$small_font_size = 12px
+$medium_font_size = 14px
+$normal_font_size = 16px
+$big_font_size = 24px
+
+// px
+$container_width = 1200px
+
+/* ===================================== mixin ===================================== */
+// 清浮动
+clearfix()
+  &:after
+    display block
+    content "."
+    height 0
+    line-height 0
+    clear both
+    visibility hidden
+
+// clearfix
+.clearfix:before, .clearfix:after
+  content " "
+  display table
+
+.clearfix:after
+  clear both
+
+.clearfix
+  *zoom 1
+
+// 左浮动
+.fl
+  float left
+
+// 右浮动
+.fr
+  float right
+
+
+// 防文字溢出
+.text_overflow
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+// 防文字溢出(多行)
+multi_text_overflow($line = 3)
+  display -webkit-box
+  -webkit-box-orient vertical
+  -webkit-line-clamp $line
+  overflow hidden
+  word-break break-all
+
+// 禁止选中文字
+disabled_select_text()
+  user-select none
+
+/* ===================================== utils class ===================================== */
+.ml_10
+  margin-left 10px
+
+.mr_10
+  margin-right 10px
+
+.font_weight
+  font-weight 700
+
+.pointer
+  cursor pointer
+.center
+  text-align center
