@@ -136,3 +136,14 @@ export function yymmddhhmmss(date_obj: Date, delimiter = '-') {
   + delimiter + (dd[1] ? dd : `0${dd[0]}`) + ' '
   + (hh[1] ? hh : `0${hh[0]}`) + ':' + (MM[1] ? MM : `0${MM[0]}`) + ':' + (ss[1] ? ss : `0${ss[0]}`);
 }
+/**
+ * unique_array function - 数组去重
+ *
+ * @param  {Array}  原始数组
+ * @return {Array}  去重后的数组
+ */
+export function unique_array(arr: any[]) {
+  if (arr.length <= 1) { return arr; }
+
+  return arr.filter((item, index, self) => self.indexOf(item) === index);
+}

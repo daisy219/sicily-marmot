@@ -1,24 +1,22 @@
 <script lang="ts">
 /* COMPONENT DOCUMENT
  * author: zhaoyang
- * date: 2019/09/30
- * desc: 主页
+ * date: 2019/10/09
+ * desc: 首页右侧内容
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
-import HomeRight from './_part/right_page.vue';
-import { unique_array } from '@/utils/utils';
+
 
 @Component({
-  name: 'home',
-  components: {
-    'home-right': HomeRight,
-  },
+  name: 'home-right',
+  components: {},
 })
-export default class Home extends Vue {
+export default class HomeRight extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  // @Prop() private parentData!: any;
+  @Prop({type: Array, default: ''}) private curPageList!: number[];
+  @Prop({type: Number, default: -1}) private curPage!: number;
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
@@ -30,20 +28,17 @@ export default class Home extends Vue {
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  private cur_page_list: number[] = []; // data
-  private page_list: number[] = [];
-  private cur_page: number = -1;
+  private cur_page: number = -1; // data
   // get computed_data(): string { return 'computed' } // computed
 
   /* ------------------------ WATCH ------------------------ */
-  // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
+  @Watch('curPage') private curPage_changed(val: any, oldVal: any) {
+    this.cur_page = val;
+  }
 
   /* ------------------------ METHODS ------------------------ */
-  private change_tab(tab: number) {
+  private change_page(tab: number) {
     this.cur_page = tab;
-    this.page_list.push(tab);
-    this.cur_page_list = JSON.parse(JSON.stringify(unique_array(this.page_list)));
-    // console.log(unique_array(this.cur_page_list));
   }
 
 }
@@ -51,30 +46,30 @@ export default class Home extends Vue {
 </script>
 
 <template>
-<layout>
-<div class="module_home common_page_container clearfix">
-  <div class="home_nav fl">
-    <div class="home_nav_item" @click="change_tab(1)">页面一</div>
-    <div class="home_nav_item" @click="change_tab(2)">页面二</div>
+<div class="module_right_page">
+  <div class="tab_title clearfix">
+    <div class="tab_title_item" v-for="(item, index) in curPageList" :key="index" @click="change_page(item)">{{'页面'+ item}}</div>
   </div>
-  <div class="fl">
-    <home-right :cur-page-list="cur_page_list" :cur-page="cur_page"/>
+  <div>
+    <div v-show="cur_page === 1">页面1</div>
+    <div v-show="cur_page === 2">页面2</div>
   </div>
 </div>
-</layout>
 </template>
 
 <style lang="stylus" scoped>
 @import '~@/assets/stylus/var'
 
-.module_home
-  .home_nav
-    border-right 1px solid #f0f0f0
-    .home_nav_item
-      height 50px
+.module_right_page
+  .tab_title
+    .tab_title_item
+      float left
       width 100px
+      height 50px
       line-height 50px
       text-align center
-      cursor pointer
-      border-bottom 1px solid $main_color
+      background-color $main_color
+      color $white_color
+      border-radius 4px
+
 </style>

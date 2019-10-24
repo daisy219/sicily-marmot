@@ -44,19 +44,19 @@ export default class Layout extends Vue {
 
 <template>
 <div class="module_layout_common">
-    <div class="header">
-        <div class="header_contain">
-            <div class="menu">
-                <div v-for="item in MODULES_INFO" :key="item.route" :class="['menu_item', {'active': $route.name === item.route}]" @click="enter_page(item.route)">
-                    {{item.name}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <slot />
-    <div class="footer">
-        <!-- <p class="copy_right">© 2015 Stabocks Corpot Allright 京ICP09020041</p> -->
-    </div>
+	<div class="header">
+		<div class="header_contain">
+			<div class="menu">
+				<div v-for="item in MODULES_INFO" :key="item.route" :class="['menu_item', {'active': $route.name === item.route}]" @click="enter_page(item.route)">
+						{{item.name}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<slot />
+	<div class="footer">
+			<!-- <p class="copy_right">© 2015 Stabocks Corpot Allright 京ICP09020041</p> -->
+	</div>
 </div>
 </template>
 
