@@ -7,13 +7,14 @@
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
-import HomeRight from './_part/right_page.vue';
 import { unique_array } from '@/utils/utils';
+
+import MyDatePicker from '@/components/my-date-picker/index.js';
 
 @Component({
   name: 'home',
   components: {
-    'home-right': HomeRight,
+    'my-date-picker': MyDatePicker,
   },
 })
 export default class Home extends Vue {
@@ -31,20 +32,35 @@ export default class Home extends Vue {
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private cur_page_list: number[] = []; // data
-  private page_list: number[] = [];
-  private cur_page: number = -1;
+  private pickerOptions: any = {
+    shortcuts: [{
+      text: '今天',
+      onClick(picker: any) {
+        picker.$emit('pick', new Date());
+      },
+    }, {
+      text: '昨天',
+      onClick(picker: any) {
+        const date = new Date();
+        date.setTime(date.getTime() - 3600 * 1000 * 24);
+        picker.$emit('pick', date);
+      },
+    }, {
+      text: '一周前',
+      onClick(picker: any) {
+        const date = new Date();
+        date.setTime(date.getTime() - 3600 * 1000 * 24 * 7);
+        picker.$emit('pick', date);
+      },
+    }],
+  };
+  private value2: string = '';
   // get computed_data(): string { return 'computed' } // computed
 
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-  private change_tab(tab: number) {
-    this.cur_page = tab;
-    this.page_list.push(tab);
-    this.cur_page_list = JSON.parse(JSON.stringify(unique_array(this.page_list)));
-    // console.log(unique_array(this.cur_page_list));
-  }
 
 }
 
@@ -53,13 +69,13 @@ export default class Home extends Vue {
 <template>
 <layout>
 <div class="module_home common_page_container clearfix">
-  <div class="home_nav fl">
-    <div class="home_nav_item" @click="change_tab(1)">页面一</div>
-    <div class="home_nav_item" @click="change_tab(2)">页面二</div>
-  </div>
-  <div class="fl">
-    <home-right :cur-page-list="cur_page_list" :cur-page="cur_page"/>
-  </div>
+  <my-date-picker
+    v-model="value2"
+    type="datetime"
+    placeholder="选择日期时间"
+    align="right"
+    :picker-options="pickerOptions">
+  </my-date-picker>
 </div>
 </layout>
 </template>
