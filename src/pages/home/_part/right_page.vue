@@ -15,7 +15,7 @@ import { Getter, Action } from 'vuex-class';
 })
 export default class HomeRight extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  @Prop({type: Array, default: ''}) private curPageList!: number[];
+  @Prop({type: Array, default() { return []; }}) private curPageList!: number[];
   @Prop({type: Number, default: -1}) private curPage!: number;
   // @Emit('event_name') private handler() {}
 
@@ -39,6 +39,13 @@ export default class HomeRight extends Vue {
   /* ------------------------ METHODS ------------------------ */
   private change_page(tab: number) {
     this.cur_page = tab;
+    // console.log(this);
+    if (tab === 1) {
+      // (this.$parent.$parent as any).show_img_handle(true);
+      this.$$eventBus.fire(this.$$eventType.SwitchButtonShow, false);
+    } else {
+      this.$$eventBus.fire(this.$$eventType.SwitchButtonShow, true);
+    }
   }
 
 }

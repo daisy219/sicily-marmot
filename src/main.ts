@@ -11,9 +11,15 @@ import store from './vuex/store';
 import Layout from '@/layout/index.vue';
 import { yymmddhhmmss } from '@/utils/utils';
 
+import { EventBus } from '@/utils/event_bus/event_bus';
+import { EventType } from '@/utils/event_bus/event_type';
+
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
+// event bus
+Vue.prototype.$$eventType = EventType;
+Vue.prototype.$$eventBus = EventBus;
 
 Vue.use(ElementUI);
 Vue.component('layout', Layout);
