@@ -67,7 +67,9 @@ declare namespace COMMON_TYPE {
     readonly path: string;        // 路由 path
     readonly meta?: RouteMetaType; // 路由元信息
   }
-
+  export interface StringDictionaryType<T = any> {
+    [key: string]: T;
+  }
   /**
    * 面包屑
    */

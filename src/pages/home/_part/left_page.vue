@@ -25,6 +25,7 @@ export default class HomeLeft extends Vue {
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   // private created() {}
   private mounted() {
+    console.log(process.env);
     this.$$eventBus.on(this.$$eventType.SwitchButtonShow, (type: boolean) => {
       console.log(type);
       this.show_btn = type;

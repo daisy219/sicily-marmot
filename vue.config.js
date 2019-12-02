@@ -35,7 +35,7 @@ module.exports = {
             build_timestamp: (new Date()).getTime(),
             // 9: 201909 版本 (学生端、网络课程)
             // 901: 新版网络课程、课堂报告移动端、省平台资源
-            version: 1.1
+            version: 2.1
         });
         return definitions;
     });
