@@ -4,7 +4,6 @@
  * date: 2019/09/30
  * desc: 主页
  */
-
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import { unique_array } from '@/utils/utils';
@@ -32,7 +31,9 @@ export default class Home extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   // private created() {}
-  // private mounted() {}
+  private mounted() {
+    this.bg_animate();
+  }
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private cur_page_list: number[] = [1, 2]; // data
@@ -60,6 +61,8 @@ export default class Home extends Vue {
   };
   private value2: string = '';
   private show_img: boolean = false;
+  private ctx: any = null;
+  private dom: any = null;
   // get computed_data(): string { return 'computed' } // computed
 
   /* ------------------------ WATCH ------------------------ */
@@ -69,7 +72,18 @@ export default class Home extends Vue {
   private show_img_handle(type: boolean) {
     this.show_img = type;
   }
-
+  private bg_animate() {
+    const canvas = document.createElement('canvas');
+    this.ctx = canvas.getContext('2d');
+    this.ctx.font = 'bold 60px brushScriptMt';
+    const textWidth = Math.ceil(this.ctx.measureText('sicilymarmot').width);
+    canvas.width = textWidth;
+    this.ctx.font = 'bold 60px brushScriptMt';
+    this.ctx.fillText('sicilymarmot', 0, 100);
+    this.dom = document.getElementById('box');
+    this.dom.style.width = textWidth + 'px';
+    this.dom.style.webkitMask = 'url(' + canvas.toDataURL('image/png', 0.92) + ')';
+  }
 }
 
 </script>
@@ -92,6 +106,8 @@ export default class Home extends Vue {
       <right-page :cur-page-list="cur_page_list"/>
     </el-col>
   </el-row>
+  <div class="bg"></div>
+<div class="mask" id="box"></div>
   <img v-show="show_img" :src="require('@/assets/images/cat.jpg')">
 </div>
 </layout>
@@ -100,6 +116,49 @@ export default class Home extends Vue {
 <style lang="stylus" scoped>
 @import '~@/assets/stylus/var'
 
+@-webkit-keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+}
+.bg {
+  background: url('~@/assets/images/bg.jpg');
+  background-size: cover;
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+  // z-index: -1;
+}
+
+
+.mask {
+  width: 340px;
+  height: 196px;
+  -webkit-animation: move 40s infinite;
+          animation: move 40s infinite;
+  background-image: url('~@/assets/images/bg.jpg');
+  background-size: cover;
+  /* -webkit-mask: url(https://www.17sucai.com/preview/1424582/2018-10-22/mask/svg/seeklogo.com.svg); */
+          /* mask: url(https://www.17sucai.com/preview/1424582/2018-10-22/mask/svg/seeklogo.com.svg); */
+  -webkit-mask-size: cover;
+          mask-size: cover; 
+}
 .module_home
   .home_nav
     border-right 1px solid #f0f0f0
