@@ -8,15 +8,23 @@ export interface ModuleInfoType {
 // 导航
 export const MODULES_INFO: ModuleInfoType [] = [
   {
-    name: 'home',
+    name: '首页',
     route: 'home',
   },
   {
-    name: 'echarts',
-    route: 'echarts',
+    name: '肥仔专属',
+    route: 'ming',
   },
   {
-    name: 'video',
-    route: 'video',
+    name: '屁阳专属',
+    route: 'yang',
+  },
+  {
+    name: '分类入库',
+    route: 'classify',
+  },
+  {
+    name: '关于我们',
+    route: 'about',
   },
 ];

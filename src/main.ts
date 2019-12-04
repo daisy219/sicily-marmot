@@ -2,7 +2,6 @@
 import '@/assets/stylus/reset.styl';
 import '@/assets/stylus/index.styl';
 import Vue from 'vue';
-
 import ElementUI from 'element-ui';
 
 import App from './App.vue';
@@ -41,7 +40,6 @@ Vue.component('layout', Layout);
 
   return info;
 })();
-
 
 new Vue({
   router,

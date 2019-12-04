@@ -1,21 +1,20 @@
 <script lang="ts">
 /* COMPONENT DOCUMENT
  * author: zhaoyang
- * date: 2019/11/26
- * desc: 首页左侧内容
+ * date: 2019/12/04
+ * desc: 关于我们
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 
-
 @Component({
-  name: 'home-left',
+  name: 'about',
   components: {},
 })
-export default class HomeLeft extends Vue {
+export default class About extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-
+  // @Prop() private parentData!: any;
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
@@ -23,42 +22,32 @@ export default class HomeLeft extends Vue {
   // @Action private some_action!: () => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
-  // private created() {}
-  private mounted() {
-    console.log(process.env);
-    this.$$eventBus.on(this.$$eventType.SwitchButtonShow, (type: boolean) => {
-      console.log(type);
-      this.show_btn = type;
-    });
+  private created() {
   }
-  private beforeDestroy() {
-    this.$$eventBus.off(this.$$eventType.SwitchButtonShow);
-  }
+  // private mounted() {}
+
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  // get computed_data(): string { return 'computed' } // computed
-  private show_btn: boolean = true;
-
   /* ------------------------ WATCH ------------------------ */
-
+  // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-
-
 }
 
 </script>
 
 <template>
-<div class="module_left_page">
-  左侧页面
-  <el-button v-show="show_btn">测试</el-button>
-</div>
+<layout>
+  <div class="common_page_container module_about_page">
+
+    关于我们
+  </div>
+</layout>
 </template>
 
 <style lang="stylus" scoped>
-@import '~@/assets/stylus/var'
+// @import '~@/assets/stylus/var'
 
-.module_left_page
+.module_about_page
   pass
 
 </style>

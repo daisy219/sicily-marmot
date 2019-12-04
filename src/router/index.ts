@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/pages/home/index.vue';
-import Echarts from '@/pages/echarts/index.vue';
-import Video from '@/pages/video/index.vue';
+import Yang from '@/pages/yang/index.vue';
+import Ming from '@/pages/ming/index.vue';
+import Classify from '@/pages/classify/index.vue';
+import About from '@/pages/about/index.vue';
 Vue.use(Router);
 
 export default new Router({
@@ -21,15 +23,30 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/echarts',
-      name: 'echarts',
-      component: Echarts,
+      path: '/yang',
+      name: 'yang',
+      component: Yang,
     },
     {
-      path: '/video',
-      name: 'video',
-      component: Video,
+      path: '/ming',
+      name: 'ming',
+      component: Ming,
     },
+    {
+      path: '/classify',
+      name: 'classify',
+      component: Classify,
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
+    },
+    // {
+    //   path: '/echarts',
+    //   name: 'echarts',
+    //   component: Echarts,
+    // },
     // {
     //   path: '/about',
     //   name: 'about',

@@ -15,7 +15,7 @@ import { MODULES_INFO } from '@/constant/module';
 })
 export default class Layout extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  // @Prop() private parentData!: any;
+  @Prop({ type: Boolean, default: true }) private showFoot!: boolean;
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
@@ -44,18 +44,20 @@ export default class Layout extends Vue {
 
 <template>
 <div class="module_layout_common">
+  <div class="layout_bg"></div>
 	<div class="header">
 		<div class="header_contain">
 			<div class="menu">
 				<div v-for="item in MODULES_INFO" :key="item.route" :class="['menu_item', {'active': $route.name === item.route}]" @click="enter_page(item.route)">
-						{{item.name}}
+          {{item.name}}
 				</div>
 			</div>
 		</div>
 	</div>
 	<slot />
-	<div class="footer">
-			<!-- <p class="copy_right">© 2015 Stabocks Corpot Allright 京ICP09020041</p> -->
+	<div class="footer" v-show="showFoot">
+			<p>© 2019 Sicily marmot</p>
+			<p>肥仔和屁阳的程序员成长之路</p>
 	</div>
 </div>
 </template>
@@ -64,33 +66,52 @@ export default class Layout extends Vue {
 @import '~@/assets/stylus/var'
 
 .module_layout_common
-    .header
-        width 100%
-        height 74px
-        background-color $bg_color
-        .header_contain
-            width 1200px
-            margin 0 auto
-            .logo_img
-                float left
-                margin-top 8px
-                img
-                    width 60px
-                    height 60px
-            .menu
-                float right
-                .menu_item
-                    width 100px
-                    height 74px
-                    line-height 74px
-                    text-align center
-                    float left
-                    cursor pointer
-            .active
-                color $nav_font_color
-    .footer
-        width 100%
-        height 200px
-        background-color $main_color
+  .layout_bg {
+    background: url('~@/assets/images/layout_bg.jpg');
+    background-size: cover;
+    position: fixed;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    -webkit-filter: blur(15px);
+            filter: blur(15px);
+    z-index: -1;
+  }
+  .header
+    width 100%
+    height 74px
+    background-color $nav_bg_color
+    margin-bottom 30px
+    .header_contain
+      width 1200px
+      margin 0 auto
+      .logo_img
+        float left
+        margin-top 8px
+        img
+          width 60px
+          height 60px
+      .menu
+        float right
+        .menu_item
+          width 100px
+          height 74px
+          line-height 74px
+          text-align center
+          float left
+          cursor pointer
+      .active
+        color $white_color
+  .footer
+    margin-top 30px
+    width 100%
+    height 200px
+    line-height 30px
+    text-align center
+    padding-top 70px
+    color $font_grey_color
+    font-size $medium_font_size
+    background-color $nav_bg_color
 
 </style>
