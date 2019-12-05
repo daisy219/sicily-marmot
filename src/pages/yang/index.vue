@@ -7,6 +7,8 @@
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
+import { ListItemType } from '@/typing/page.d.ts';
+
 import YangService from '@/services/yang';
 
 
@@ -25,17 +27,19 @@ export default class Yang extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
-    YangService.get_list();
+    this.get_list();
   }
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
+  private list: ListItemType[] = [];
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-  private get_list() {
-
+  /** 获取列表 */
+  private async get_list() {
+    this.list = await YangService.get_list();
   }
 }
 
@@ -45,7 +49,9 @@ export default class Yang extends Vue {
 <layout>
   <div class="common_page_container module_yang_page">
 
-    fddf
+    <!-- <div v-for="">
+
+    </div> -->
   </div>
 </layout>
 </template>
