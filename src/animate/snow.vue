@@ -5,12 +5,12 @@
  * desc: canvas_snow_bg
  */
 
-import { Component, Emit, Prop, Vue, Watch } from "vue-property-decorator";
-import { Getter, Action } from "vuex-class";
-import Animate from "./Animate.js";
+import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
+import { Getter, Action } from 'vuex-class';
+import Animate from './Animate.js';
 @Component({
-  name: "snow",
-  components: {}
+  name: 'snow',
+  components: {},
 })
 export default class Snow extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -37,21 +37,21 @@ export default class Snow extends Vue {
   /* ------------------------ METHODS ------------------------ */
   // private some_method(): void {}
   private showSnow() {
-    let snows: any[] = [],
-      canvas: any = document.getElementById("Snow"),
-      ctx = canvas.getContext("2d"),
-      snowCount = 150,
-      mX = -100,
-      mY = -100;
+    const snows: any[] = [];
+    const canvas: any = document.getElementById('Snow');
+    const ctx = canvas.getContext('2d');
+    const snowCount = 150;
+    let mX = -100;
+    let mY = -100;
 
-    let defaultOptions = {
+    const defaultOptions = {
       snowCount: 150,
       size: 2,
       dist: 100,
-      color: "255,255,255",
+      color: '255,255,255',
       speed: 0.5,
       opacity: 0.3,
-      step: 1
+      step: 1,
     };
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -59,20 +59,20 @@ export default class Snow extends Vue {
     function run() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < snowCount; i++) {
-        let flake = snows[i],
-          x = mX,
-          y = mY,
-          minDist = defaultOptions.dist,
-          x2 = flake.x,
-          y2 = flake.y;
-        let dist = Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y)),
-          dx = x2 - x,
-          dy = y2 - y;
+        const flake = snows[i];
+        const x = mX;
+        const y = mY;
+        const minDist = defaultOptions.dist;
+        const x2 = flake.x;
+        const y2 = flake.y;
+        const dist = Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y));
+        const dx = x2 - x;
+        const dy = y2 - y;
         if (dist < minDist) {
-          let force = minDist / (dist * dist),
-            xcomp = (x - x2) / dist,
-            ycomp = (y - y2) / dist,
-            deltaV = force / 2;
+          const force = minDist / (dist * dist);
+          const xcomp = (x - x2) / dist;
+          const ycomp = (y - y2) / dist;
+          const deltaV = force / 2;
           flake.velX -= deltaV * xcomp;
           flake.velY -= deltaV * ycomp;
         } else {
@@ -83,7 +83,7 @@ export default class Snow extends Vue {
           flake.velX += Math.cos((flake.step += 0.05)) * flake.stepSize;
         }
         ctx.fillStyle =
-          "rgba(" + defaultOptions.color + "," + flake.opacity + ")";
+          'rgba(' + defaultOptions.color + ',' + flake.opacity + ')';
         flake.y += flake.velY;
         flake.x += flake.velX;
         if (flake.y >= canvas.height || flake.y <= 0) {
@@ -109,42 +109,42 @@ export default class Snow extends Vue {
 
     function init() {
       for (let i = 0; i < snowCount; i++) {
-        let x = Math.floor(Math.random() * canvas.width),
-          y = Math.floor(Math.random() * canvas.height),
-          size = Math.random() * 3 + defaultOptions.size,
-          speed = Math.random() * 1 + defaultOptions.speed,
-          opacity = Math.random() * 0.5 + defaultOptions.opacity;
+        const x = Math.floor(Math.random() * canvas.width);
+        const y = Math.floor(Math.random() * canvas.height);
+        const size = Math.random() * 3 + defaultOptions.size;
+        const speed = Math.random() * 1 + defaultOptions.speed;
+        const opacity = Math.random() * 0.5 + defaultOptions.opacity;
         snows.push({
-          speed: speed,
+          speed,
           velY: speed,
           velX: 0,
-          x: x,
-          y: y,
-          size: size,
+          x,
+          y,
+          size,
           stepSize: (Math.random() / 30) * defaultOptions.step,
           step: 0,
           angle: 180,
-          opacity: opacity
+          opacity,
         });
       }
 
-      new Animate({
+      new (Animate as any)({
         from: 0,
         to: 1,
-        type: "number",
+        type: 'number',
         dur: 1000,
-        repeat: "infinite",
-        easing: "easeNone",
-        onUpdate: function(value: any) {
+        repeat: 'infinite',
+        easing: 'easeNone',
+        onUpdate: (value: any) => {
           // todo
           run();
-        }
+        },
       }).play();
     }
-    document.addEventListener("mousemove", function(e) {
+    document.addEventListener('mousemove', (e) => {
       (mX = e.clientX), (mY = e.clientY);
     });
-    window.addEventListener("resize", function() {
+    window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
@@ -156,10 +156,10 @@ export default class Snow extends Vue {
 </script>
 
 <template>
-  <canvas id="Snow"></canvas>
+  <canvas id='Snow'></canvas>
 </template>
 
-<style lang="stylus" scoped>
+<style lang='stylus' scoped>
 #Snow {
   position: fixed;
   top: -20px;
