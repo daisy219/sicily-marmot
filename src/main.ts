@@ -8,6 +8,7 @@ import App from './App.vue';
 import router from './router/index';
 import store from './vuex/store';
 import Layout from '@/layout/index.vue';
+import Snow from '@/animate/snow.vue';
 import { yymmddhhmmss } from '@/utils/utils';
 
 import { EventBus } from '@/utils/event_bus/event_bus';
@@ -22,6 +23,7 @@ Vue.prototype.$$eventBus = EventBus;
 
 Vue.use(ElementUI);
 Vue.component('layout', Layout);
+Vue.component('snow', Snow);
 
 // ---------------------------------项目信息------------------------------
 // 项目信息

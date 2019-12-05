@@ -9,7 +9,7 @@ import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 
 @Component({
-  name: 'list-card'',
+  name: 'list-card',
   components: {},
 })
 export default class ListCard extends Vue {

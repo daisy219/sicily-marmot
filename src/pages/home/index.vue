@@ -66,7 +66,11 @@ export default class Home extends Vue {
 
 <style lang="stylus" scoped>
 @import '~@/assets/stylus/var'
-
+snow{
+  position absolute
+  top 0
+  left 0
+}
 .module_home
   .mask {
     margin 200px auto
