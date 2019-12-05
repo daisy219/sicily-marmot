@@ -9,12 +9,14 @@ import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import { ListItemType } from '@/typing/page.d.ts';
 
+import ListCard from '@/components/list_card/index.vue';
 import YangService from '@/services/yang';
-
 
 @Component({
   name: 'yang',
-  components: {},
+  components: {
+    'list-card': ListCard,
+  },
 })
 export default class Yang extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -39,7 +41,9 @@ export default class Yang extends Vue {
   /* ------------------------ METHODS ------------------------ */
   /** 获取列表 */
   private async get_list() {
-    this.list = await YangService.get_list();
+    const result = await YangService.get_list();
+    this.list = result.list;
+    console.log(this.list);
   }
 }
 
@@ -48,10 +52,9 @@ export default class Yang extends Vue {
 <template>
 <layout>
   <div class="common_page_container module_yang_page">
-
-    <!-- <div v-for="">
-
-    </div> -->
+    <div v-for="(item, index) in list" :key="index">
+      <list-card :card-info="item"/>
+    </div>
   </div>
 </layout>
 </template>
