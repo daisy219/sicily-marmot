@@ -7,6 +7,7 @@
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
+import { ListItemType } from '@/typing/page.d.ts';
 
 @Component({
   name: 'list-card',
@@ -14,7 +15,7 @@ import { Getter, Action } from 'vuex-class';
 })
 export default class ListCard extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  // @Prop() private parentData!: any;
+  @Prop({ type: Object, default() { return {}; } }) private cardInfo!: ListItemType;
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
@@ -37,14 +38,40 @@ export default class ListCard extends Vue {
 
 <template>
 <div class="module_list_card">
-  <p></p>
+  <p class="card_title">{{ cardInfo.title }}</p>
+  <p class="card_info">{{ cardInfo.info }}</p>
+  <p class="card_date">{{ cardInfo.date }}</p>
 </div>
 </template>
 
 <style lang="stylus" scoped>
-// @import '~@/assets/stylus/var'
+@import '~@/assets/stylus/var'
 
 .module_list_card
-  pass
-
+  width 100%
+  background rgba(255, 255, 255, 0.6)
+  border-radius 4px
+  margin-bottom 30px
+  padding 20px
+  cursor pointer
+  .card_title
+    font-size 16px
+    color #0E581D
+    font-weight bold
+    text-align center
+    line-height 30px
+    transition font-size .2s
+  &:hover
+    .card_title
+      font-size 20px
+  .card_info
+    font-size 14px
+    text-align center
+    line-height 30px
+    color $font_light_color
+  .card_date
+    text-align right
+    font-size 12px
+    line-height 20px
+    color $font_light_color
 </style>
