@@ -103,5 +103,4 @@ snow{
   50% {
     background-position: 100% 0;
   }
-}
 </style>
