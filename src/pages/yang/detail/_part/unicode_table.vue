@@ -2,29 +2,22 @@
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2019/12/09
- * desc: unicode
+ * desc: unicode table
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
-import {
-  ARROW_LIST,
-  TITLE_ARR,
-  BASE_LIST,
-  POINT_LIST,
-  } from '@/constant/yang_detail/unicode';
 
-import UnicodeTable from './_part/unicode_table.vue';
+import { UnicodeItemType } from '@/typing/page.d.ts';
 
 @Component({
-  name: 'yang-detail-unicode',
-  components: {
-    'unicode-table': UnicodeTable,
-  },
+  name: 'unicode-table',
+  components: {},
 })
-export default class YangDetailUnicode extends Vue {
+export default class UnicodeTable extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  // @Prop() private parentData!: any;
+  @Prop({ type: Array, default() { return []; } }) private unicodeList!: UnicodeItemType;
+  // @Prop({ type: String, default: 'code' }) private codeType!: string;
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
@@ -37,10 +30,6 @@ export default class YangDetailUnicode extends Vue {
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  private ARROW_LIST = ARROW_LIST;
-  private TITLE_ARR = TITLE_ARR;
-  private BASE_LIST = BASE_LIST;
-  private POINT_LIST = POINT_LIST;
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
@@ -51,26 +40,20 @@ export default class YangDetailUnicode extends Vue {
 </script>
 
 <template>
-<layout>
-  <div class="common_page_container yang_detail_unicode common_detail_main">
-    <div class="common_detail_big_title">unicode字符集</div>
-
-    <div class="common_detail_sml_title">{{ TITLE_ARR.ARROW }}</div>
-    <unicode-table :unicode-list="ARROW_LIST"/>
-
-    <div class="common_detail_sml_title">{{ TITLE_ARR.BASE }}</div>
-    <unicode-table :unicode-list="BASE_LIST"/>
-
-    <div class="common_detail_sml_title">{{ TITLE_ARR.POINT }}</div>
-    <unicode-table :unicode-list="POINT_LIST"/>
+  <div class="unicode_table">
+    <el-table :data="unicodeList" class="common_table">
+      <el-table-column prop="final" label="效果" width="180" align="center">
+        <template slot-scope="scope"> {{ scope.row.final }}</template>
+      </el-table-column>
+      <el-table-column prop="html" label="HTML" width="180" align="center" />
+      <el-table-column prop="css_js" label="CSS&JS" align="center" />
+    </el-table>
   </div>
-</layout>
 </template>
 
 <style lang="stylus" scoped>
 @import '~@/assets/stylus/var'
 
-.yang_detail_unicode
+.unicode_table
   pass
-
 </style>

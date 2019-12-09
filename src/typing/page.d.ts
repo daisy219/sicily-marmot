@@ -9,3 +9,9 @@ export interface CodeItemType {
   code: string; // 代码
   note: string; // 注释
 }
+
+export interface UnicodeItemType {
+  final: string;
+  html: string;
+  css_js: string;
+}
