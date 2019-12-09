@@ -2,6 +2,12 @@ export const TITLE_ARR = {
   ARROW: '各种箭头',
   BASE: '基本形状',
   POINT: '标点',
+  LAW: '法律符号',
+  MONEY: '金钱符号',
+  NUM: '数字符号',
+  RIGHT_WRONG: '对号错号',
+  START: '星星、雪花',
+  OTHER: '其他',
 };
 
 export const ARROW_LIST = [
@@ -123,5 +129,143 @@ export const POINT_LIST = [
   { final: '\u223C', html: '8764', css_js: '223C'},
   { final: '\u2260', html: '8800', css_js: '2260'},
 
+];
+export const LAW_LIST = [
+  { final: '\u00AE', html: '174', css_js: '00AE'},
+  { final: '\u00A9', html: '169', css_js: '00A9'},
+  { final: '\u2117', html: '8471', css_js: '2117'},
+  { final: '\u0099', html: '153', css_js: '0099'},
+  { final: '\u2120', html: '8480', css_js: '2120'},
+];
+
+export const MONEY_LIST = [
+  { final: '\u0024', html: '36', css_js: '0024'},
+  { final: '\u00A2', html: '162', css_js: '00A2'},
+  { final: '\u00A3', html: '163', css_js: '00A3'},
+  { final: '\u00A4', html: '164', css_js: '00A4'},
+  { final: '\u20AC', html: '8364', css_js: '20AC'},
+  { final: '\u00A5', html: '165', css_js: '00A5'},
+  { final: '\u20B1', html: '8369', css_js: '20B1'},
+  { final: '\u20B9', html: '8377', css_js: '20B9'},
+];
+
+export const NUM_LIST = [
+  { final: '\u00BD', html: '189', css_js: '00BD'},
+  { final: '\u00BC', html: '188', css_js: '00BC'},
+  { final: '\u00BE', html: '190', css_js: '00BE'},
+  { final: '\u2153', html: '8531', css_js: '2153'},
+  { final: '\u2154', html: '8532', css_js: '2154'},
+  { final: '\u215B', html: '8539', css_js: '215B'},
+  { final: '\u215C', html: '8540', css_js: '215C'},
+  { final: '\u215D', html: '8541', css_js: '215D'},
+  { final: '\u2030', html: '8240', css_js: '2030'},
+  { final: '\u0025', html: '37', css_js: '0025'},
+
+  { final: '\u003E', html: '62', css_js: '003E'},
+];
+
+export const MUSIC_LIST = [
+  { final: '\u2669', html: '9833', css_js: '2669'},
+  { final: '\u266A', html: '9834', css_js: '266A'},
+  { final: '\u266B', html: '9835', css_js: '266B'},
+  { final: '\u266C', html: '9836', css_js: '266C'},
+  { final: '\u266D', html: '9837', css_js: '266D'},
+  { final: '\u266F', html: '9839', css_js: '266F'},
+];
+export const RIGHT_WRONG_LIST = [
+  { final: '\u00A0', html: '160', css_js: '00A0'},
+  { final: '\u2610', html: '9744', css_js: '2610'},
+  { final: '\u2611', html: '9745', css_js: '2611'},
+  { final: '\u2612', html: '9746', css_js: '2612'},
+  { final: '\u2713', html: '10003', css_js: '2713'},
+  { final: '\u2714', html: '10004', css_js: '2714'},
+  { final: '\u2715', html: '10005', css_js: '2715'},
+  { final: '\u2716', html: '10006', css_js: '2716'},
+  { final: '\u2717', html: '10007', css_js: '2717'},
+  { final: '\u2718', html: '10008', css_js: '2718'},
+];
+
+export const CROSS_LIST = [
+  { final: '\u2628', html: '9768', css_js: '2628'},
+  { final: '\u2629', html: '9769', css_js: '2629'},
+  { final: '\u271D', html: '10013', css_js: '271D'},
+  { final: '\u271E', html: '10014', css_js: '271E'},
+  { final: '\u271F', html: '10015', css_js: '271F'},
+  { final: '\u2720', html: '10016', css_js: '2720'},
+  { final: '\u271A', html: '10010', css_js: '271A'},
+  { final: '\u2020', html: '8224', css_js: '2020'},
+  { final: '\u2722', html: '10018', css_js: '2722'},
+  { final: '\u2724', html: '10020', css_js: '2724'},
+  { final: '\u2723', html: '10019', css_js: '2723'},
+  { final: '\u2725', html: '10021', css_js: '2725'},
+];
+
+export const START_LIST = [
+  { final: '\u2605', html: '9733', css_js: '2605'},
+  { final: '\u272D', html: '10029', css_js: '272D'},
+  { final: '\u272E', html: '10030', css_js: '272E'},
+  { final: '\u2606', html: '9734', css_js: '2606'},
+  { final: '\u272A', html: '10026', css_js: '272A'},
+  { final: '\u2721', html: '10017', css_js: '2721'},
+  { final: '\u272F', html: '10031', css_js: '272F'},
+  { final: '\u2735', html: '10037', css_js: '2735'},
+  { final: '\u2736', html: '10038', css_js: '2736'},
+  { final: '\u2738', html: '10040', css_js: '2738'},
+
+  { final: '\u2739', html: '10041', css_js: '2739'},
+  { final: '\u273A', html: '10042', css_js: '273A'},
+  { final: '\u2731', html: '10033', css_js: '2731'},
+  { final: '\u2732', html: '10034', css_js: '2732'},
+  { final: '\u2734', html: '10036', css_js: '2734'},
+  { final: '\u2733', html: '10035', css_js: '2733'},
+  { final: '\u273B', html: '10043', css_js: '273B'},
+  { final: '\u273D', html: '10045', css_js: '273D'},
+  { final: '\u274B', html: '10059', css_js: '274B'},
+  { final: '\u2746', html: '10054', css_js: '2746'},
+
+  { final: '\u2744', html: '10052', css_js: '2744'},
+  { final: '\u2745', html: '10053', css_js: '2745'},
+];
+
+export const OTHER_LIST = [
+  { final: '\u263B', html: '9787', css_js: '263B'},
+  { final: '\u263A', html: '9786', css_js: '263A'},
+  { final: '\u2639', html: '9785', css_js: '2639'},
+  { final: '\u2709', html: '9993', css_js: '2709'},
+  { final: '\u260E', html: '9742', css_js: '260E'},
+  { final: '\u260F', html: '9743', css_js: '260F'},
+  { final: '\u2706', html: '9990', css_js: '2706'},
+  { final: '\uFFFD', html: '65533', css_js: 'FFFD'},
+  { final: '\u2601', html: '9729', css_js: '2601'},
+  { final: '\u2602', html: '9730', css_js: '2602'},
+
+  { final: '\u2744', html: '10052', css_js: '2744'},
+  { final: '\u2603', html: '9731', css_js: '2603'},
+  { final: '\u2748', html: '10056', css_js: '2748'},
+  { final: '\u273F', html: '10047', css_js: '273F'},
+  { final: '\u2740', html: '10048', css_js: '2740'},
+  { final: '\u2741', html: '10049', css_js: '2741'},
+  { final: '\u2618', html: '9752', css_js: '2618'},
+  { final: '\u2766', html: '10086', css_js: '2766'},
+  { final: '\u9749', html: '9749', css_js: '9749'},
+  { final: '\u2742', html: '10050', css_js: '2742'},
+
+  { final: '\u2625', html: '9765', css_js: '2625'},
+  { final: '\u262E', html: '9774', css_js: '262E'},
+  { final: '\u262F', html: '9775', css_js: '262F'},
+  { final: '\u262A', html: '9770', css_js: '262A'},
+  { final: '\u2624', html: '9764', css_js: '2624'},
+  { final: '\u2704', html: '9988', css_js: '2704'},
+  { final: '\u2702', html: '9986', css_js: '2702'},
+  { final: '\u2638', html: '9784', css_js: '2638'},
+  { final: '\u2693', html: '9875', css_js: '2693'},
+  { final: '\u2623', html: '9763', css_js: '2623'},
+
+  { final: '\u26A0', html: '9888', css_js: '26A0'},
+  { final: '\u26A1', html: '9889', css_js: '26A1'},
+  { final: '\u2622', html: '9762', css_js: '2622'},
+  { final: '\u267B', html: '9851', css_js: '267B'},
+  { final: '\u267F', html: '9855', css_js: '267F'},
+  { final: '\u2620', html: '9760', css_js: '2620'},
 ];
 
