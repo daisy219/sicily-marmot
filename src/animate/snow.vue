@@ -148,7 +148,7 @@ export default class Snow extends Vue {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
-      console.log(window.innerHeight);
+      // console.log(window.innerHeight);
     });
     init();
   }

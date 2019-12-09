@@ -1,26 +1,22 @@
 <script lang="ts">
 /* COMPONENT DOCUMENT
  * author: zhaoyang
- * date: 2019/12/04
- * desc: 屁阳专属
+ * date: 2019/12/09
+ * desc: 代码块
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
-import { ListItemType } from '@/typing/page.d.ts';
-
-import ListCard from '@/components/list_card/index.vue';
-import YangService from '@/services/yang';
+import { CodeItemType } from '@/typing/page.d.ts';
 
 @Component({
-  name: 'yang',
-  components: {
-    'list-card': ListCard,
-  },
+  name: 'my-code',
+  components: {},
 })
-export default class Yang extends Vue {
+export default class MyCode extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  // @Prop() private parentData!: any;
+  @Prop({ type: Array, default() { return []; } }) private codeList!: CodeItemType;
+  @Prop({ type: String, default: 'code' }) private codeType!: string;
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
@@ -29,39 +25,41 @@ export default class Yang extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
-    this.get_list();
   }
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  private list: ListItemType[] = [];
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-  /** 获取列表 */
-  private async get_list() {
-    const result = await YangService.get_list();
-    this.list = result.list;
-  }
+
 }
 
 </script>
 
 <template>
-<layout>
-  <div class="common_page_container module_yang_page">
-    <div v-for="(item, index) in list" :key="index">
-      <list-card :card-info="item" @click.native="$router.push({name: item.route_name})"/>
+  <div class="my_code">
+    <div v-for="(item, index) in codeList" :key="index">
+      <span v-show="codeType === 'cmd'">$</span>{{ item.code }}<span class="code_notes" v-show="item.notes">// {{ item.notes }}</span>
     </div>
   </div>
-</layout>
 </template>
 
 <style lang="stylus" scoped>
-// @import '~@/assets/stylus/var'
+@import '~@/assets/stylus/var'
 
-.module_yang_page
-  pass
+.my_code
+  background-color $black_color
+  padding 20px
+  border-radius 4px
+  color $white_color
+  font-size 14px
+  line-height 30px
+  margin-bottom 20px
+  .code_notes
+    color $font_light_color
+    margin-left 10px
+    font-style italic
 
 </style>

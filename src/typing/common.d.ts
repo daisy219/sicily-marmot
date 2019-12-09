@@ -67,6 +67,12 @@ declare namespace COMMON_TYPE {
     readonly path: string;        // 路由 path
     readonly meta?: RouteMetaType; // 路由元信息
   }
+
+  export interface RouterType {
+    path: string;
+    name: string;
+    component: any;
+  }
   export interface StringDictionaryType<T = any> {
     [key: string]: T;
   }

@@ -4,13 +4,15 @@
       "title": "unicode字符集",
       "id": 1,
       "info": "网上搜集的unicode字符集，包含html和js用法。",
-      "date": "2019-12-4"
+      "date": "2019-12-4",
+      "route_name": "unicode"
     },
     {
       "title": "git常用命令",
       "id": 2,
       "info": "git常用命令积累",
-      "date": "2019-12-4"
+      "date": "2019-12-4",
+      "route_name": "yang_detail_git"
     }
   ]
 }

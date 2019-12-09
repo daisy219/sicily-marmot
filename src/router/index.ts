@@ -5,6 +5,9 @@ import Yang from '@/pages/yang/index.vue';
 import Ming from '@/pages/ming/index.vue';
 import Classify from '@/pages/classify/index.vue';
 import About from '@/pages/about/index.vue';
+
+import YangRouter from './yang_detail';
+
 Vue.use(Router);
 
 export default new Router({
@@ -42,18 +45,6 @@ export default new Router({
       name: 'about',
       component: About,
     },
-    // {
-    //   path: '/echarts',
-    //   name: 'echarts',
-    //   component: Echarts,
-    // },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    // },
+    ...YangRouter,
   ],
 });

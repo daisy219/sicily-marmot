@@ -1,24 +1,19 @@
 <script lang="ts">
 /* COMPONENT DOCUMENT
  * author: zhaoyang
- * date: 2019/12/04
- * desc: 屁阳专属
+ * date: 2019/12/09
+ * desc: unicode
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
-import { ListItemType } from '@/typing/page.d.ts';
 
-import ListCard from '@/components/list_card/index.vue';
-import YangService from '@/services/yang';
 
 @Component({
-  name: 'yang',
-  components: {
-    'list-card': ListCard,
-  },
+  name: 'yang-detail-unicode',
+  components: {},
 })
-export default class Yang extends Vue {
+export default class YangDetailUnicode extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
   // @Prop() private parentData!: any;
   // @Emit('event_name') private handler() {}
@@ -29,31 +24,22 @@ export default class Yang extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
-    this.get_list();
   }
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  private list: ListItemType[] = [];
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-  /** 获取列表 */
-  private async get_list() {
-    const result = await YangService.get_list();
-    this.list = result.list;
-  }
+
 }
 
 </script>
 
 <template>
 <layout>
-  <div class="common_page_container module_yang_page">
-    <div v-for="(item, index) in list" :key="index">
-      <list-card :card-info="item" @click.native="$router.push({name: item.route_name})"/>
-    </div>
+  <div class="common_page_container yang_detail_unicode">
   </div>
 </layout>
 </template>
@@ -61,7 +47,7 @@ export default class Yang extends Vue {
 <style lang="stylus" scoped>
 // @import '~@/assets/stylus/var'
 
-.module_yang_page
+.yang_detail_unicode
   pass
 
 </style>
