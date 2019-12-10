@@ -8,6 +8,11 @@ export const TITLE_ARR = {
   RIGHT_WRONG: '对号错号',
   START: '星星、雪花',
   OTHER: '其他',
+  PENCIL: '手势、笔',
+  SKY: '天空、植物',
+  CONSTELLATION: '星座',
+  POKER: '象棋、扑克',
+  GREEK: '希腊字母',
 };
 
 export const ARROW_LIST = [
@@ -146,7 +151,6 @@ export const MONEY_LIST = [
   { final: '\u20AC', html: '8364', css_js: '20AC'},
   { final: '\u00A5', html: '165', css_js: '00A5'},
   { final: '\u20B1', html: '8369', css_js: '20B1'},
-  { final: '\u20B9', html: '8377', css_js: '20B9'},
 ];
 
 export const NUM_LIST = [
@@ -173,7 +177,6 @@ export const MUSIC_LIST = [
   { final: '\u266F', html: '9839', css_js: '266F'},
 ];
 export const RIGHT_WRONG_LIST = [
-  { final: '\u00A0', html: '160', css_js: '00A0'},
   { final: '\u2610', html: '9744', css_js: '2610'},
   { final: '\u2611', html: '9745', css_js: '2611'},
   { final: '\u2612', html: '9746', css_js: '2612'},
@@ -267,5 +270,99 @@ export const OTHER_LIST = [
   { final: '\u267B', html: '9851', css_js: '267B'},
   { final: '\u267F', html: '9855', css_js: '267F'},
   { final: '\u2620', html: '9760', css_js: '2620'},
+];
+
+export const PENCIL_LIST = [
+  { final: '\u261C', html: '9756', css_js: '261C'},
+  { final: '\u261E', html: '9758', css_js: '261E'},
+  { final: '\u261D', html: '9757', css_js: '261D'},
+  { final: '\u261F', html: '9759', css_js: '261F'},
+  { final: '\u270C', html: '9996', css_js: '270C'},
+  { final: '\u270D', html: '9997', css_js: '270D'},
+  { final: '\u270E', html: '9998', css_js: '270E'},
+  { final: '\u2710', html: '10000', css_js: '2710'},
+  { final: '\u2711', html: '10001', css_js: '2711'},
+  { final: '\u2712', html: '10002', css_js: '2712'},
+];
+
+export const SKY_LIST = [
+  { final: '\u263D', html: '9789', css_js: '263D'},
+  { final: '\u263E', html: '9790', css_js: '263E'},
+  { final: '\u2642', html: '9794', css_js: '2642'},
+  { final: '\u2640', html: '9792', css_js: '2640'},
+  { final: '\u263F', html: '9791', css_js: '263F'},
+  { final: '\u2641', html: '9793', css_js: '2641'},
+  { final: '\u2643', html: '9795', css_js: '2643'},
+  { final: '\u2644', html: '9796', css_js: '2644'},
+  { final: '\u2645', html: '9797', css_js: '2645'},
+  { final: '\u2646', html: '9798', css_js: '2646'},
+  { final: '\u2647', html: '9799', css_js: '2647'},
+];
+export const CONSTELLATION_LIST = [
+  { final: '\u2648', html: '9800', css_js: '2648'},
+  { final: '\u2649', html: '9801', css_js: '2649'},
+  { final: '\u264A', html: '9802', css_js: '264A'},
+  { final: '\u264B', html: '9803', css_js: '264B'},
+  { final: '\u264C', html: '9804', css_js: '264C'},
+  { final: '\u264D', html: '9805', css_js: '264D'},
+  { final: '\u264E', html: '9806', css_js: '264E'},
+  { final: '\u264F', html: '9807', css_js: '264F'},
+  { final: '\u2650', html: '9808', css_js: '2650'},
+  { final: '\u2651', html: '9809', css_js: '2651'},
+  { final: '\u2652', html: '9810', css_js: '2652'},
+  { final: '\u2653', html: '9811', css_js: '2653'},
+];
+
+export const POKER_LIST = [
+  { final: '\u2654', html: '9812', css_js: '2654'},
+  { final: '\u2655', html: '9813', css_js: '2655'},
+  { final: '\u2656', html: '9814', css_js: '2656'},
+  { final: '\u2657', html: '9815', css_js: '2657'},
+  { final: '\u2658', html: '9816', css_js: '2658'},
+  { final: '\u2659', html: '9817', css_js: '2659'},
+  { final: '\u265A', html: '9818', css_js: '265A'},
+  { final: '\u265B', html: '9819', css_js: '265B'},
+  { final: '\u265C', html: '9820', css_js: '265C'},
+  { final: '\u265D', html: '9821', css_js: '265D'},
+
+  { final: '\u265E', html: '9822', css_js: '265E'},
+  { final: '\u265F', html: '9823', css_js: '265F'},
+  { final: '\u2660', html: '9824', css_js: '2660'},
+  { final: '\u2661', html: '9825', css_js: '2661'},
+  { final: '\u2662', html: '9826', css_js: '2662'},
+  { final: '\u2663', html: '9827', css_js: '2663'},
+  { final: '\u2664', html: '9828', css_js: '2664'},
+  { final: '\u2665', html: '9829', css_js: '2665'},
+  { final: '\u2666', html: '9830', css_js: '2666'},
+  { final: '\u2667', html: '9831', css_js: '2667'},
+];
+
+export const GREEK_LIST = [
+  { final: '\u0391', html: '913', css_js: '0391'},
+  { final: '\u0392', html: '914', css_js: '0392'},
+  { final: '\u0393', html: '915', css_js: '0393'},
+  { final: '\u0394', html: '916', css_js: '0394'},
+  { final: '\u0395', html: '917', css_js: '0395'},
+  { final: '\u0396', html: '918', css_js: '0396'},
+  { final: '\u0397', html: '919', css_js: '0397'},
+  { final: '\u0398', html: '920', css_js: '0398'},
+  { final: '\u0399', html: '921', css_js: '0399'},
+  { final: '\u039A', html: '922', css_js: '039A'},
+
+  { final: '\u039B', html: '923', css_js: '039B'},
+  { final: '\u039C', html: '924', css_js: '039C'},
+  { final: '\u039D', html: '925', css_js: '039D'},
+  { final: '\u039E', html: '926', css_js: '039E'},
+  { final: '\u039F', html: '927', css_js: '039F'},
+  { final: '\u03A0', html: '928', css_js: '03A0'},
+  { final: '\u03A1', html: '929', css_js: '03A1'},
+  { final: '\u03A3', html: '931', css_js: '03A3'},
+  { final: '\u03A4', html: '932', css_js: '03A4'},
+
+  { final: '\u03A5', html: '933', css_js: '03A5'},
+  { final: '\u03A6', html: '934', css_js: '03A6'},
+  { final: '\u03A7', html: '935', css_js: '03A7'},
+  { final: '\u03A8', html: '936', css_js: '03A8'},
+  { final: '\u03A9', html: '937', css_js: '03A9'},
 ];
 
