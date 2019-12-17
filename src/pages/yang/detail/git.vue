@@ -18,7 +18,6 @@ import {
   } from '@/constant/yang_detail/git';
 import CodeCard from '@/components/my_code.vue';
 
-
 @Component({
   name: 'yang-detail-git',
   components: {

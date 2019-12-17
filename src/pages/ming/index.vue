@@ -7,10 +7,16 @@
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
+import { ListItemType } from '@/typing/page.d.ts';
+
+import ListCard from '@/components/list_card/index.vue';
+import SkmService from '@/services/skm';
 
 @Component({
   name: 'ming',
-  components: {},
+  components: {
+    'list-card': ListCard,
+  },
 })
 export default class Ming extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -23,14 +29,22 @@ export default class Ming extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
+    this.get_list();
   }
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
+  private list: ListItemType[] = [];
+
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
+  /** 获取列表 */
+  private async get_list() {
+    const result = await SkmService.get_list();
+    this.list = result.list;
+  }
 }
 
 </script>
@@ -40,6 +54,10 @@ export default class Ming extends Vue {
   <div class="common_page_container module_ming_page">
 
     肥仔专属
+    <!-- <div v-for="(item,index) in list" :key="index">{{item}}</div> -->
+    <div v-for="(item, index) in list" :key="index">
+      <list-card :card-info="item" @click.native="$router.push({name: item.route_name})"/>
+    </div>
   </div>
 </layout>
 </template>
