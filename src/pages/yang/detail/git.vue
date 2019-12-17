@@ -38,7 +38,7 @@ export default class YangDetailGit extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
-    this.test();
+    // this.test();
   }
   // private mounted() {}
 
