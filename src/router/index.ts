@@ -7,6 +7,7 @@ import Classify from '@/pages/classify/index.vue';
 import About from '@/pages/about/index.vue';
 
 import YangRouter from './yang_detail';
+import MingRouter from './ming_detail';
 
 Vue.use(Router);
 
@@ -46,5 +47,6 @@ export default new Router({
       component: About,
     },
     ...YangRouter,
+    ...MingRouter,
   ],
 });
