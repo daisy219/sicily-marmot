@@ -17,6 +17,7 @@ import {
   CODE_MODULE_QUESTION,
   } from '@/constant/yang_detail/git';
 import CodeCard from '@/components/my_code.vue';
+import Mixins from './_part/mixins';
 
 @Component({
   name: 'yang-detail-git',
@@ -24,6 +25,7 @@ import CodeCard from '@/components/my_code.vue';
     'yang-detail-git': YangDetailGit,
     'code-card': CodeCard,
   },
+  mixins: [Mixins],
 })
 export default class YangDetailGit extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -36,6 +38,7 @@ export default class YangDetailGit extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
+    this.test();
   }
   // private mounted() {}
 
