@@ -10,15 +10,15 @@ import { Getter, Action } from 'vuex-class';
 import { DESCRIPTION_TEXT,
         SMALL_TITLE,
         DESCRIPTION_CODE,
-} from '@/constant/yang_detail/babel';
+} from '@/constant/yang_detail/babel1';
 
 
 @Component({
-  name: 'babel-page',
+  name: 'babel-page-1',
   components: {
   },
 })
-export default class BabelPage extends Vue {
+export default class BabelPage1 extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
   // @Prop() private parentData!: any;
   // @Emit('event_name') private handler() {}
@@ -48,7 +48,7 @@ export default class BabelPage extends Vue {
 <template>
 <layout>
   <div class="common_page_container yang_detail_babel common_detail_main">
-    <div class="common_detail_big_title">从零开始搭建babel-webpack架子</div>
+    <div class="common_detail_big_title">从零开始搭建babel-webpack架子（一）</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.ONE }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TWO }}</div>
 
@@ -74,6 +74,12 @@ export default class BabelPage extends Vue {
     <code-card :code-list="DESCRIPTION_CODE.EIGHT" code-type="cmd"/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TWELVE }}</div>
     <code-card :code-list="DESCRIPTION_CODE.NIGHT" pre/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.THIRTEEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.TEN" pre/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.FORETEEN }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.FIFTEEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.ELEVEN" pre/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.SIXTEEN }}</div>
 
 
   </div>

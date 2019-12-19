@@ -15,11 +15,18 @@
       "route_name": "yang_detail_git"
     },
     {
-      "title": "项目起步-babel/webpack配置",
+      "title": "项目起步-babel/webpack配置（一）",
       "id": 3,
-      "info": "从零开始搭建简单的babel-webpack架子，babel系列版本匹配7，webpack系列版本匹配4。",
-      "date": "2019-12-4",
-      "route_name": "yang_detail_babel"
+      "info": "从零开始搭建简单的babel-webpack架子，babel系列版本匹配7，webpack系列版本匹配4。----启动本地服务，放心使用es6语法。",
+      "date": "2019-12-18",
+      "route_name": "yang_detail_babel_1"
+    },
+    {
+      "title": "项目起步-babel/webpack配置（二）",
+      "id": 4,
+      "info": "加入周边配置，以应付多数日常业务，也许你要找的东西就在这里~",
+      "date": "2019-12-19",
+      "route_name": "yang_detail_babel_2"
     }
   ]
 }

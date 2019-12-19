@@ -66,6 +66,7 @@ export default class YangDetailUnicode extends Vue {
   private GREEK_LIST = GREEK_LIST;
 
   private TITLE_ARR = TITLE_ARR;
+  private exp: string = '&#8672;';
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
@@ -79,7 +80,7 @@ export default class YangDetailUnicode extends Vue {
 <layout>
   <div class="common_page_container yang_detail_unicode common_detail_main">
     <div class="common_detail_big_title">unicode字符集</div>
-    <div class="common_content_text">使用方法：HTML内使用第二列前加&#（例：&#8672），CSS或JS使用第三列，CSS前加反斜杠转译（例：\21E0），JS前加反斜杠加u转译（例：\u21E0）</div>
+    <div class="common_content_text">使用方法：HTML内使用第二列前加&#后加分号（例：{{ exp }}），CSS或JS使用第三列，CSS前加反斜杠转译（例：\21E0），JS前加反斜杠加u转译（例：\u21E0）</div>
 
     <div class="common_detail_sml_title">{{ TITLE_ARR.ARROW }}</div>
     <unicode-table :unicode-list="ARROW_LIST"/>
