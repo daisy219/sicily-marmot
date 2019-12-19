@@ -19,6 +19,14 @@ export const CODE_MODULE_BASE = [
     code: 'git config --global user.email "daisyzhao219@outlook.com"',
     notes: '',
   },
+  {
+    code: 'git config --global credential.helper wincred',
+    notes: '缓存账户',
+  },
+  {
+    code: 'git credential-manager uninstall',
+    notes: '删除保存在本地的git账户',
+  },
 ];
 
 export const CODE_MODULE_ALIAS = [
