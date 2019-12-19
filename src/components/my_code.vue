@@ -17,6 +17,7 @@ export default class MyCode extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
   @Prop({ type: Array, default() { return []; } }) private codeList!: CodeItemType;
   @Prop({ type: String, default: 'code' }) private codeType!: string;
+  @Prop({ type: Boolean, default: false }) private pre!: boolean;
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
@@ -39,9 +40,9 @@ export default class MyCode extends Vue {
 </script>
 
 <template>
-  <div class="my_code">
+  <div :class="['my_code', {'pre': pre}]">
     <div v-for="(item, index) in codeList" :key="index">
-      <span v-show="codeType === 'cmd'">$</span>{{ item.code }}<span class="code_notes" v-show="item.notes">// {{ item.notes }}</span>
+      <span v-show="codeType === 'cmd'">$</span><span v-html="item.code"></span><span class="code_notes" v-show="item.notes">// {{ item.notes }}</span>
     </div>
   </div>
 </template>
@@ -58,8 +59,6 @@ export default class MyCode extends Vue {
   line-height 30px
   margin-bottom 20px
   .code_notes
-    color $font_light_color
     margin-left 10px
-    font-style italic
 
 </style>

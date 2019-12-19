@@ -16,14 +16,12 @@ import {
   TEXT_MODULE_QUESTION,
   CODE_MODULE_QUESTION,
   } from '@/constant/yang_detail/git';
-import CodeCard from '@/components/my_code.vue';
 import Mixins from './_part/mixins';
 
 @Component({
   name: 'yang-detail-git',
   components: {
     'yang-detail-git': YangDetailGit,
-    'code-card': CodeCard,
   },
   mixins: [Mixins],
 })

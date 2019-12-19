@@ -8,6 +8,7 @@ import App from './App.vue';
 import router from './router/index';
 import store from './vuex/store';
 import Layout from '@/layout/index.vue';
+import CodeCard from '@/components/my_code.vue';
 import Snow from '@/animate/snow.vue';
 import { yymmddhhmmss } from '@/utils/utils';
 
@@ -24,6 +25,7 @@ Vue.prototype.$$eventBus = EventBus;
 Vue.use(ElementUI);
 Vue.component('layout', Layout);
 Vue.component('snow', Snow);
+Vue.component('code-card', CodeCard);
 
 // ---------------------------------项目信息------------------------------
 // 项目信息

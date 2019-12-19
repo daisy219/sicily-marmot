@@ -13,6 +13,13 @@
       "info": "git常用命令积累",
       "date": "2019-12-4",
       "route_name": "yang_detail_git"
+    },
+    {
+      "title": "项目起步-babel/webpack配置",
+      "id": 3,
+      "info": "从零开始搭建简单的babel-webpack架子，babel系列版本匹配7，webpack系列版本匹配4。",
+      "date": "2019-12-4",
+      "route_name": "yang_detail_babel"
     }
   ]
 }
