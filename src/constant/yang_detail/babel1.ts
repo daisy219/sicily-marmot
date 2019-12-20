@@ -1,7 +1,7 @@
 export const DESCRIPTION_TEXT = {
-  ONE: `开始有自己配置一个简单架子的想法源头是想用用react，起步就发现用惯了vue脚手架，再用react脚手架很多东西显得不那么方便了，于是就不如直接自己配置一个带react框架的架子。
-  这篇文章会从只有babel开始，一点一点扩展到你想用什么都可以自己随心所欲的添加。`,
-  TWO: `打包工具版本和babel版本不匹配或者babel自身插件版本不匹配运行项目的时候都会报错。所以更新babel的话是要把babel下所有插件都更新至匹配版本才行。`,
+  ONE: `这篇文章会从只有babel开始，一点一点扩展到你想用什么都可以自己随心所欲的添加。`,
+  TWO: `打包工具版本和babel版本不匹配或者babel自身插件版本不匹配运行项目的时候都会报错。所以更新babel的话是要把babel下所有插件都更新至匹配版本才行。按步骤安装没生效，很多时候都是因为版本不匹配，
+  这里我只能给出我现在用的工具的版本，工具更新版本不匹配的话，查一查匹配的版本应该就可以了。另外提一下，每次更改webpack.config.js里面的内容，想要让其生效的话，一定得重启项目才行。`,
   THREE: `这里安装的都是基于babel7.0以上的
           从搭建开始
           1、新建项目文件夹，运行npm init，目录内会创建package.json文件，输入命令`,
@@ -155,7 +155,8 @@ export const DESCRIPTION_CODE = {
   ELEVEN: [
     {
       code:
-`"@babel/cli": <span class="string">"^7.7.5"</span>,
+`"node": <span class="string">"8.12.0"</span>,
+"@babel/cli": <span class="string">"^7.7.5"</span>,
 "@babel/core": <span class="string">"^7.7.5"</span>,
 "@babel/polyfill": <span class="string">"^7.7.0"</span>,
 "@babel/preset-env": <span class="string">"^7.7.6"</span>,

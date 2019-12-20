@@ -165,7 +165,7 @@ export const NUM_LIST = [
   { final: '\u2030', html: '8240', css_js: '2030'},
   { final: '\u0025', html: '37', css_js: '0025'},
 
-  { final: '\u003E', html: '60', css_js: '003C'},
+  { final: '\u003C', html: '60', css_js: '003C'},
   { final: '\u003E', html: '62', css_js: '003E'},
 ];
 

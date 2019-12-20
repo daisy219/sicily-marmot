@@ -65,7 +65,7 @@ export default class  extends Vue {
           if (measureWidth > limitWidth) {
             let nowWidth = 0;
             let i = 0;
-            for (i ; i < text.length; i++) {
+            for (i ; i &#60; text.length; i++) {
               nowWidth += ctx.measureText(text.charAt(i)).width;
               if (nowWidth > limitWidth - 4) {
                 break;

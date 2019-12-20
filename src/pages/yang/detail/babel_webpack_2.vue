@@ -69,19 +69,23 @@ export default class BabelPage extends Vue {
     <div class="common_content_text">{{ DESCRIPTION_TEXT.EIGHT }}</div>
     <code-card :code-list="DESCRIPTION_CODE.SEVEN" code-type="cmd"/>
     <div class="common_detail_sml_title">{{ SMALL_TITLE.TWO }}</div>
-    <!-- <div class="common_content_text">{{ DESCRIPTION_TEXT.NIGHT }}</div>
-
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.TEN }}</div>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.ELEVEN }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.NIGHT }}</div>
     <code-card :code-list="DESCRIPTION_CODE.EIGHT" code-type="cmd"/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.TWELVE }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.TEN }}</div>
     <code-card :code-list="DESCRIPTION_CODE.NIGHT" pre/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.THIRTEEN }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.ELEVEN }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.TWELVE }}</div>
     <code-card :code-list="DESCRIPTION_CODE.TEN" pre/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.FORETEEN }}</div>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.FIFTEEN }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.THIRTEEN }}</div>
     <code-card :code-list="DESCRIPTION_CODE.ELEVEN" pre/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.SIXTEEN }}</div> -->
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.FORETEEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.TWELVE" code-type="cmd"/>
+
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.FIFTEEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.THIRTEEN" pre/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.SIXTEEN }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.SEVENTEEN }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.EIGHTTEEN }}</div>
 
 
   </div>
