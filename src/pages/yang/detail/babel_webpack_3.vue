@@ -58,24 +58,24 @@ export default class BabelPage3 extends Vue {
     <code-card :code-list="DESCRIPTION_CODE.THREE" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.THREE }}</div>
     <div class="common_detail_sml_title">{{ SMALL_TITLE.TWO }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.FORE }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.FORE" pre/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.FIVE }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.SIX }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.FIVE" code-type="cmd"/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.SEVEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.SIX" pre/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.EIGHT }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.NIGHT }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.SEVEN" code-type="cmd"/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.TEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.EIGHT" pre/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.ELEVEN }}</div>
 
     <!-- 
 
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.FORE }}</div>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.FIVE }}</div>
-    <code-card :code-list="DESCRIPTION_CODE.FORE" code-type="cmd"/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.SIX }}</div>
-    <code-card :code-list="DESCRIPTION_CODE.FIVE" pre/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.SEVEN }}</div>
-    <code-card :code-list="DESCRIPTION_CODE.SIX" code-type="cmd"/>
 
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.EIGHT }}</div>
-    <code-card :code-list="DESCRIPTION_CODE.SEVEN" code-type="cmd"/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.NIGHT }}</div>
-    <code-card :code-list="DESCRIPTION_CODE.EIGHT" code-type="cmd"/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.TEN }}</div>
     <code-card :code-list="DESCRIPTION_CODE.NIGHT" pre/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.ELEVEN }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TWELVE }}</div>
     <code-card :code-list="DESCRIPTION_CODE.TEN" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.THIRTEEN }}</div>

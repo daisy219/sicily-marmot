@@ -1,7 +1,8 @@
 export const DESCRIPTION_TEXT = {
   ONE: `这篇文章会从只有babel开始，一点一点扩展到你想用什么都可以自己随心所欲的添加。`,
   TWO: `打包工具版本和babel版本不匹配或者babel自身插件版本不匹配运行项目的时候都会报错。所以更新babel的话是要把babel下所有插件都更新至匹配版本才行。按步骤安装没生效，很多时候都是因为版本不匹配，
-  这里我只能给出我现在用的工具的版本，工具更新版本不匹配的话，查一查匹配的版本应该就可以了。另外提一下，每次更改webpack.config.js里面的内容，想要让其生效的话，一定得重启项目才行。`,
+  这里我只能给出我现在用的工具的版本，工具更新版本不匹配的话，查一查匹配的版本应该就可以了。另外提一下，每次更改webpack.config.js里面的内容，想要让其生效的话，一定得重启项目才行。
+  本文安装包都用的npm命令，有时候npm命令会很慢或者失败，这种时候可以用yarn命令试试。`,
   THREE: `这里安装的都是基于babel7.0以上的
           从搭建开始
           1、新建项目文件夹，运行npm init，目录内会创建package.json文件，输入命令`,
@@ -18,7 +19,7 @@ export const DESCRIPTION_TEXT = {
   THIRTEEN: `然后把package.json-scripts内改为下面的内容`,
   FORETEEN: `至此，简单配置已完毕，终端执行npm run dev即可开启本地服务运行项目，访问地址是http://localhost:1208/，执行npm run build 即可编译打包项目至dist文件夹`,
   FIFTEEN: `附本文所用的babel/webpack组合版本，试过没问题的奥`,
-  SIXTEEN: `写到这里其实包含的东西还很少，比如css、css预处理语言、本地图片的引入、支持ts等功能目前还不支持，这些东西会在下一篇文章中介绍。`,
+  SIXTEEN: `写到这里其实包含的东西还很少，比如css、css预处理语言、本地图片的引入、typescript等功能目前还不支持，这些东西会在下一篇文章中介绍。`,
 };
 
 export const SMALL_TITLE = {

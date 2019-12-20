@@ -5,7 +5,7 @@ export const DESCRIPTION_TEXT = {
   FORE: `此时你的样式应该生效了。接下来是需要样式预处理语言的情况，其实每种预处理语言配置方法都差不多，这边以less为例展示一下完整步骤，
   sass和stylus会附上需要安装的东西，接着相应的修改webpack配置就可以了。`,
   FIVE: `终端执行`,
-  SIX: `把刚刚的css文件后缀名改为less文件，入口文件引入路径相应修改，把刚刚webpack配置的修改一下：`,
+  SIX: `把刚刚的css文件后缀名改为less文件，入口文件引入路径相应修改，把刚刚webpack配置的修改一下即可，设置完成后可以写点less语法测试一下，应该是没问题的：`,
   SEVEN: `stylus, 对应文件名后缀（.styl）`,
   EIGHT: `sass, 对应文件名后缀（.scss）`,
   NIGHT: `现在如果试试引入本地图片的话应该是不能正常展示的，不论html、css或js，要想在js和css中正常使用图片，
