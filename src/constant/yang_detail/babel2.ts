@@ -20,7 +20,7 @@ export const DESCRIPTION_TEXT = {
   可能是webpack对html编译能力表现不是太好吧，所以在html中引入文件的话，就不要使用别名了。`,
   SEVENTEEN: `到这里，基本的东西都已经配置完毕了，如果你厌倦了依赖成熟框架开发，想锻炼一下原生思维能力，就可以在此基础上开发了，可以试试配合模板引擎，
   模拟路由跳转实现单页面应用效果等等功能。`,
-  EIGHTTEEN: `下一篇我们会继续介绍项目中加入typescript、tslint、axios、react，有需要的话可以继续看下一篇的内容。`,
+  EIGHTTEEN: `下一篇我们会继续介绍项目中加入jquery、typescript、tslint、axios、react，有需要的话可以继续看下一篇的内容。`,
 };
 export const SMALL_TITLE = {
   ONE: `（三）样式问题`,
@@ -42,7 +42,7 @@ export const DESCRIPTION_CODE = {
     {
       code:
 `{
-  test: /<span class="value">\\</span>.<span class="variable">css</span><span class="statement">$</span>/,
+  test: /<span class="value">\\</span>.<span class="value">css</span><span class="statement">$</span>/,
   use: [
       <span class="string">"style-loader"</span>,
       <span class="string">"css-loader"</span>,
@@ -59,7 +59,7 @@ export const DESCRIPTION_CODE = {
     {
       code:
 `{
-  <span class="">test</span>: /<span class="value">\\</span>.<span class="string">less</span><span class="statement">$</span>/,
+  <span class="">test</span>: /<span class="value">\\</span>.<span class="value">less</span><span class="statement">$</span>/,
   use: [
       <span class="string">'style-loader'</span>,
       <span class="string">'css-loader'</span>,
@@ -89,7 +89,7 @@ export const DESCRIPTION_CODE = {
     {
       code:
 `{ <span class="code_notes">// 解析图片如果需要引入本地图片的话此处的配置是必须的，同时要npm install url-loader以及npm install file-loader，有git格式的话，加在后面就可以了。</span>
-  test: /<span class="value">\\</span>.(<span class="string">jpg</span>|<span class="string">png</span>)<span class="statement">$</span>/,
+  test: /<span class="value">\\</span>.(<span class="value">jpg</span>|<span class="value">png</span>)<span class="statement">$</span>/,
   use: {
     loader: <span class="string">'url-loader'</span>
   },
@@ -122,7 +122,7 @@ export const DESCRIPTION_CODE = {
     {
       code:
 `{
-  test: /<span class="value">\\</span>.<span class="string">html</span><span class="statement">$</span>/,
+  test: /<span class="value">\\</span>.<span class="value">html</span><span class="statement">$</span>/,
   use: {
     loader: <span class="string">'html-withimg-loader'</span>,
   }

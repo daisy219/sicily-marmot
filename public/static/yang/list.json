@@ -24,9 +24,16 @@
     {
       "title": "项目起步-babel/webpack配置（二）",
       "id": 4,
-      "info": "加入周边配置，以应付多数日常业务，也许你要找的东西就在这里~",
+      "info": "加入周边基础webpack配置，以应付多数日常业务，也许你要找的东西就在这里~",
       "date": "2019-12-19",
       "route_name": "yang_detail_babel_2"
+    },
+    {
+      "title": "项目起步-babel/webpack配置（三）",
+      "id": 5,
+      "info": "jquery、typescript、tslint、axios、react -----主流工具和webpack的结合",
+      "date": "2019-12-20",
+      "route_name": "yang_detail_babel_3"
     }
   ]
 }

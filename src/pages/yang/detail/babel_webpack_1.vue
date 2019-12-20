@@ -2,7 +2,7 @@
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2019/12/18
- * desc: babel-webpack从头配置
+ * desc: babel-webpack从头配置（一）
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
@@ -47,7 +47,7 @@ export default class BabelPage1 extends Vue {
 
 <template>
 <layout>
-  <div class="common_page_container yang_detail_babel common_detail_main">
+  <div class="common_page_container yang_detail_babel_1 common_detail_main">
     <div class="common_detail_big_title">从零开始搭建babel-webpack架子（一）</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.ONE }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TWO }}</div>
@@ -89,7 +89,7 @@ export default class BabelPage1 extends Vue {
 <style lang="stylus" scoped>
 // @import '~@/assets/stylus/var'
 
-.yang_detail_babel
+.yang_detail_babel_1
   pass
 
 </style>

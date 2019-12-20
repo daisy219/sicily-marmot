@@ -10,15 +10,15 @@ import { Getter, Action } from 'vuex-class';
 import { DESCRIPTION_TEXT,
         SMALL_TITLE,
         DESCRIPTION_CODE,
-} from '@/constant/yang_detail/babel2';
+} from '@/constant/yang_detail/babel3';
 
 
 @Component({
-  name: 'babel-page-2',
+  name: 'babel-page-3',
   components: {
   },
 })
-export default class BabelPage2 extends Vue {
+export default class BabelPage3 extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
   // @Prop() private parentData!: any;
   // @Emit('event_name') private handler() {}
@@ -47,16 +47,19 @@ export default class BabelPage2 extends Vue {
 
 <template>
 <layout>
-  <div class="common_page_container yang_detail_babel2 common_detail_main">
-    <div class="common_detail_big_title">从零开始搭建babel-webpack架子（二）</div>
+  <div class="common_page_container yang_detail_babel3 common_detail_main">
+    <div class="common_detail_big_title">从零开始搭建babel-webpack架子（三）</div>
 
     <div class="common_detail_sml_title">{{ SMALL_TITLE.ONE }}</div>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.ONE }}</div>
     <code-card :code-list="DESCRIPTION_CODE.ONE" code-type="cmd"/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.TWO }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.ONE }}</div>
     <code-card :code-list="DESCRIPTION_CODE.TWO" pre/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.THREE }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.TWO }}</div>
     <code-card :code-list="DESCRIPTION_CODE.THREE" pre/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.THREE }}</div>
+    <div class="common_detail_sml_title">{{ SMALL_TITLE.TWO }}</div>
+
+    <!-- 
 
     <div class="common_content_text">{{ DESCRIPTION_TEXT.FORE }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.FIVE }}</div>
@@ -68,7 +71,6 @@ export default class BabelPage2 extends Vue {
 
     <div class="common_content_text">{{ DESCRIPTION_TEXT.EIGHT }}</div>
     <code-card :code-list="DESCRIPTION_CODE.SEVEN" code-type="cmd"/>
-    <div class="common_detail_sml_title">{{ SMALL_TITLE.TWO }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.NIGHT }}</div>
     <code-card :code-list="DESCRIPTION_CODE.EIGHT" code-type="cmd"/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TEN }}</div>
@@ -86,7 +88,7 @@ export default class BabelPage2 extends Vue {
     <div class="common_content_text">{{ DESCRIPTION_TEXT.SIXTEEN }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.SEVENTEEN }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.EIGHTTEEN }}</div>
-
+ -->
 
   </div>
 </layout>
@@ -95,7 +97,7 @@ export default class BabelPage2 extends Vue {
 <style lang="stylus" scoped>
 // @import '~@/assets/stylus/var'
 
-.yang_detail_babel2
+.yang_detail_babel3
   pass
 
 </style>
