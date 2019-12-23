@@ -11,7 +11,7 @@ export const DESCRIPTION_TEXT = {
   SIX: `presets为语法配置,plugins为插件配置，刚刚配的@babel/env就是把最新的es规则转换成浏览器可接受的版本。用babel转译代码的时候用到的插件一般名字里面带preset的都写在presets里，带plugin的就写在plugins里。例如：`,
   SEVEN: `3、package.json-scripts配置内加入`,
   EIGHT: `最后命令行执行`,
-  NIGHT: `会发现根目录下多出一个叫lib的文件夹里面有个js文件，里面的代码已经转译完成了。`,
+  NINE: `会发现根目录下多出一个叫lib的文件夹里面有个js文件，里面的代码已经转译完成了。`,
   TEN: `顺便说一下babel6的时候webpack要匹配3点几的版本，webpack-dev-server要匹配2点几的版本之前试过可搭配版本（webpack 3.8.0/webpack-dev-server 2.9.7）`,
   ELEVEN: `这里说的依旧是babel7,对应的webpack版本应该是webpack4，webpack-dev-server3（webpack 4.35.2 / webpack-dev-server 3.7.2）`,
   TWELVE: `安装好上面这些东西之后，把刚才src里面的index.js移到根目录作为入口js文件，根目录创建index.html作为入口html文件，里面可以随便写点什么，
@@ -81,7 +81,7 @@ export const DESCRIPTION_CODE = {
       code: `npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugin babel-loader`,
     },
   ],
-  NIGHT: [
+  NINE: [
     {
       code:
 `<span class="statement">const</span> <span class="variable">path</span> = <span class="function">require</span>(<span class="string">'path'</span>);

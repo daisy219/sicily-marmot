@@ -8,7 +8,7 @@ export const DESCRIPTION_TEXT = {
   SIX: `把刚刚的css文件后缀名改为less文件，入口文件引入路径相应修改，把刚刚webpack配置的修改一下即可，设置完成后可以写点less语法测试一下，应该是没问题的：`,
   SEVEN: `stylus, 对应文件名后缀（.styl）`,
   EIGHT: `sass, 对应文件名后缀（.scss）`,
-  NIGHT: `现在如果试试引入本地图片的话应该是不能正常展示的，不论html、css或js，要想在js和css中正常使用图片，
+  NINE: `现在如果试试引入本地图片的话应该是不能正常展示的，不论html、css或js，要想在js和css中正常使用图片，
   我们要安装：`,
   TEN: `安装完成后，webpack.config.js中加入规则：`,
   EVELEN: `这样就可以在js和css中引入本地图片了，可以写点代码测试一下`,
@@ -85,7 +85,7 @@ export const DESCRIPTION_CODE = {
       notes: `(如果你的node版本是10以上，可以试试直接安装不加版本是否可用，我的node是8.2，下载最新版本的话不生效，所以这边加了版本号)`,
     },
   ],
-  NIGHT: [
+  NINE: [
     {
       code:
 `{ <span class="code_notes">// 解析图片如果需要引入本地图片的话此处的配置是必须的，同时要npm install url-loader以及npm install file-loader，有git格式的话，加在后面就可以了。</span>

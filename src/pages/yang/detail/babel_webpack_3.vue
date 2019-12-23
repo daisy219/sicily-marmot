@@ -2,7 +2,7 @@
 /* COMPONENT DOCUMENT
  * author: zhaoyang
  * date: 2019/12/18
- * desc: babel-webpack从头配置（二）
+ * desc: babel-webpack从头配置（三）
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
@@ -57,38 +57,42 @@ export default class BabelPage3 extends Vue {
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TWO }}</div>
     <code-card :code-list="DESCRIPTION_CODE.THREE" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.THREE }}</div>
+
     <div class="common_detail_sml_title">{{ SMALL_TITLE.TWO }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.FORE }}</div>
     <code-card :code-list="DESCRIPTION_CODE.FORE" pre/>
+    <div class="common_content_text" v-html="DESCRIPTION_TEXT.FORE1"></div>
+    <code-card :code-list="DESCRIPTION_CODE.FORE1" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.FIVE }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.SIX }}</div>
     <code-card :code-list="DESCRIPTION_CODE.FIVE" code-type="cmd"/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.SEVEN }}</div>
     <code-card :code-list="DESCRIPTION_CODE.SIX" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.EIGHT }}</div>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.NIGHT }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.NINE }}</div>
     <code-card :code-list="DESCRIPTION_CODE.SEVEN" code-type="cmd"/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TEN }}</div>
     <code-card :code-list="DESCRIPTION_CODE.EIGHT" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.ELEVEN }}</div>
-
-    <!-- 
-
-
-    <code-card :code-list="DESCRIPTION_CODE.NIGHT" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TWELVE }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.NINE" code-type="cmd"/>
+    <div class="common_content_text" v-html="DESCRIPTION_TEXT.THIRTEEN "></div>
     <code-card :code-list="DESCRIPTION_CODE.TEN" pre/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.THIRTEEN }}</div>
-    <code-card :code-list="DESCRIPTION_CODE.ELEVEN" pre/>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.FORETEEN }}</div>
-    <code-card :code-list="DESCRIPTION_CODE.TWELVE" code-type="cmd"/>
 
+    <div class="common_detail_sml_title">{{ SMALL_TITLE.THREE }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.ELEVEN" code-type="cmd"/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.FORETEEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.TWELVE" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.FIFTEEN }}</div>
-    <code-card :code-list="DESCRIPTION_CODE.THIRTEEN" pre/>
+    <code-card :code-list="DESCRIPTION_CODE.THIRTEEN" code-type="cmd"/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.SIXTEEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.FORETEEN" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.SEVENTEEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.FIFTEEN" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.EIGHTTEEN }}</div>
- -->
+    <code-card :code-list="DESCRIPTION_CODE.SIXTEEN" pre/>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.NITTEEN }}</div>
+    <code-card :code-list="DESCRIPTION_CODE.SEVENTEEN" pre/>
 
   </div>
 </layout>

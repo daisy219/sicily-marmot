@@ -69,10 +69,10 @@ export default class BabelPage2 extends Vue {
     <div class="common_content_text">{{ DESCRIPTION_TEXT.EIGHT }}</div>
     <code-card :code-list="DESCRIPTION_CODE.SEVEN" code-type="cmd"/>
     <div class="common_detail_sml_title">{{ SMALL_TITLE.TWO }}</div>
-    <div class="common_content_text">{{ DESCRIPTION_TEXT.NIGHT }}</div>
+    <div class="common_content_text">{{ DESCRIPTION_TEXT.NINE }}</div>
     <code-card :code-list="DESCRIPTION_CODE.EIGHT" code-type="cmd"/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TEN }}</div>
-    <code-card :code-list="DESCRIPTION_CODE.NIGHT" pre/>
+    <code-card :code-list="DESCRIPTION_CODE.NINE" pre/>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.ELEVEN }}</div>
     <div class="common_content_text">{{ DESCRIPTION_TEXT.TWELVE }}</div>
     <code-card :code-list="DESCRIPTION_CODE.TEN" pre/>
