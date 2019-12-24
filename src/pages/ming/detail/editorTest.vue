@@ -8,7 +8,7 @@
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 
-// import hljs from 'highlight.js';
+import hljs from 'highlight.js';
 
 @Component({
   name: 'ming_detail_editorTest',
@@ -31,8 +31,8 @@ export default class  extends Vue {
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   // private my_data: string = 'some thing'; // data
-  private content: string = '<p>hi</p>'
-  private editorOption: object = {
+  private content: string = '';
+  private editorOption: any = {
     modules:{
       toolbar:[
         ['bold', 'italic', 'underline', 'strike'],    //加粗，斜体，下划线，删除线
@@ -58,13 +58,13 @@ export default class  extends Vue {
         ['clean'],    //清除字体样式
         ['image','video']    //上传图片、上传视频
 
-      ]
+      ],
+      syntax: {
+        highlight: (text: any) => hljs.highlightAuto(text).value
+      }
     },
-    theme:'snow',
-    // syntax: {
-    //    highlight: (text: any) => (hljs as any).highlightAuto(text).value
-    // }
-  }
+    // theme:'snow',
+  };
   // get computed_data(): string { return 'computed' } // computed
   // get editor() {
   //   return this.$refs.myQuillEditor.quill;
@@ -86,7 +86,7 @@ export default class  extends Vue {
   private onEditorFocus(editor:any){
      console.log('editor focus!', editor)
   } // 获得焦点事件
-  private onEditorChange({ quill, html, text }){
+  private onEditorChange({ quill, html, text }: any){
      console.log('editor change!', quill, html, text)
   } // 内容改变事件
   private saveHtml(event: any){
