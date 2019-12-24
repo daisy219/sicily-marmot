@@ -6,6 +6,13 @@
       "info": "利用 ‘ctx.measureText’ 对溢出文字省略号处理",
       "date": "2019-12-17",
       "route_name": "ming_detail_measureText"
+    },
+    {
+      "title": "vue 编辑器试用",
+      "id": 2,
+      "info": "vue 编辑器试用",
+      "date": "2019-12-24",
+      "route_name": "ming_detail_editorTest"
     }
   ]
 }

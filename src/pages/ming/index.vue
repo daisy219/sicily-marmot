@@ -53,7 +53,6 @@ export default class Ming extends Vue {
 <layout>
   <div class="common_page_container module_ming_page">
 
-    肥仔专属
     <!-- <div v-for="(item,index) in list" :key="index">{{item}}</div> -->
     <div v-for="(item, index) in list" :key="index">
       <list-card :card-info="item" @click.native="$router.push({name: item.route_name})"/>

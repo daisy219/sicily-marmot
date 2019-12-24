@@ -45,7 +45,7 @@ export default class Layout extends Vue {
 <template>
 <div class="module_layout_common">
   <div class="layout_bg"></div>
-  <snow></snow>
+  <!-- <snow></snow> -->
 	<div class="header">
 		<div class="header_contain">
 			<div class="menu">
