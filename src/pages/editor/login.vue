@@ -199,12 +199,6 @@ export default class Login extends Vue {
       self.$router.push({name: 'editor'})
     })
   };
-
-
-
-
-
-
 }
 
 </script>
@@ -213,7 +207,7 @@ export default class Login extends Vue {
 <layout>
     <div class="lowin">
       <div class="lowin-brand">
-        <img src="kodinger.jpg" alt="logo" />
+        <img src="./kodinger.jpg" alt="logo" />
       </div>
       <div class="lowin-wrapper">
         <!-- 登陆 -->
@@ -472,6 +466,10 @@ body {
   margin-top: 20px;
   color: var(--color-semidark);
 }
+.lowin .text-foot .register-link{
+  cursor: pointer;
+}
+
 .lowin .lowin-footer {
   text-align: center;
   margin: 30px 0;
