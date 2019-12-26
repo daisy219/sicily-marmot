@@ -4,6 +4,8 @@ import Home from '@/pages/home/index.vue';
 import Yang from '@/pages/yang/index.vue';
 import Ming from '@/pages/ming/index.vue';
 import Classify from '@/pages/classify/index.vue';
+import Editor from '@/pages/editor/index.vue';
+import Login from '@/pages/editor/login.vue';
 import About from '@/pages/about/index.vue';
 
 import YangRouter from './yang_detail';
@@ -40,6 +42,16 @@ export default new Router({
       path: '/classify',
       name: 'classify',
       component: Classify,
+    },
+    {
+      path: '/editor',
+      name: 'editor',
+      component: Editor,
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login,
     },
     {
       path: '/about',

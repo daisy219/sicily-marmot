@@ -8,6 +8,7 @@
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 
+// @ts-ignore
 import hljs from 'highlight.js';
 
 @Component({
@@ -33,35 +34,32 @@ export default class  extends Vue {
   // private my_data: string = 'some thing'; // data
   private content: string = '';
   private editorOption: any = {
-    modules:{
-      toolbar:[
-        ['bold', 'italic', 'underline', 'strike'],    //加粗，斜体，下划线，删除线
-        ['blockquote', 'code-block'],     //引用，代码块
+    modules: {
+      toolbar: [
+        ['bold', 'italic', 'underline', 'strike'], // 加粗，斜体，下划线，删除线
+        ['blockquote', 'code-block'], // 引用，代码块
 
-
-        [{ 'header': 1 }, { 'header': 2 }],        // 标题，键值对的形式；1、2表示字体大小
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],     //列表
+        [{ header: 1 }, { header: 2 }], // 标题，键值对的形式；1、2表示字体大小
+        [{ list: 'ordered'}, { list: 'bullet' }], // 列表
         // [{ 'script': 'sub'}, { 'script': 'super' }],   // 上下标
         // [{ 'indent': '-1'}, { 'indent': '+1' }],     // 缩进
         // [{ 'direction': 'rtl' }],             // 文本方向
 
-
-        [{ 'size': ['small', false, 'large', 'huge'] }], // 字体大小
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],     //几级标题
-
-
-        [{ 'color': [] }, { 'background': [] }],     // 字体颜色，字体背景颜色
-        [{ 'font': [] }],     //字体
-        [{ 'align': [] }],    //对齐方式
+        [{ size: ['small', false, 'large', 'huge'] }], // 字体大小
+        [{ header: [1, 2, 3, 4, 5, 6, false] }], // 几级标题
 
 
-        ['clean'],    //清除字体样式
-        ['image','video']    //上传图片、上传视频
+        [{ color: [] }, { background: [] }], // 字体颜色，字体背景颜色
+        [{ font: [] }], // 字体
+        [{ align: [] }], // 对齐方式
 
+
+        ['clean'], // 清除字体样式
+        ['image', 'video'], // 上传图片、上传视频
       ],
       syntax: {
-        highlight: (text: any) => hljs.highlightAuto(text).value
-      }
+        highlight: (text: any) => hljs.highlightAuto(text).value,
+      },
     },
     // theme:'snow',
   };
@@ -78,18 +76,17 @@ export default class  extends Vue {
 
   /* ------------------------ METHODS ------------------------ */
   // private some_method(): void {}
-  // private onEditorReady(editor: any):  {} // 准备编辑器
-  
-  private onEditorBlur(editor:any){
-    console.log('editor blur!', editor)
+  // private onEditorReady(editor: any): {} // 准备编辑器
+  private onEditorBlur(editor: any) {
+    console.log('editor blur!', editor);
   } // 失去焦点事件
-  private onEditorFocus(editor:any){
-     console.log('editor focus!', editor)
+  private onEditorFocus(editor: any) {
+     console.log('editor focus!', editor);
   } // 获得焦点事件
-  private onEditorChange({ quill, html, text }: any){
-     console.log('editor change!', quill, html, text)
+  private onEditorChange({ quill, html, text }: any) {
+     console.log('editor change!', quill, html, text);
   } // 内容改变事件
-  private saveHtml(event: any){
+  private saveHtml(event: any) {
     console.log(this.content);
   }
 

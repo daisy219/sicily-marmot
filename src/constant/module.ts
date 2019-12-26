@@ -24,6 +24,11 @@ export const MODULES_INFO: ModuleInfoType [] = [
     route: 'classify',
   },
   {
+    name: '编辑',
+    route: 'editor',
+  },
+
+  {
     name: '关于我们',
     route: 'about',
   },
