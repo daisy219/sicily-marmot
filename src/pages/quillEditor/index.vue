@@ -1,8 +1,8 @@
 <script lang="ts">
 /* COMPONENT DOCUMENT
  * author: skm
- * date: 2019/12/24
- * desc: editorTest详情页
+ * date: 2019/12/30
+ * desc: quillEditor详情页
  */
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
@@ -12,7 +12,7 @@ import { Getter, Action } from 'vuex-class';
 import hljs from 'highlight.js';
 
 @Component({
-  name: 'ming_detail_editorTest',
+  name: 'myquillEditor',
   components: {
       // UnicodeTable,
   },
@@ -21,6 +21,7 @@ export default class  extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
   // @Prop() private parentData!: any;
   // @Emit('event_name') private handler() {}
+  @Emit('save') private save_handler(data: any) {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
   // @Getter private some_getter!: any;
@@ -85,30 +86,22 @@ export default class  extends Vue {
   } // 获得焦点事件
   private onEditorChange({ quill, html, text }: any) {
     //  console.log('editor change!', quill, html, text);
+    this.save_handler(this.content);
   } // 内容改变事件
-  private saveHtml(event: any) {
-    console.log(this.content);
-  }
 }
 </script>
 
 <template>
-<layout>
-    <div class="common_page_container yang_detail_unicode common_detail_main">
-    <div class="edit_container">
-        <quill-editor 
-            v-model="content" 
-            ref="myQuillEditor" 
-            :options="editorOption" 
-            @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
-            @change="onEditorChange($event)">
-        </quill-editor>
-        <button v-on:click="saveHtml">保存</button>
-    </div> 
-    </div> 
-</layout>
+  <div class="edit_container">
+      <quill-editor 
+          v-model="content"
+          ref="myQuillEditor"
+          :options="editorOption"
+          @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+          @change="onEditorChange($event)">
+      </quill-editor>
+  </div> 
 </template>
 
 <style lang="stylus" scoped>
-
 </style>

@@ -40,7 +40,7 @@ export default class ListCard extends Vue {
 <div class="module_list_card">
   <p class="card_title">{{ cardInfo.title }}</p>
   <p class="card_info">{{ cardInfo.info }}</p>
-  <p class="card_date">{{ cardInfo.date }}</p>
+  <p class="card_date">{{ cardInfo.updated_at }}</p>
 </div>
 </template>
 

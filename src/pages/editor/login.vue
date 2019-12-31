@@ -1,4 +1,3 @@
-
 <script lang="ts">
 /* COMPONENT DOCUMENT
  * author: skm
@@ -29,7 +28,7 @@ export default class Login extends Vue {
   // private created() {}
   private mounted() {
     this.init();
-  };
+  }
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private content: any = '';
@@ -39,7 +38,7 @@ export default class Login extends Vue {
   };
   private registerData: object = {
       username: '',
-      email:'',
+      email: '',
       password: '',
   };
   /* ------------------------ WATCH ------------------------ */
@@ -47,7 +46,7 @@ export default class Login extends Vue {
 
   /* ------------------------ METHODS ------------------------ */
   private init() {
-      var Auth = {
+      const Auth = {
         vars: {
           lowin: document.querySelector('.lowin') as any,
           lowin_brand: document.querySelector('.lowin-brand') as any,
@@ -64,9 +63,9 @@ export default class Login extends Vue {
           lowin_register: document.querySelector('.lowin-register') as any,
           lowin_footer: document.querySelector('.lowin-footer') as any,
           box: document.getElementsByClassName('lowin-box') as any,
-          option: {}
+          option: {} as any,
         },
-        register(e:any) {
+        register(e: any) {
           Auth.vars.lowin_login.className += ' lowin-animated';
           setTimeout(() => {
             Auth.vars.lowin_login.style.display = 'none';
@@ -75,11 +74,11 @@ export default class Login extends Vue {
           Auth.vars.lowin_register.className += ' lowin-animated-flip';
           Auth.setHeight(
             Auth.vars.lowin_register.offsetHeight +
-              Auth.vars.lowin_footer.offsetHeight
+              Auth.vars.lowin_footer.offsetHeight,
           );
           e.preventDefault();
         },
-        login(e:any) {
+        login(e: any) {
           Auth.vars.lowin_register.classList.remove('lowin-animated-flip');
           Auth.vars.lowin_register.className += ' lowin-animated-flipback';
           Auth.vars.lowin_login.style.display = 'block';
@@ -92,12 +91,10 @@ export default class Login extends Vue {
             Auth.vars.lowin_register.classList.remove('lowin-animated-flipback');
             Auth.vars.lowin_login.classList.remove('lowin-animatedback');
           }, 1000);
-          Auth.setHeight(
-            Auth.vars.lowin_login.offsetHeight + Auth.vars.lowin_footer.offsetHeight
-          );
+          Auth.setHeight(Auth.vars.lowin_login.offsetHeight + Auth.vars.lowin_footer.offsetHeight);
           e.preventDefault();
         },
-        forgot(e:any) {
+        forgot(e: any) {
           Auth.vars.password_group.classList += ' lowin-animated';
           Auth.vars.login_back_link.style.display = 'block';
           setTimeout(() => {
@@ -106,15 +103,13 @@ export default class Login extends Vue {
             Auth.vars.password_group.style.margin = 0;
           }, 100);
           Auth.vars.login_btn.innerText = 'Forgot Password';
-          Auth.setHeight(
-            Auth.vars.lowin_wrapper_height - Auth.vars.password_group_height
-          );
+          Auth.setHeight(Auth.vars.lowin_wrapper_height - Auth.vars.password_group_height);
           Auth.vars.lowin_login
             .querySelector('form')
             .setAttribute('action', Auth.vars.option.forgot_url);
           e.preventDefault();
         },
-        loginback(e:any) {
+        loginback(e: any) {
           Auth.vars.password_group.classList.remove('lowin-animated');
           Auth.vars.password_group.classList += ' lowin-animated-back';
           Auth.vars.password_group.style.display = 'block';
@@ -135,7 +130,7 @@ export default class Login extends Vue {
           Auth.setHeight(Auth.vars.lowin_wrapper_height);
           e.preventDefault();
         },
-        setHeight(height:number) {
+        setHeight(height: number) {
           Auth.vars.lowin_wrapper.style.minHeight = height + 'px';
         },
         brand() {
@@ -144,10 +139,8 @@ export default class Login extends Vue {
             Auth.vars.lowin_brand.classList.remove('lowin-animated');
           }, 1000);
         },
-        init(option:object) {
-          Auth.setHeight(
-            Auth.vars.box[0].offsetHeight + Auth.vars.lowin_footer.offsetHeight
-          );
+        init(option: any) {
+          Auth.setHeight(Auth.vars.box[0].offsetHeight + Auth.vars.lowin_footer.offsetHeight);
           Auth.vars.password_group.style.height =
             Auth.vars.password_group.offsetHeight + 'px';
           Auth.vars.password_group_height = Auth.vars.password_group.offsetHeight;
@@ -156,49 +149,49 @@ export default class Login extends Vue {
           Auth.vars.lowin_login
             .querySelector('form')
             .setAttribute('action', option.login_url);
-          var len = Auth.vars.box.length - 1;
-          for (var i = 0; i <= len; i++) {
+          const len = Auth.vars.box.length - 1;
+          for ( let i = 0; i <= len; i++) {
             if (i !== 0) {
               Auth.vars.box[i].className += ' lowin-flip';
             }
           }
-          Auth.vars.forgot_link.addEventListener('click', (e:object) => {
+          Auth.vars.forgot_link.addEventListener('click', (e: object) => {
             Auth.forgot(e);
           });
-          Auth.vars.register_link.addEventListener('click', (e:object) => {
+          Auth.vars.register_link.addEventListener('click', (e: object) => {
             Auth.brand();
             Auth.register(e);
           });
-          Auth.vars.login_link.addEventListener('click', (e:object) => {
+          Auth.vars.login_link.addEventListener('click', (e: object) => {
             Auth.brand();
             Auth.login(e);
           });
-          Auth.vars.login_back_link.addEventListener('click', (e:object) => {
+          Auth.vars.login_back_link.addEventListener('click', (e: object) => {
             Auth.loginback(e);
           });
-        }
-      }
+        },
+      };
       Auth.init({
         login_url: '#login',
         forgot_url: '#forgot',
       });
-  };
-  private login(){
-    // console.log(this.userData);
-    let self = this;
-    SkmService.signin(this.userData).then(function(){
-      console.log('登陆成功！');
-      self.$router.push({name: 'editor'})
-    })
-    // SkmService.search()
-  };
-  private register(){
-     let self = this;
-    SkmService.register(this.registerData).then(function(){
-      console.log('登陆成功！');
-      self.$router.push({name: 'editor'})
-    })
-  };
+  }
+  private login() {
+    const self = this;
+    SkmService.signin(this.userData).then((data) => {
+      if (data.code === 0) {
+        console.log('登陆成功！');
+        self.$router.push({name: 'editor'});
+      }
+    });
+  }
+  private register() {
+    const self = this;
+    SkmService.register(this.registerData).then(() => {
+      console.log('注册成功！');
+      self.$router.push({name: 'editor'});
+    });
+  }
 }
 
 </script>
@@ -216,7 +209,7 @@ export default class Login extends Vue {
             <form>
               <p>Sign in to continue</p>
               <div class="lowin-group">
-                <label>Email <span  class="login-back-link">Sign in?</span></label>
+                <label>邮箱 <span  class="login-back-link">登陆?</span></label>
                 <input
                   type="email"
                   autocomplete="email"
@@ -226,7 +219,7 @@ export default class Login extends Vue {
                 />
               </div>
               <div class="lowin-group password-group">
-                <label>Password<span class="forgot-link">Forgot Password?</span></label>
+                <label>密码<span class="forgot-link">忘记密码?</span></label>
                 <input
                   type="password"
                   name="password"
@@ -236,11 +229,11 @@ export default class Login extends Vue {
                 />
               </div>
               <div  @click="login" class="lowin-btn login-btn loginBtn">
-                Sign In
+                登陆
               </div>
               <div class="text-foot">
-                Don't have an account?
-                <span class="register-link">Register</span>
+                没有账号?
+                <span class="register-link">注册</span>
               </div>
             </form>
           </div>
@@ -250,19 +243,19 @@ export default class Login extends Vue {
         <div class="lowin-box lowin-register">
           <div class="lowin-box-inner">
             <form>
-              <p>Let's create your account</p>
+              <p>创建你的账号</p>
               <div class="lowin-group">
-                <label>Name</label>
+                <label>用户名</label>
                 <input
                   type="text"
-                  name="name"
-                  autocomplete="name"
+                  name="username"
+                  autocomplete="username"
                   class="lowin-input"
                   v-model="registerData.username"
                 />
               </div>
               <div class="lowin-group">
-                <label>Email</label>
+                <label>邮箱</label>
                 <input
                   type="email"
                   autocomplete="email"
@@ -272,7 +265,7 @@ export default class Login extends Vue {
                 />
               </div>
               <div class="lowin-group">
-                <label>Password</label>
+                <label>密码</label>
                 <input
                   type="password"
                   name="password"
@@ -283,7 +276,7 @@ export default class Login extends Vue {
               </div>
               <div class="lowin-btn" @click="register">注册</div>
               <div class="text-foot">
-                Already have an account? <a href="" class="login-link">Login</a>
+                已经有账号? <a href="" class="login-link">登陆</a>
               </div>
             </form>
           </div>

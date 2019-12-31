@@ -1,6 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
-axios.defaults.withCredentials=true;//让ajax携带cookie
+
+axios.defaults.withCredentials = true; // 让ajax携带cookie
 
 export function http_post(config: COMMON_TYPE.PostConfigType): Promise<any> {
   const _data: any = config.data;
