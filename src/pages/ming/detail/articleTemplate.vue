@@ -57,13 +57,12 @@ export default class  extends Vue {
 <template>
 <div class="module_detail_page">
 <layout>
+    <link rel='stylesheet' href='./static/editor.md-master/css/editormd.css' />
     <div class="common_page_container yang_detail_unicode common_detail_main">
       <div class="common_detail_big_title">{{detail.title}}</div>
       <div class="common_content_text">{{detail.info}}</div>
-      <div class="ql-container ql-snow">
-        <div class="ql-editor">
-          <div v-html="detail.content"></div>
-        </div>
+      <div class="markdown-body editormd-preview-container">
+        <div v-html="detail.content"></div>
       </div>
     </div>
 </layout>

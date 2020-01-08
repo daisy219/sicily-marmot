@@ -50,17 +50,16 @@ export default class Editor extends Vue {
 
   /* ------------------------ METHODS ------------------------ */
   private islogin() {
-    // console.log(this.userData);
     const self = this;
-    SkmService.islogin().then((data: any) => {
+    SkmService.islogin()
+    .then((data: any) => {
       console.log('登陆验证！');
-      if (data.code === 1) {
+      if (data.code === 1 || data.isAxiosError) {
         self.$router.push({name: 'login'});
       } else {
         this.userName = data.username;
       }
     });
-    // SkmService.search()
   }
   private savelist(s: any) {
     console.log(s);

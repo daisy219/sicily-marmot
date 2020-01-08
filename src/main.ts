@@ -16,6 +16,7 @@ import { EventBus } from '@/utils/event_bus/event_bus';
 import { EventType } from '@/utils/event_bus/event_type';
 
 /**  vue 富文本编辑器 */
+// @ts-ignore
 import VueQuillEditor from 'vue-quill-editor';
 import 'quill/dist/quill.core.css';
 import 'quill/dist/quill.snow.css';

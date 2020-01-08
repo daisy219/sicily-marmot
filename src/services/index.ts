@@ -28,8 +28,13 @@ export function http_get(config: COMMON_TYPE.GetConfigType): Promise<any> {
     _data = config.params;
   }
   return new Promise((resolve, reject) => {
-    axios.get(config.api, _data).then((res) => {
-      // console.table(data)
+    axios.get(config.api, _data)
+    .catch((err) => {
+      if (err) {
+        return err;
+      }
+    })
+    .then((res) => {
       resolve(res);
     });
   });

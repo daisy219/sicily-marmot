@@ -57,7 +57,7 @@ export default class Layout extends Vue {
 	</div>
 	<slot />
 	<div class="footer" v-show="showFoot">
-			<p>© 2019 Sicily marmot</p>
+			<p>© 2019-2020 Sicily marmot 版权所有<a href="http://www.beian.miit.gov.cn"  target="_blank">沪ICP备19043258号-1</a></p>
 			<p>肥仔和屁阳的程序员成长之路</p>
 	</div>
 </div>
