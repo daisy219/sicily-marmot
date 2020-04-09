@@ -57,7 +57,6 @@ export default class extends Vue {
   private timer: null = null;
   private doc: any = {};
   private jsLoadOver: boolean = false;
-
   // get computed_data(): string { return 'computed' } // computed
 
   /* ------------------------ WATCH ------------------------ */

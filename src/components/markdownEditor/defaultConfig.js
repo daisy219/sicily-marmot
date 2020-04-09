@@ -30,6 +30,8 @@ const defaultConfig = {
   imageUpload: true,             //是否本地上传
   imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
   imageUploadURL: "http://127.0.0.1:3000/uploadImg",
+  
+  imageUploadURL:'http://127.0.0.1:3000/uploadImg',
   // imageUploadURL: "./php/upload.php",
   // onload: function() {
   //    // this.fullscreen();

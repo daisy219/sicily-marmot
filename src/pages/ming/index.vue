@@ -62,7 +62,6 @@ export default class Ming extends Vue {
   </div>
 </layout>
 </template>
-
 <style lang="stylus" scoped>
 // @import '~@/assets/stylus/var'
 

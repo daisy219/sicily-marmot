@@ -8,14 +8,11 @@
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 
-import twMarkdownView from '../../components/markdownEditor/markdownEditor.vue';
 import SkmService from '@/services/skm';
 
 @Component({
   name: 'classify',
-  components: {
-    twMarkdownView,
-  },
+  components: {},
 })
 export default class Classify extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -38,36 +35,18 @@ export default class Classify extends Vue {
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-  private onchange(obj: any) {
-    this.markdownView2 = obj;
-    this.getHTML();
-  }
-  private getHTML() {
-    console.log('打印', this.markdownView2);
-    const self = this;
-    SkmService.saveHtml({
-      title: '新编辑器',
-      info: 'info',
-      content: self.markdownView2.html,
-      author: 'superOldman',
-    }).then((data) => {
-      self.$alert(data.message, '提示', {
-        confirmButtonText: '知道了',
-      });
-    });
-  }
-
+  // private onchange(obj: any) {
+  //   this.markdownView2 = obj;
+  //   this.getHTML();
+  // }
 
 }
-
 </script>
 
 <template>
 <layout>
   <div class="common_page_container module_classify_page">
     分类入库
-    <tw-markdown-view ref="markdownView" @onchange="onchange"></tw-markdown-view>
-
   </div>
 </layout>
 </template>
