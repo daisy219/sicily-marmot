@@ -35,17 +35,13 @@ export default class  extends Vue {
 
   /* ------------------------ METHODS ------------------------ */
   private setDetail(): void {
-    console.log(this.$route);
-    console.log(this.$route.query);
-    console.log(this.$route.params);
     if (this.$route.params.detail) {
       this.detail = this.$route.params.detail;
     } else {
       const url = window.location.href;
       const id = url.split('?goto=')[1];
-      const self = this;
       SkmService.searchById({id}).then((data) => {
-        self.detail = data;
+        this.detail = data.list;
       });
     }
   }
@@ -57,8 +53,8 @@ export default class  extends Vue {
 <template>
 <div class="module_detail_page">
 <layout>
-    <link rel='stylesheet' href='./static/editor.md-master/css/editormd.css' />
-    <div class="common_page_container yang_detail_unicode common_detail_main">
+    <link rel='stylesheet' href='./static/editor.md-master/css/editormd.min.css' />
+    <div v-if="detail" class="common_page_container yang_detail_unicode common_detail_main">
       <div class="common_detail_big_title">{{detail.title}}</div>
       <div class="common_content_text">{{detail.info}}</div>
       <div class="markdown-body editormd-preview-container">
