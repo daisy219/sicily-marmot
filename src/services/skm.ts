@@ -1,8 +1,8 @@
 import { http_get, http_post } from './index';
 import { BASE_API_ROOT } from '@/config/index';
 
-const baseAddress = process.env.NODE_ENV === 'production' ? 'http://47.96.2.170:3000' : 'http://127.0.0.1:3000';
-// const baseAddress =  'http://47.96.2.170:3000';
+// const baseAddress = process.env.NODE_ENV === 'production' ? 'http://47.96.2.170:3000' : 'http://127.0.0.1:3000';
+const baseAddress =  'http://47.96.2.170:3000';
 export default class SkmService {
   public static async get_list(params: any) {
     // let self = this;

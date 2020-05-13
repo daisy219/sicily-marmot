@@ -6,6 +6,7 @@ $white_color = #ffffff
 $bg_color = #f7f7f7      // 背景色
 $black_color = #333
 $border_color = #595959   // 边框色
+$light_border_color = #909399 // 浅边框色
 
 $nav_bg_color = rgba(0,0,0,.2) // 导航背景色
 
@@ -13,7 +14,36 @@ $font_grey_color = #666
 $font_light_color = #999
 $black_font_color = #262626
 
+/*-------------主题--------------*/
+.banana_theme
+  font_color('banana')
+  background_color('banana')
 
+.avocado_theme
+  background_color('avocado')
+
+.peach_theme
+  background_color('peach')
+
+.ink_theme
+  font_color('ink')
+  background_color('ink')
+
+font_color($type)
+  if $type == banana
+    color #FFD200
+  else if $type == ink
+    color rgb(100, 145, 115)
+
+background_color($type)
+  if $type == banana
+    background linear-gradient(to right, rgb(247, 151, 30), rgb(255, 210, 0))
+  else if $type == avocado
+    background linear-gradient(to right, rgb(86, 171, 47), rgb(168, 224, 99))
+  else if $type == peach
+    background linear-gradient(to top, rgb(171, 186, 171), rgb(255, 255, 255))
+  else if $type == ink
+    background linear-gradient(to top, rgb(171, 186, 171), rgb(255, 255, 255))
 $font_family = 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', 'Avenir', Helvetica, Arial, sans-serif
 
 // 字体大小
@@ -83,7 +113,12 @@ disabled_select_text()
 
 .font_weight
   font-weight 700
-
+.align-right
+  text-align right
+.align-center
+  text-align center
+.align-left
+  text-align left
 .pointer
   cursor pointer
 .center
