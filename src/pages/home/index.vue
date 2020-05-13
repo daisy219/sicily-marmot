@@ -7,10 +7,12 @@
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import { unique_array, yyyymmdd } from '@/utils/utils';
+import BigCard from '@/components/big_card/index.vue';
 
 @Component({
   name: 'home',
   components: {
+    'big-card': BigCard,
   },
 })
 export default class Home extends Vue {
@@ -78,34 +80,7 @@ export default class Home extends Vue {
       </svg>
       <span>newest</span>
     </div>
-    <el-row v-for="(item, index) in newest_list" :key="item.id" class="newest_item" :gutter="20">
-      <el-col :span="12" class="item_col">
-        <div class="newest_content" v-show="index % 2 !== 0">
-          <div class="title">{{ item.title }}</div>
-          <div class="desc">{{ item.desc }}</div>
-          <div class="align-right">
-            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
-            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span>
-            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>html</span>
-          </div>
-          <div class="create">创建时间：{{ yyyymmdd(item.create) }}</div>
-        </div>
-        <el-image v-show="index % 2 === 0" class="item_img turn_big" :src="item.url" :fit="'cover'" />
-      </el-col>
-      <el-col :span="12" class="item_col">
-        <div class="newest_content" v-show="index % 2 === 0">
-          <div class="title">{{ item.title }}</div>
-          <div class="desc">{{ item.desc }}</div>
-          <div class="align-right">
-            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
-            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span>
-            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>html</span>
-          </div>
-          <div class="create">创建时间：{{ yyyymmdd(item.create) }}</div>
-        </div>
-        <el-image v-show="index % 2 !== 0" class="item_img turn_big" :src="item.url" :fit="'cover'" />
-      </el-col>
-    </el-row>
+    <big-card :newest-list="newest_list"/>
   </div>
 </div>
 </layout>
@@ -141,40 +116,5 @@ export default class Home extends Vue {
           width calc(100% - 20px)
           text-align center
           font-weight bold
-  .newest_module
-    .newest_item
-      border 1px solid $light_border_color
-      border-radius 4px
-      padding 20px
-      margin-bottom 20px
-      height 300px
-      cursor pointer
-      .item_col
-        height 100%
-        overflow hidden
-      .turn_big
-        transition all 0.5s
-        &:hover
-          transform scale(1.5, 1.5)
-      .newest_content
-        .title
-          font-size 18px
-          font_color(ink)
-          line-height 40px
-          font-weight bold
-        .desc
-          font-size 14px
-          color $font_grey_color
-          line-height 30px
-          height 170px
-        .create
-          font-size 12px
-          line-height 30px
-          color $font_light_color
-          text-align right
-          padding-right 20px
-        .icon_line
-          margin-right 20px
-          font-size 14px
-          color $font_grey_color
+
 </style>
