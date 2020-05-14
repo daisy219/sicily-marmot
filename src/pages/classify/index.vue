@@ -108,6 +108,9 @@ export default class Classify extends Vue {
       font-size 18px
       margin-left 40px
       color $font_grey_color
+      transition all 0.2s
+      &:hover
+        font_color('ink')
   .tag_group
     .tag_item
       font-size 14px

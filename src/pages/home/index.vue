@@ -63,7 +63,7 @@ export default class Home extends Vue {
       </svg>
       <span>top && important</span>
     </div>
-    <el-row class="top_content" :gutter="20">
+    <el-row class="top_content">
       <el-col :span="12" class="top_item" v-for="item in top_list" :key="item.id" @mouseenter.native="$set(item, 'title_show', true)" @mouseleave.native="$set(item, 'title_show', false)">
         <el-image class="item_img" :src="item.url" :fit="'cover'" />
         <transition name="el-zoom-in-center">
@@ -98,20 +98,20 @@ export default class Home extends Vue {
       margin 0 auto
       width 100%
       height 200px
-      border 1px solid $light_border_color
-      border-radius 4px
-      padding 20px
       .top_item
         height 100%
         position relative
         cursor pointer
+        padding 0 10px
+        .item_img
+          box-shadow 5px 5px 15px #888
         .top_item_title
           position absolute
-          top 40px
+          top 50px
           left 10px
           height 80px
           line-height 80px
-          background rgba(0, 0, 0, 0.5)
+          background rgba(0, 0, 0, 0.6)
           color $white_color
           width calc(100% - 20px)
           text-align center

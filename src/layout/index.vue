@@ -87,7 +87,6 @@ export default class Layout extends Vue {
   </div>
 	<div class="footer" v-show="showFoot">
 			<p>© 2019-2020 Sicily marmot 版权所有<a href="http://www.beian.miit.gov.cn" target="_blank">沪ICP备19043258号-1</a></p>
-			<p>肥仔和屁阳的程序员成长之路</p>
 	</div>
 </div>
 </template>
@@ -152,10 +151,10 @@ export default class Layout extends Vue {
   .footer
     margin-top 30px
     width 100%
-    height 200px
+    height 100px
     line-height 30px
     text-align center
-    padding-top 70px
+    padding-top 40px
     color $font_grey_color
     font-size $medium_font_size
     background-color $nav_bg_color

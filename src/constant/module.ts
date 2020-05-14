@@ -24,7 +24,7 @@ export const MODULES_INFO: ModuleInfoType [] = [
     icon: 'iconduanqun',
   },
   {
-    name: '分类入库',
+    name: '归档',
     route: 'classify',
     icon: 'iconfenlei',
   },

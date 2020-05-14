@@ -80,13 +80,13 @@ export default class ListCard extends Vue {
     margin-bottom 20px
     height 300px
     cursor pointer
+    box-shadow 5px 5px 15px #909399
+    transition all 0.2s
+    &:hover
+      transform scale(1.01, 1.01)
     .item_col
       height 100%
       overflow hidden
-    .turn_big
-      transition all 0.5s
-      &:hover
-        transform scale(1.5, 1.5)
     .newest_content
       .title
         font-size 18px
