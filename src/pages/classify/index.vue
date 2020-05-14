@@ -73,7 +73,7 @@ export default class Classify extends Vue {
             <span>folder</span>
           </div>
           <div v-for="item in folder_list" :key="item.id" class="folder_item clearfix">
-            <el-image style="width: 50px; height: 50px" :src="item.url" :fit="'cover'" class="fl turn_big"/>
+            <el-image style="width: 60px; height: 60px" :src="item.url" :fit="'cover'" class="fl turn_big"/>
             <div class="folder_name fl">{{ item.name }}</div>
           </div>
         </div>
@@ -100,15 +100,16 @@ export default class Classify extends Vue {
 .module_classify_page
   .folder_item
     margin-bottom 10px
-    padding-bottom 10px
-    border-bottom 1px dotted $light_border_color
     cursor pointer
+    box-shadow 0px 0px 8px #909399
+    border-radius 4px
+    transition all 0.2s
+    overflow hidden
     .folder_name
-      line-height 50px
+      line-height 60px
       font-size 18px
       margin-left 40px
       color $font_grey_color
-      transition all 0.2s
       &:hover
         font_color('ink')
   .tag_group

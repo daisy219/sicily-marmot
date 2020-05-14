@@ -74,13 +74,12 @@ export default class ListCard extends Vue {
 @import '~@/assets/stylus/var'
 .module_list_card
   .newest_item
-    border 1px solid $light_border_color
     border-radius 4px
     padding 20px
     margin-bottom 20px
     height 300px
     cursor pointer
-    box-shadow 5px 5px 15px #909399
+    box-shadow 0px 0px 15px #909399
     transition all 0.2s
     &:hover
       transform scale(1.01, 1.01)

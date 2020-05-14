@@ -27,6 +27,9 @@ export default class About extends Vue {
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
+  private card_list: any = [
+    { url: '', createdBy: '赵阳', createTime: new Date(), title: '穿搭分享' },
+  ];
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
@@ -38,8 +41,26 @@ export default class About extends Vue {
 <template>
 <layout>
   <div class="common_page_container module_about_page">
+    <div></div>
+    <div class="common_title">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#iconhunsha"></use>
+      </svg>
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#iconxizhuang"></use>
+      </svg>
+      <span>没错，这是两个人的博客</span>
+    </div>
+    <div class="info_content">
 
-    关于我们
+    </div>
+    <div class="common_title">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#iconhunsha"></use>
+      </svg>
+      <span>专题</span>
+    </div>
+    <div class="special_content"></div>
   </div>
 </layout>
 </template>
@@ -48,6 +69,7 @@ export default class About extends Vue {
 // @import '~@/assets/stylus/var'
 
 .module_about_page
-  pass
+  .info_content
+    height 200px
 
 </style>
