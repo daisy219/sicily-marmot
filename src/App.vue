@@ -7,11 +7,13 @@
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
-
+import ScrollToTop from '@/components/scroll_to_top/index.vue';
 
 @Component({
   name: 'app',
-  components: {},
+  components: {
+    'scroll-to-top': ScrollToTop,
+  },
 })
 export default class App extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -43,6 +45,7 @@ export default class App extends Vue {
 <template>
   <div id="app">
     <router-view/>
+    <scroll-to-top class="scroll-to-top"/>
   </div>
 </template>
 
@@ -50,6 +53,9 @@ export default class App extends Vue {
 // @import '~@/assets/stylus/var'
 
 #app
-  pass
+  .scroll-to-top
+    position fixed
+    top 50px
+    right 0
 
 </style>
