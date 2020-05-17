@@ -49,7 +49,7 @@ export default class ListCard extends Vue {
 
 .module_list_card
   width 100%
-  background rgba(255, 255, 255, 0.6)
+  background rgba(0, 0, 0, 0.2)
   border-radius 4px
   margin-bottom 30px
   padding 20px

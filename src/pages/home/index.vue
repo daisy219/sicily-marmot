@@ -89,6 +89,7 @@ export default class Home extends Vue {
 <style lang="stylus" scoped>
 @import '~@/assets/stylus/var'
 .module_home
+  max-width 1000px
   .item_img
     border-radius 4px
     height 100%
