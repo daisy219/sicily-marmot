@@ -52,7 +52,7 @@ export default class Ming extends Vue {
 
 <template>
 <layout>
-  <div class="common_page_container module_ming_page">
+  <div class="common_page_1000_container module_ming_page">
     <!-- <div v-for="(item,index) in list" :key="index">{{item}}</div> -->
     <div v-for="(item, index) in list" :key="index">
       <list-card :card-info="item"

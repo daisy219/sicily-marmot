@@ -33,7 +33,6 @@ export default class ScrollToTop extends Vue {
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private backToTop: boolean = false;
   /* ------------------------ WATCH ------------------------ */
-  // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
   /** 修改绳子状态 */

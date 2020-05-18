@@ -54,7 +54,7 @@ export default class  extends Vue {
 <div class="module_detail_page">
 <layout>
     <link rel='stylesheet' href='./static/editor.md-master/css/editormd.min.css' />
-    <div v-if="detail" class="common_page_container yang_detail_unicode common_detail_main">
+    <div v-if="detail" class="common_page_1000_container yang_detail_unicode common_detail_main">
       <div class="common_detail_big_title">{{detail.title}}</div>
       <div class="common_content_text">{{detail.info}}</div>
       <div class="markdown-body editormd-preview-container">

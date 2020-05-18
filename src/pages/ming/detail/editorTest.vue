@@ -94,7 +94,7 @@ export default class  extends Vue {
 
 <template>
 <layout>
-    <div class="common_page_container yang_detail_unicode common_detail_main">
+    <div class="common_page_1000_container yang_detail_unicode common_detail_main">
     <div class="edit_container">
         <quill-editor 
             v-model="content" 

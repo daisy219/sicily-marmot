@@ -47,7 +47,7 @@ export default class BabelPage3 extends Vue {
 
 <template>
 <layout>
-  <div class="common_page_container yang_detail_babel3 common_detail_main">
+  <div class="common_page_1000_container yang_detail_babel3 common_detail_main">
     <div class="common_detail_big_title">从零开始搭建babel-webpack架子（三）</div>
 
     <div class="common_detail_sml_title">{{ SMALL_TITLE.ONE }}</div>

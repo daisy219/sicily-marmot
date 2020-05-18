@@ -54,7 +54,7 @@ export default class Home extends Vue {
 
 <template>
 <layout>
-<div class="module_home clearfix common_page_container">
+<div class="module_home clearfix common_page_1000_container">
   <!-- 置顶模块 -->
   <div class="set_top_module">
     <div class="common_title">

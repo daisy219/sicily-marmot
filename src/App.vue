@@ -56,6 +56,6 @@ export default class App extends Vue {
   .scroll-to-top
     position fixed
     top 50px
-    right 0
+    right 50px
 
 </style>

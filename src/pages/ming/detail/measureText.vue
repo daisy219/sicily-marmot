@@ -45,7 +45,7 @@ export default class  extends Vue {
 
 <template>
 <layout>
-    <div class="common_page_container yang_detail_unicode common_detail_main">
+    <div class="common_page_1000_container yang_detail_unicode common_detail_main">
     <div class="common_detail_big_title">unicode字符集</div>
     <div class="common_content_text">使用方法：HTML内使用第二列前加）</div>
 

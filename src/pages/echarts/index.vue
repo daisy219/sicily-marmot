@@ -66,7 +66,7 @@ export default class Echarts extends Vue {
 
 <template>
 <layout>
-  <div class="module_echarts common_page_container">
+  <div class="module_echarts common_page_1000_container">
     <div id="subject_pie_chart"></div>
   </div>
 </layout>

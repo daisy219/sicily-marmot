@@ -59,7 +59,7 @@ export default class YangDetailGit extends Vue {
 
 <template>
 <layout>
-  <div class="common_page_container yang_detail_git common_detail_main">
+  <div class="common_page_1000_container yang_detail_git common_detail_main">
     <div class="common_detail_big_title">git 常用积累</div>
 
     <div class="common_detail_sml_title">{{ TITLE_ARR.CODE_MODULE_BASE }}</div>

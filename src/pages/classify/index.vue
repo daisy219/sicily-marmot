@@ -53,7 +53,7 @@ export default class Classify extends Vue {
 
 <template>
 <layout>
-  <div class="common_page_container module_classify_page">
+  <div class="common_page_1200_container module_classify_page">
     <el-row :gutter="40">
       <el-col :span="16">
         <div class="common_title">

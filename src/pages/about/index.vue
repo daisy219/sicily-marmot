@@ -40,7 +40,7 @@ export default class About extends Vue {
 
 <template>
 <layout>
-  <div class="common_page_container module_about_page">
+  <div class="common_page_1000_container module_about_page">
     <div></div>
     <div class="common_title">
       <svg class="icon" aria-hidden="true">
