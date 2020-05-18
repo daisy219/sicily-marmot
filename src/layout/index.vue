@@ -73,12 +73,26 @@ export default class Layout extends Vue {
         </el-input>
       </div>
 			<div class="menu">
-				<div v-for="item in MODULES_INFO" :key="item.route" :class="['menu_item', {'active': $route.name === item.route}]" @click="enter_page(item.route)">
-          <svg class="icon" aria-hidden="true">
-            <use :xlink:href="`#${item.icon}`"></use>
-          </svg>
-          {{item.name}}
-				</div>
+        <div v-for="item in MODULES_INFO" :key="item.route" :class="['menu_item', {'active': $route.name === item.route}]">
+          <div @click="enter_page(item.route)" v-if="!item.has_children">
+            <svg class="icon" aria-hidden="true">
+              <use :xlink:href="`#${item.icon}`"></use>
+            </svg>
+            {{item.name}}
+          </div>
+          <el-dropdown v-if="item.has_children">
+            <span class="el-dropdown-link">
+              {{item.name}}<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>黄金糕</el-dropdown-item>
+              <el-dropdown-item>狮子头</el-dropdown-item>
+              <el-dropdown-item>螺蛳粉</el-dropdown-item>
+              <el-dropdown-item disabled>双皮奶</el-dropdown-item>
+              <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
 			</div>
 		</div>
 	</div>

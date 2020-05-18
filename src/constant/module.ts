@@ -1,8 +1,9 @@
 
 export interface ModuleInfoType {
   name: string; // 模块名
-  route: string; // 模块路由path
+  route?: string; // 模块路由path
   icon: string; // 模块icon
+  has_children?: boolean; // 是否有下拉选项
 }
 
 
@@ -32,5 +33,10 @@ export const MODULES_INFO: ModuleInfoType [] = [
     name: '关于我们',
     route: 'about',
     icon: 'iconaiqing',
+  },
+  {
+    name: '换肤',
+    icon: 'iconaiqing',
+    has_children: true,
   },
 ];
