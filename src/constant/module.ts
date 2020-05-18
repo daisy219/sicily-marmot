@@ -31,6 +31,6 @@ export const MODULES_INFO: ModuleInfoType [] = [
   {
     name: '关于我们',
     route: 'about',
-    icon: 'iconqingshu',
+    icon: 'iconaiqing',
   },
 ];

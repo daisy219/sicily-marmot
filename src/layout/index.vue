@@ -68,7 +68,7 @@ export default class Layout extends Vue {
       <div class="fl search">
         <el-input v-model="search_value" size="mini">
           <svg slot="suffix" class="icon" aria-hidden="true">
-            <use xlink:href="#iconsousuo"></use>
+            <use xlink:href="#iconsousuo2"></use>
           </svg>
         </el-input>
       </div>
