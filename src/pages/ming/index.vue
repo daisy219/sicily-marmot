@@ -53,19 +53,55 @@ export default class Ming extends Vue {
 <template>
 <layout>
   <div class="common_page_1000_container module_ming_page">
-    <!-- <div v-for="(item,index) in list" :key="index">{{item}}</div> -->
-    <div v-for="(item, index) in list" :key="index">
-      <list-card :card-info="item"
-       @click.native="$router.push({ name: 'ming_detail_articleTemplate',params: { detail: list[index] }, query : { goto: list[index]._id}})"
-    />
-    </div>
+    <el-timeline>
+      <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="item.updated_at" placement="top" :color="'rgb(255, 221, 80)'">
+        <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="$router.push({name: 'ming_detail_articleTemplate', query: {goto: item._id}})">
+          <el-image style="width: 100px; height: 100px" class="fl" :src="item.img" :fit="'cover'">
+            <div slot="error" class="image-slot">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#iconshoubing"></use>
+              </svg>
+            </div>
+          </el-image>
+          <div class="fl card_content">
+            <p class="item_title">{{ item.title }}</p>
+            <p class="item_info">{{ item.info }}</p>
+          </div>
+        </el-card>
+      </el-timeline-item>
+    </el-timeline>
   </div>
 </layout>
 </template>
-<style lang="stylus" scoped>
+<style lang="stylus">
 // @import '~@/assets/stylus/var'
 
 .module_ming_page
-  pass
+  max-width 900px
+  padding-left 180px
+  .card_item
+    height 100px
+    cursor pointer
+    transition all 0.2s
+    .el-image
+      .image-slot
+        height 100px
+        padding-top 14px
+        text-align center
+        .icon
+          font-size 64px
+    &:hover
+      transform scale(1.02, 1.02)
+    .card_content
+      width calc(100% - 100px)
+      .item_title
+        font-size 18px
+        line-height 50px
+        color $black_font_color
+      .item_info
+        font-size 14px
+        line-height 20px
+        color $font_light_color
+        multi_text_overflow(2)   
 
 </style>

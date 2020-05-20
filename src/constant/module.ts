@@ -36,7 +36,27 @@ export const MODULES_INFO: ModuleInfoType [] = [
   },
   {
     name: '换肤',
-    icon: 'iconaiqing',
+    icon: 'iconzhuti',
     has_children: true,
+  },
+];
+
+// 换肤
+export const SKIN_MODULES: any[] = [
+  {
+    icon: 'iconxue',
+    title: 'snow_theme',
+  },
+  {
+    icon: 'iconICON-',
+    title: 'peach_theme',
+  },
+  {
+    icon: 'iconICON-1',
+    title: 'lemon_theme',
+  },
+  {
+    icon: 'iconICON-4',
+    title: 'cherry_theme',
   },
 ];

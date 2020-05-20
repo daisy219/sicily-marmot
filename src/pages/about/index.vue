@@ -99,38 +99,40 @@ export default class About extends Vue {
       </svg>
       <span>留言给我们</span>
     </div>
-    <el-form ref="form" :model="params" label-width="100px" class="leave_message">
-      <el-form-item label="头像">
-        <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-          <img v-if="image_url" :src="image_url" class="avatar">
-          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-        </el-upload>
-      </el-form-item>
-      <el-form-item label="昵称">
-        <el-input v-model="params.name" size="small"></el-input>
-      </el-form-item>
-      <el-form-item label="留言内容">
-        <el-input type="textarea" v-model="params.content"></el-input>
-      </el-form-item>
-    </el-form>
-    <el-divider>
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#iconlike"></use>
-      </svg>
-    </el-divider>
-    <div class="message_list">
-      <div class="message_item clearfix" v-for="(item, index) in message_list" :key="index">
-        <el-image class="list_avatar fl" :src="item.avatar" :fit="'cover'">
-          <div slot="error" class="image-slot">
-            <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icontuboshu"></use>
-            </svg>
+    <div class="leave_message_main">
+      <el-form ref="form" :model="params" label-width="100px" class="leave_message">
+        <el-form-item label="头像">
+          <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+            <img v-if="image_url" :src="image_url" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+        </el-form-item>
+        <el-form-item label="昵称">
+          <el-input v-model="params.name" size="small"></el-input>
+        </el-form-item>
+        <el-form-item label="留言内容">
+          <el-input type="textarea" v-model="params.content"></el-input>
+        </el-form-item>
+      </el-form>
+      <el-divider>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#iconlike"></use>
+        </svg>
+      </el-divider>
+      <div class="message_list">
+        <div class="message_item clearfix" v-for="(item, index) in message_list" :key="index">
+          <el-image class="list_avatar fl" :src="item.avatar" :fit="'cover'">
+            <div slot="error" class="image-slot">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icontuboshu"></use>
+              </svg>
+            </div>
+          </el-image>
+          <div class="fl message_content">
+            <p class="name">{{ item.name }}</p>
+            <p class="message">{{ item.message }}</p>
+            <p class="time">{{ yyyymmdd(item.create_date) }}</p>
           </div>
-        </el-image>
-        <div class="fl message_content">
-          <p class="name">{{ item.name }}</p>
-          <p class="message">{{ item.message }}</p>
-          <p class="time">{{ yyyymmdd(item.create_date) }}</p>
         </div>
       </div>
     </div>
@@ -144,55 +146,59 @@ export default class About extends Vue {
 .module_about_page
   .info_content, .special_content
     min-height 200px
-  .leave_message
-    .avatar-uploader .el-upload
-      border 1px dashed #d9d9d9
-      border-radius 6px
-      cursor pointer
-      position relative
-      overflow hidden
-    .avatar-uploader .el-upload:hover
-      border-color #409EFF
-    .avatar-uploader-icon
-      font-size 28px
-      color #8c939d
-      width 70px
-      height 70px
-      line-height 70px
-      text-align center
-    .avatar
-      width 70px
-      height 70px
-      display block
-  .message_item
-    margin-bottom 20px
-    border-bottom 1px dashed $light_border_color
+  .leave_message_main
     padding 20px
-    .list_avatar
-      border-radius 50%
-      width 50px
-      height 50px
-      overflow hidden
-      border 1px solid $light_border_color
-      padding-left 6px
-      text-align center
-      font-size 30px
-      color $font_grey_color
-    .message_content
-      padding-left 20px
-      width calc(100% - 80px)
-      .name
-        color $orange_color
-        font-size 14px
-        font-weight bold
-        line-height 30px
-      .message
-        font-size 12px
-        line-height 20px
+    background $white_color
+    border-radius 4px
+    .leave_message
+      .avatar-uploader .el-upload
+        border 1px dashed #d9d9d9
+        border-radius 6px
+        cursor pointer
+        position relative
+        overflow hidden
+      .avatar-uploader .el-upload:hover
+        border-color #409EFF
+      .avatar-uploader-icon
+        font-size 28px
+        color #8c939d
+        width 70px
+        height 70px
+        line-height 70px
+        text-align center
+      .avatar
+        width 70px
+        height 70px
+        display block
+    .message_item
+      margin-bottom 20px
+      border-bottom 1px dashed $light_border_color
+      padding 20px
+      .list_avatar
+        border-radius 50%
+        width 50px
+        height 50px
+        overflow hidden
+        border 1px solid $light_border_color
+        padding-left 6px
+        text-align center
+        font-size 30px
         color $font_grey_color
-      .time
-        text-align right
-        font-size 12px
-        line-height 30px
-        color $font_light_color 
+      .message_content
+        padding-left 20px
+        width calc(100% - 80px)
+        .name
+          color $orange_color
+          font-size 14px
+          font-weight bold
+          line-height 30px
+        .message
+          font-size 12px
+          line-height 20px
+          color $font_grey_color
+        .time
+          text-align right
+          font-size 12px
+          line-height 30px
+          color $font_light_color 
 </style>

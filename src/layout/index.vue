@@ -7,7 +7,7 @@
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
-import { MODULES_INFO } from '@/constant/module';
+import { MODULES_INFO, SKIN_MODULES } from '@/constant/module';
 
 @Component({
   name: 'layout',
@@ -19,8 +19,8 @@ export default class Layout extends Vue {
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
-  // @Getter private some_getter!: any;
-  // @Action private some_action!: () => void;
+  @Getter private skin!: any;
+  @Action private change_skin_action!: (type: string) => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   // private created() {}
@@ -30,6 +30,7 @@ export default class Layout extends Vue {
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private MODULES_INFO = MODULES_INFO;
+  private SKIN_MODULES = SKIN_MODULES;
   private ctx: any = null;
   private dom: any = null;
   private search_value: string = '';
@@ -56,12 +57,17 @@ export default class Layout extends Vue {
     this.dom.style.webkitMask = 'url(' + canvas.toDataURL('image/png', 0.92) + ')';
   }
 
+  /** 修改皮肤 */
+  private changSkin(val: string) {
+    this.change_skin_action(val);
+  }
+
 }
 
 </script>
 
 <template>
-<div class="module_layout_common peach_theme">
+<div :class="['module_layout_common', skin]">
 	<div class="header">
 		<div class="header_contain clearfix">
       <div class="logo fl" id="logo"></div>
@@ -80,16 +86,20 @@ export default class Layout extends Vue {
             </svg>
             {{item.name}}
           </div>
-          <el-dropdown v-if="item.has_children">
+          <el-dropdown v-if="item.has_children" :class="['menu_item', {'active': $route.name === item.route}]" @command="changSkin">
             <span class="el-dropdown-link">
+              <svg class="icon" aria-hidden="true">
+                <use :xlink:href="`#${item.icon}`"></use>
+              </svg>
               {{item.name}}<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>黄金糕</el-dropdown-item>
-              <el-dropdown-item>狮子头</el-dropdown-item>
-              <el-dropdown-item>螺蛳粉</el-dropdown-item>
-              <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-              <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+              <el-dropdown-item :command="skin.title" v-for="skin in SKIN_MODULES" :key="skin.title">
+                <svg class="icon" aria-hidden="true">
+                  <use :xlink:href="`#${skin.icon}`"></use>
+                </svg>
+                {{ skin.title }}
+              </el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </div>
@@ -147,6 +157,7 @@ export default class Layout extends Vue {
           height 74px
           line-height 74px
           text-align center
+          font-size $normal_font_size
           float left
           cursor pointer
           font-weight bold

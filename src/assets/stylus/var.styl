@@ -15,35 +15,36 @@ $font_light_color = #999
 $black_font_color = #262626
 
 /*-------------主题--------------*/
-.banana_theme
-  font_color('banana')
-  background_color('banana')
+.lemon_theme
+  font_color('lemon')
+  background_color('lemon')
 
-.avocado_theme
-  background_color('avocado')
+.cherry_theme
+  background_color('cherry')
 
 .peach_theme
   background_color('peach')
 
-.ink_theme
-  font_color('ink')
-  background_color('ink')
+.snow_theme
+  font_color('snow')
+  background_color('snow')
 
 font_color($type)
-  if $type == banana
+  if $type == lemon
     color #FFD200
-  else if $type == ink
+  else if $type == snow
     color rgb(100, 145, 115)
 
 background_color($type)
-  if $type == banana
-    background linear-gradient(to right, rgb(247, 151, 30), rgb(255, 210, 0))
-  else if $type == avocado
-    background linear-gradient(to right, rgb(86, 171, 47), rgb(168, 224, 99))
+  if $type == lemon
+    background url('~@/assets/images/lemon.png') no-repeat 0 100px
+  else if $type == cherry
+    background linear-gradient(to bottom, rgb(255, 251, 213), rgb(178, 10, 44))
   else if $type == peach
-    background #fff
-  else if $type == ink
-    background linear-gradient(to top, rgb(171, 186, 171), rgb(255, 255, 255))
+    background linear-gradient(to top, rgb(238, 156, 167), rgb(255, 221, 225))
+  else if $type == snow
+    background url('~@/assets/images/lemon.png') no-repeat 0 100px
+
 $font_family = 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', 'Avenir', Helvetica, Arial, sans-serif
 
 // 字体大小
