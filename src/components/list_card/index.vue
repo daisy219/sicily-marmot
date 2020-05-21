@@ -16,20 +16,15 @@ import { ListItemType } from '@/typing/page.d.ts';
 export default class ListCard extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
   @Prop({ type: Object, default() { return {}; } }) private cardInfo!: ListItemType;
-  // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
-  // @Getter private some_getter!: any;
-  // @Action private some_action!: () => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
   }
-  // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   /* ------------------------ WATCH ------------------------ */
-  // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
 }

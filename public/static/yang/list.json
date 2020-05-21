@@ -2,37 +2,37 @@
   "list": [
     {
       "title": "unicode字符集",
-      "id": 1,
+      "_id": 1,
       "info": "网上搜集的unicode字符集，包含html和js用法。",
-      "date": "2019-12-4",
+      "updated_at": "2019-12-4",
       "route_name": "yang_detail_unicode"
     },
     {
       "title": "git常用命令",
-      "id": 2,
+      "_id": 2,
       "info": "git常用命令积累",
-      "date": "2019-12-4",
+      "updated_at": "2019-12-4",
       "route_name": "yang_detail_git"
     },
     {
       "title": "项目起步-babel/webpack配置（一）",
-      "id": 3,
+      "_id": 3,
       "info": "从零开始搭建简单的babel-webpack架子，babel系列版本匹配7，webpack系列版本匹配4。----启动本地服务，放心使用es6语法。",
-      "date": "2019-12-18",
+      "updated_at": "2019-12-18",
       "route_name": "yang_detail_babel_1"
     },
     {
       "title": "项目起步-babel/webpack配置（二）",
-      "id": 4,
+      "_id": 4,
       "info": "加入周边基础webpack配置，以应付多数日常业务，也许你要找的东西就在这里~",
-      "date": "2019-12-19",
+      "updated_at": "2019-12-19",
       "route_name": "yang_detail_babel_2"
     },
     {
       "title": "项目起步-babel/webpack配置（三）",
-      "id": 5,
+      "_id": 5,
       "info": "jquery、typescript、tslint、axios -----主流工具和webpack的结合",
-      "date": "2019-12-20",
+      "updated_at": "2019-12-20",
       "route_name": "yang_detail_babel_3"
     }
   ]

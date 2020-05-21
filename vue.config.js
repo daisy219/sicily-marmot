@@ -10,29 +10,13 @@ module.exports = {
       port: 9000,
       open: false,
       // proxy: {
-      //   '/pages': {
-      //     target: 'http://www.sicilymarmot.top:80',
+      //   '/public': {
+      //     target: 'https://static.yancey.app',
       //     changeOrigin: true,
       //     pathRewrite: {
-      //       '^/pages': '/pages'
+      //       '^/public/images': '/'
       //     }
       //   }
-      // }
-      // proxy: {
-      //   '/ewebeditor': {
-      //     target: 'http://www.ischool365.com:10882',
-      //     changeOrigin: true,
-      //     pathRewrite: {
-      //       '^/ewebeditor': '/ewebeditor'
-      //     }
-      //   },
-      //   '/group': {
-      //     target: 'http://www.ischool365.com:10882',
-      //     changeOrigin: true,
-      //     pathRewrite: {
-      //       '^/group': '/group'
-      //     }
-      //   },
       // }
   },
   chainWebpack: config => {
@@ -44,9 +28,7 @@ module.exports = {
     config.plugin('define').tap(definitions => {
         Object.assign(definitions[0]['process.env'], {
             build_timestamp: (new Date()).getTime(),
-            // 9: 201909 版本 (学生端、网络课程)
-            // 901: 新版网络课程、课堂报告移动端、省平台资源
-            version: 2.1
+            version: 1.0
         });
         return definitions;
     });

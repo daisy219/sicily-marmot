@@ -8,6 +8,7 @@
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import { yyyymmdd } from '@/utils/utils';
+import { ListItemType } from '@/typing/page';
 
 @Component({
   name: 'big-card',
@@ -16,55 +17,61 @@ import { yyyymmdd } from '@/utils/utils';
 export default class ListCard extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
   @Prop({ type: Array, default() { return []; } }) private newestList!: any[];
-  // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
-  // @Getter private some_getter!: any;
-  // @Action private some_action!: () => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
   }
-  // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private yyyymmdd = yyyymmdd;
   /* ------------------------ WATCH ------------------------ */
-  // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
+  private to_detail(info: ListItemType) {
+    this.$router.push({name: info.author === 'superOldman' ? 'ming_detail_articleTemplate' : 'yang_detail', query: { id: info._id }});
+  }
 }
 
 </script>
 
 <template>
 <div class="module_list_card">
-  <el-row v-for="(item, index) in newestList" :key="item.id" class="newest_item" :gutter="20">
+  <el-row v-for="(item, index) in newestList" :key="item._id" class="newest_item" :gutter="20" @click.native="to_detail(item)">
     <el-col :span="12" class="item_col">
       <div class="newest_content" v-show="index % 2 !== 0">
-        <div class="title">{{ item.title }}</div>
-        <div class="desc">{{ item.desc }}</div>
+        <div class="title text_overflow">{{ item.title }}</div>
+        <div class="desc">{{ item.info }}</div>
         <div class="align-right">
           <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
           <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span>
           <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>html</span>
         </div>
-        <div class="create">创建时间：{{ yyyymmdd(item.create) }}</div>
+        <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>
       </div>
-      <el-image v-show="index % 2 === 0" class="item_img turn_big" :src="item.url" :fit="'cover'" />
+      <el-image v-show="index % 2 === 0" class="item_img turn_big" :src="item.saveImageUrl" :fit="'cover'">
+        <div slot="error" class="image-slot">
+          <el-image src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg" :fit="'cover'" />
+        </div>
+      </el-image>
     </el-col>
     <el-col :span="12" class="item_col">
       <div class="newest_content" v-show="index % 2 === 0">
-        <div class="title">{{ item.title }}</div>
-        <div class="desc">{{ item.desc }}</div>
+        <div class="title text_overflow">{{ item.title }}</div>
+        <div class="desc">{{ item.info }}</div>
         <div class="align-right">
           <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
           <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span>
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>html</span>
+          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>{{ item.hasFolder || '--' }}</span>
         </div>
-        <div class="create">创建时间：{{ yyyymmdd(item.create) }}</div>
+        <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>
       </div>
-      <el-image v-show="index % 2 !== 0" class="item_img turn_big" :src="item.url" :fit="'cover'" />
+      <el-image v-show="index % 2 !== 0" class="item_img turn_big" :src="item.saveImageUrl" :fit="'cover'" >
+        <div slot="error" class="image-slot">
+          <el-image src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg" :fit="'cover'" />
+        </div>
+      </el-image>
     </el-col>
   </el-row>
 </div>
@@ -92,6 +99,7 @@ export default class ListCard extends Vue {
         font_color(ink)
         line-height 40px
         font-weight bold
+        width 100%
       .desc
         font-size 14px
         color $font_grey_color

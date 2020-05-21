@@ -7,7 +7,8 @@
     context[name] = definition()  // 浏览器环境
 })('MAIN_CONFIG', function () {
   return {
-    BASE_API_ROOT: 'http://www.ischool365.com:10892',
+    BASE_API_ROOT: 'http://47.96.2.170:3000',
+    // BASE_API_ROOT: 'http://127.0.0.1:3000',
     __DEV__: false, // 是否为开发环境
   }
 }, this);

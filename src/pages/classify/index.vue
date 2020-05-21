@@ -7,7 +7,11 @@
 
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
+import { ListItemType, FolderItemType, TagItemType } from '@/typing/page';
+
 import BigCard from '@/components/big_card/index.vue';
+import Service from '@/services/common';
+import myPagination from '@/components/myPagination/index.vue';
 
 
 
@@ -15,37 +19,68 @@ import BigCard from '@/components/big_card/index.vue';
   name: 'classify',
   components: {
     'big-card': BigCard,
+    'my-pagination': myPagination,
   },
 })
 export default class Classify extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  // @Prop() private parentData!: any;
-  // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
-  // @Getter private some_getter!: any;
-  // @Action private some_action!: () => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
+    this.get_newest_list();
+    this.get_folder_and_tag_list();
   }
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  private newest_list: any[] = [
-    {id: 1, title: '题目', desc: '这里是简介', create: new Date(), url: 'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg'},
-    {id: 2, title: '题目', desc: '这里是简介', create: new Date(), url: 'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg'},
-  ];
-  private folder_list: any[] = [
-    { id: 1, name: 'javascript', url: 'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg' },
-    { id: 2, name: 'javascript', url: 'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg' },
-    { id: 3, name: 'javascript', url: 'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg' },
-  ];
-  private tag_list: string[] = ['css', 'js', 'git', 'mongoDB'];
+  private list_loading: boolean = false;
+  private newest_list: ListItemType[] = [];
+  private folder_list: FolderItemType[] = [];
+  private tag_list: TagItemType[] = [];
+  private page: number = 1;
+  private pageSize: number = 10;
+  private total: number = 0;
   /* ------------------------ WATCH ------------------------ */
-  // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
+  /** 获取最新列表 */
+  private async get_newest_list() {
+    this.list_loading = true;
+    const params = {
+      page: this.page,
+      pageSize: this.pageSize,
+    };
+    try {
+      const result = await Service.get_list(params);
+      this.list_loading = false;
+      this.newest_list = result.data.list || [];
+      this.total = result.data.sum;
+    } catch (err) {
+      this.list_loading = false;
+      this.newest_list = [];
+      this.total = 0;
+    }
+  }
+
+  /** 获取文件夹和标签列表 */
+  private async get_folder_and_tag_list() {
+    const result = await Service.get_folder_and_tag_list();
+    this.folder_list = result.data.folderList;
+    this.tag_list = result.data.tagList;
+  }
+
+  /** 点击文件夹 */
+  private async into_folder(info: FolderItemType) {
+    this.newest_list = info.folderHasPaper || [];
+  }
+
+  /** 翻页 */
+  private currentChangeHandle(page: number) {
+    this.page = page;
+    this.get_newest_list();
+  }
 
 
 }
@@ -62,7 +97,15 @@ export default class Classify extends Vue {
           </svg>
           <span>all</span>
         </div>
-        <big-card :newest-list="newest_list"/>
+        <big-card v-if="newest_list && newest_list.length !== 0" :newest-list="newest_list"/>
+        <my-pagination :current-page="page" :total="total" :page-size="pageSize" @currentChange="currentChangeHandle"/>
+
+        <div class="common_no_data" v-if="!newest_list || newest_list.length === 0">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#iconzanwushuju"></use>
+          </svg>
+          <p>暂无数据</p>
+        </div>
       </el-col>
       <el-col :span="8">
         <div class="folder_module">
@@ -72,9 +115,9 @@ export default class Classify extends Vue {
             </svg>
             <span>folder</span>
           </div>
-          <div v-for="item in folder_list" :key="item.id" class="folder_item clearfix">
-            <el-image style="width: 60px; height: 60px" :src="item.url" :fit="'cover'" class="fl turn_big"/>
-            <div class="folder_name fl">{{ item.name }}</div>
+          <div v-for="item in folder_list" :key="item._id" class="folder_item clearfix" @click="into_folder(item)">
+            <el-image style="width: 60px; height: 60px" :src="item.cover" :fit="'cover'" class="fl turn_big"/>
+            <div class="folder_name fl">{{ item.folderName }}</div>
           </div>
         </div>
         <div class="tag_module">
@@ -86,7 +129,7 @@ export default class Classify extends Vue {
           </div>
         </div>
         <div class="tag_group">
-          <span class="tag_item" v-for="item in tag_list" :key="item">{{ item }}</span>
+          <span class="tag_item" v-for="item in tag_list" :key="item._id">{{ item.name }}</span>
         </div>
       </el-col>
     </el-row>

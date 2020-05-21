@@ -10,7 +10,8 @@ import { Getter, Action } from 'vuex-class';
 import { ListItemType } from '@/typing/page.d.ts';
 
 import ListCard from '@/components/list_card/index.vue';
-import SkmService from '@/services/skm';
+import SkmService from '@/services/common';
+import { yyyymmdd } from '@/utils/utils';
 
 @Component({
   name: 'ming',
@@ -35,6 +36,7 @@ export default class Ming extends Vue {
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private list: ListItemType[] = [];
+  private yyyymmdd = yyyymmdd;
 
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
@@ -43,8 +45,8 @@ export default class Ming extends Vue {
   /** 获取列表 */
   private async get_list() {
     const params = {author : 'superOldman'};
-    const result = await SkmService.get_list(params);
-    this.list = result;
+    const { data } = await SkmService.get_list(params);
+    this.list = data;
   }
 }
 
@@ -54,9 +56,9 @@ export default class Ming extends Vue {
 <layout>
   <div class="common_page_1000_container module_ming_page">
     <el-timeline>
-      <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="item.updated_at" placement="top" :color="'rgb(255, 221, 80)'">
-        <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="$router.push({name: 'ming_detail_articleTemplate', query: {goto: item._id}})">
-          <el-image style="width: 100px; height: 100px" class="fl" :src="item.img" :fit="'cover'">
+      <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="yyyymmdd(new Date(item.updated_at))" placement="top" :color="'rgb(255, 221, 80)'">
+        <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="$router.push({name: 'ming_detail_articleTemplate', query: {id: item._id}})">
+          <el-image style="width: 100px; height: 100px" class="fl" :src="item.saveImageUrl" :fit="'cover'">
             <div slot="error" class="image-slot">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#iconshoubing"></use>

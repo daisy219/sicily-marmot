@@ -90,48 +90,57 @@ export default class About extends Vue {
       </svg>
       <span>专题</span>
     </div>
-    <div class="special_content"></div>
+    <div class="special_content">
+      <div class="common_no_data">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#iconzanwushuju"></use>
+        </svg>
+        <p>暂无数据</p>
+      </div>
+    </div>
 
     <!-- 留言部分 -->
-    <div class="common_title">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#iconliuyan"></use>
-      </svg>
-      <span>留言给我们</span>
-    </div>
-    <div class="leave_message_main">
-      <el-form ref="form" :model="params" label-width="100px" class="leave_message">
-        <el-form-item label="头像">
-          <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
-            <img v-if="image_url" :src="image_url" class="avatar">
-            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-          </el-upload>
-        </el-form-item>
-        <el-form-item label="昵称">
-          <el-input v-model="params.name" size="small"></el-input>
-        </el-form-item>
-        <el-form-item label="留言内容">
-          <el-input type="textarea" v-model="params.content"></el-input>
-        </el-form-item>
-      </el-form>
-      <el-divider>
+    <div v-show="false">
+      <div class="common_title">
         <svg class="icon" aria-hidden="true">
-          <use xlink:href="#iconlike"></use>
+          <use xlink:href="#iconliuyan"></use>
         </svg>
-      </el-divider>
-      <div class="message_list">
-        <div class="message_item clearfix" v-for="(item, index) in message_list" :key="index">
-          <el-image class="list_avatar fl" :src="item.avatar" :fit="'cover'">
-            <div slot="error" class="image-slot">
-              <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icontuboshu"></use>
-              </svg>
+        <span>留言给我们</span>
+      </div>
+      <div class="leave_message_main">
+        <el-form ref="form" :model="params" label-width="100px" class="leave_message">
+          <el-form-item label="头像">
+            <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+              <img v-if="image_url" :src="image_url" class="avatar">
+              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </el-upload>
+          </el-form-item>
+          <el-form-item label="昵称">
+            <el-input v-model="params.name" size="small"></el-input>
+          </el-form-item>
+          <el-form-item label="留言内容">
+            <el-input type="textarea" v-model="params.content"></el-input>
+          </el-form-item>
+        </el-form>
+        <el-divider>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#iconlike"></use>
+          </svg>
+        </el-divider>
+        <div class="message_list">
+          <div class="message_item clearfix" v-for="(item, index) in message_list" :key="index">
+            <el-image class="list_avatar fl" :src="item.avatar" :fit="'cover'">
+              <div slot="error" class="image-slot">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icontuboshu"></use>
+                </svg>
+              </div>
+            </el-image>
+            <div class="fl message_content">
+              <p class="name">{{ item.name }}</p>
+              <p class="message">{{ item.message }}</p>
+              <p class="time">{{ yyyymmdd(item.create_date) }}</p>
             </div>
-          </el-image>
-          <div class="fl message_content">
-            <p class="name">{{ item.name }}</p>
-            <p class="message">{{ item.message }}</p>
-            <p class="time">{{ yyyymmdd(item.create_date) }}</p>
           </div>
         </div>
       </div>

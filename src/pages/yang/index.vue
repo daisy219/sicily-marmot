@@ -8,9 +8,12 @@
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import { ListItemType } from '@/typing/page.d.ts';
+import { yyyymmdd } from '@/utils/utils';
+
 
 import ListCard from '@/components/list_card/index.vue';
 import YangService from '@/services/yang';
+import Services from '@/services/common';
 
 @Component({
   name: 'yang',
@@ -35,14 +38,25 @@ export default class Yang extends Vue {
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private list: ListItemType[] = [];
+  private yyyymmdd = yyyymmdd;
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-  /** 获取列表 */
+  /** 获取静态列表 */
   private async get_list() {
     const result = await YangService.get_list();
-    this.list = result.list;
+    const result_alive = await Services.get_list({ author : 'zy' });
+    this.list = result_alive.data.concat(result.list);
+  }
+
+  /** 获取数据库列表 */
+  private async to_detail(info: any) {
+    if (info.route_name) {
+      this.$router.push({ name: info.route_name });
+    } else {
+      this.$router.push({ name: 'yang_detail', query: {id: info._id} });
+    }
   }
 }
 
@@ -52,8 +66,8 @@ export default class Yang extends Vue {
 <layout>
   <div class="common_page_1000_container module_yang_page">
     <el-timeline>
-      <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="item.date" placement="top" :color="'#ff6e7f'">
-        <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="$router.push({name: item.route_name})">
+      <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="yyyymmdd(new Date(item.updated_at))" placement="top" :color="'#ff6e7f'">
+        <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="to_detail(item)">
           <el-image style="width: 100px; height: 100px" class="fl" :src="item.img" :fit="'cover'">
             <div slot="error" class="image-slot">
               <svg class="icon" aria-hidden="true">
