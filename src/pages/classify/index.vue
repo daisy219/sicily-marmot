@@ -90,7 +90,7 @@ export default class Classify extends Vue {
 <layout>
   <div class="common_page_1200_container module_classify_page">
     <el-row :gutter="40">
-      <el-col :span="16">
+      <el-col :span="16" v-loading="list_loading">
         <div class="common_title">
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#iconhuodong"></use>

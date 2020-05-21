@@ -19,4 +19,10 @@ export default class SkmService {
     const result = await http_get({ api: BASE_API_ROOT + '/folderAndTagList' });
     return result.data;
   }
+
+  /** 获取文件夹或标签下内容 */
+  public static async get_folder_or_tag_content(params: any) {
+    const result = await http_get({ api: BASE_API_ROOT + '/folderOrTagList', params: { params } });
+    return result.data;
+  }
 }
