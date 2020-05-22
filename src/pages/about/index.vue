@@ -8,6 +8,8 @@
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import { yyyymmdd } from '@/utils/utils';
+import { ListItemType } from '@/typing/page';
+import Service from '@/services/common';
 
 @Component({
   name: 'about',
@@ -24,14 +26,14 @@ export default class About extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
+    this.get_folder_or_tag_content();
   }
   // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private yyyymmdd = yyyymmdd;
-  private card_list: any = [
-    { url: '', createdBy: '赵阳', createTime: new Date(), title: '穿搭分享' },
-  ];
+  private list_loading: boolean = false;
+  private life_list: ListItemType[] = [];
   private message_list: any = [
     { avatar: '', name: 'test', message: '网站好棒！', create_date: new Date() },
     { avatar: '', name: 'test', message: '网站好棒！', create_date: new Date() },
@@ -40,9 +42,7 @@ export default class About extends Vue {
     { avatar: '', name: 'test', message: '网站好棒！', create_date: new Date() },
   ];
   private image_url: string = '';
-  private params: any = {
-
-  };
+  private params: any = {};
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
@@ -61,6 +61,28 @@ export default class About extends Vue {
       this.$message.error('上传头像图片大小不能超过 2MB!');
     }
     return isJPG && isLt2M;
+  }
+
+  /** 获取生活内容 */
+  private async get_folder_or_tag_content() {
+    const params = {
+      // hasFolder: 'aboutus',
+      hasFolder: 'nodejs',
+    };
+    this.list_loading = true;
+    try {
+      const result = await Service.get_folder_or_tag_content(params);
+      this.list_loading = false;
+      this.life_list = result.data;
+    } catch (err) {
+      this.life_list = [];
+      this.list_loading = false;
+    }
+  }
+
+  /** 进入详情 */
+  private to_detail(info: ListItemType) {
+    this.$router.push({name: info.author === 'superOldman' ? 'ming_detail_articleTemplate' : 'yang_detail', query: { id: info._id }});
   }
 }
 
@@ -91,7 +113,25 @@ export default class About extends Vue {
       <span>专题</span>
     </div>
     <div class="special_content">
-      <div class="common_no_data">
+      <el-row v-if="life_list && life_list.length !== 0" class="list_content" :gutter="20">
+        <el-col :span="6" v-for="item in life_list" :key="item._id">
+          <div class="list_item">
+            <el-image class="list_img" :src="item.saveImageUrl" :fit="'cover'" @click.native="to_detail(item)">
+              <div slot="error" class="image-slot">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#iconICON-"></use>
+                </svg>
+              </div>
+            </el-image>
+            <div class="item_info">
+              <p class="item_title">{{ item.title }}</p>
+              <p class="item_desc clearfix"><span class="fl">{{ item.author }}</span><span class="fr">{{ yyyymmdd(new Date(item.updated_at)) }}</span></p>
+            </div>
+          </div>
+          
+        </el-col>
+      </el-row>
+      <div class="common_no_data" v-if="!life_list || life_list.length === 0">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#iconzanwushuju"></use>
         </svg>
@@ -155,6 +195,39 @@ export default class About extends Vue {
 .module_about_page
   .info_content, .special_content
     min-height 200px
+  .special_content
+    .list_content
+      .list_item
+        border-radius 4px
+        box-shadow 0 0 4px rgb(212, 35, 122)
+        margin-bottom 20px
+        overflow hidden
+        .list_img
+          width 100%
+          height 100px
+          cursor pointer
+          transition all 0.2s
+          overflow hidden
+          &:hover
+            transform scale(1.2)
+          .image-slot
+            padding-top 20px
+            .icon
+              text-align center
+              line-height 100px
+              width 100%
+              font-size 50px
+        .item_info
+          box-shadow 0 1px 4px $light_border_color
+          padding 0 20px
+          height 50px
+          .item_title
+            font-size 14px
+            line-height 28px
+          .item_desc
+            font-size 12px
+            line-height 20px
+            color $font_light_color
   .leave_message_main
     padding 20px
     background $white_color

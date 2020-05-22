@@ -1,5 +1,6 @@
 import { http_get, http_post } from './index';
 import { BASE_API_ROOT } from '@/config/index';
+import { ListItemParamsType, FolderOrTagContentParams } from '@/typing/page';
 
 export default class SkmService {
   /** 获取置顶文章 */
@@ -9,7 +10,7 @@ export default class SkmService {
   }
 
   /** 获取列表 */
-  public static async get_list(params: any) {
+  public static async get_list(params: ListItemParamsType) {
     const result = await http_get({ api: BASE_API_ROOT + '/list', params: { params } });
     return result.data;
   }
@@ -21,7 +22,7 @@ export default class SkmService {
   }
 
   /** 获取文件夹或标签下内容 */
-  public static async get_folder_or_tag_content(params: any) {
+  public static async get_folder_or_tag_content(params: FolderOrTagContentParams) {
     const result = await http_get({ api: BASE_API_ROOT + '/folderOrTagList', params: { params } });
     return result.data;
   }

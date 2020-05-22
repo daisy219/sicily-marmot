@@ -20,9 +20,11 @@ $black_font_color = #262626
   background_color('lemon')
 
 .cherry_theme
+  font_color('cherry')
   background_color('cherry')
 
 .peach_theme
+  font_color('peach')
   background_color('peach')
 
 .snow_theme
@@ -32,18 +34,20 @@ $black_font_color = #262626
 font_color($type)
   if $type == lemon
     color #FFD200
-  else if $type == snow
-    color rgb(100, 145, 115)
+  else if $type == peach
+    color #ee9ca7
+  else if $type == cherry
+    color #c31432
 
 background_color($type)
   if $type == lemon
-    background url('~@/assets/images/lemon.png') no-repeat 0 100px
+    background url('~@/assets/images/lemon.png') no-repeat center center fixed
   else if $type == cherry
-    background linear-gradient(to bottom, rgb(255, 251, 213), rgb(178, 10, 44))
+    background url('~@/assets/images/cherry.png') no-repeat center center fixed
   else if $type == peach
-    background linear-gradient(to top, rgb(238, 156, 167), rgb(255, 221, 225))
+    background url('~@/assets/images/peach.png') no-repeat center center fixed
   else if $type == snow
-    background url('~@/assets/images/lemon.png') no-repeat 0 100px
+    background url('~@/assets/images/lemon.png') no-repeat center center fixed
 
 $font_family = 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', 'Avenir', Helvetica, Arial, sans-serif
 

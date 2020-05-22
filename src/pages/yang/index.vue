@@ -110,7 +110,6 @@ export default class Yang extends Vue {
       .item_title
         font-size 18px
         line-height 50px
-        color $black_font_color
       .item_info
         font-size 14px
         line-height 20px

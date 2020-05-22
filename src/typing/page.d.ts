@@ -1,3 +1,9 @@
+// 请求列表数据
+export interface ListItemParamsType {
+  author?: string; // 作者
+  page?: number;
+  pageSize?: number;
+}
 // 文章列表类型
 export interface ListItemType {
   _id: string;
@@ -11,6 +17,10 @@ export interface ListItemType {
   saveImageUrl?: string; // 封面图片地址
 }
 
+export interface FolderOrTagContentParams {
+  hasFolder?: string;
+  hasTags?: string;
+}
 // 文件夹列表类型
 export interface FolderItemType {
   _id: string;

@@ -82,6 +82,21 @@ export default class Classify extends Vue {
     this.get_newest_list();
   }
 
+  /** 根据文件夹或标签获取内容 */
+  private async get_folder_or_tag_content(type: string, name: string) {
+    const params = type === 'folder' ? { hasFolder: name } : { hasTags: name };
+    this.list_loading = true;
+    try {
+      const result = await Service.get_folder_or_tag_content(params);
+      this.list_loading = false;
+      this.newest_list = result.data;
+      this.total = 0;
+    } catch (err) {
+      this.total = 0;
+      this.newest_list = [];
+      this.list_loading = false;
+    }
+  }
 
 }
 </script>
@@ -115,7 +130,7 @@ export default class Classify extends Vue {
             </svg>
             <span>folder</span>
           </div>
-          <div v-for="item in folder_list" :key="item._id" class="folder_item clearfix" @click="into_folder(item)">
+          <div v-for="item in folder_list" :key="item._id" class="folder_item clearfix" @click="get_folder_or_tag_content('folder', item.folderName)">
             <el-image style="width: 60px; height: 60px" :src="item.cover" :fit="'cover'" class="fl turn_big"/>
             <div class="folder_name fl">{{ item.folderName }}</div>
           </div>
@@ -129,7 +144,7 @@ export default class Classify extends Vue {
           </div>
         </div>
         <div class="tag_group">
-          <span class="tag_item" v-for="item in tag_list" :key="item._id">{{ item.name }}</span>
+          <span class="tag_item" v-for="item in tag_list" :key="item._id" @click="get_folder_or_tag_content('tag', item.name)">{{ item.name }}</span>
         </div>
       </el-col>
     </el-row>
