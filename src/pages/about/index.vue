@@ -43,6 +43,14 @@ export default class About extends Vue {
   ];
   private image_url: string = '';
   private params: any = {};
+  private info_text: string[] = [
+    '不是大神，不会鸡血',
+    '没有过人的才智让代码屈服',
+    '不会醉心于代码忘记生活',
+    '我们是普通的程序员小兵',
+    '在这里分享一点点经验',
+    '希望每天都有收获，每天都有收获就好',
+  ];
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
@@ -67,7 +75,7 @@ export default class About extends Vue {
   private async get_folder_or_tag_content() {
     const params = {
       // hasFolder: 'aboutus',
-      hasFolder: 'nodejs',
+      hasFolder: 'life',
     };
     this.list_loading = true;
     try {
@@ -102,6 +110,7 @@ export default class About extends Vue {
       <span>没错，这是两个人的博客</span>
     </div>
     <div class="info_content">
+      <p v-for="item in info_text" :key="item">{{ item }}</p>
 
     </div>
 
@@ -195,6 +204,13 @@ export default class About extends Vue {
 .module_about_page
   .info_content, .special_content
     min-height 200px
+  .info_content
+    text-align center
+    font-size 14px
+    line-height 34px
+    padding-top 20px
+    p
+      font-family '楷体'
   .special_content
     .list_content
       .list_item
