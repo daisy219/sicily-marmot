@@ -26,6 +26,7 @@ export default class Classify extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
+  @Getter private skin!: any;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
@@ -132,7 +133,7 @@ export default class Classify extends Vue {
           </div>
           <div v-for="item in folder_list" :key="item._id" class="folder_item clearfix" @click="get_folder_or_tag_content('folder', item.folderName)">
             <el-image style="width: 60px; height: 60px" :src="item.cover" :fit="'cover'" class="fl turn_big"/>
-            <div class="folder_name fl">{{ item.folderName }}</div>
+            <div :class="['folder_name', 'fl', {'lemon': skin === 'lemon_theme', 'cherry': skin === 'cherry_theme', 'peach': skin === 'peach_theme'}]">{{ item.folderName }}</div>
           </div>
         </div>
         <div class="tag_module">
@@ -168,8 +169,15 @@ export default class Classify extends Vue {
       font-size 18px
       margin-left 40px
       color $font_grey_color
+    .lemon
       &:hover
-        font_color('ink')
+        font_color('lemon')
+    .peach
+      &:hover
+        font_color('peach')
+    .cherry
+      &:hover
+        font_color('cherry')
   .tag_group
     .tag_item
       font-size 14px
@@ -177,7 +185,7 @@ export default class Classify extends Vue {
       padding 0 10px
       border-radius 4px
       border 1px solid rgb(100, 145, 115)
-      font_color('ink')
+      color rgb(100, 145, 115)
       margin 5px
       cursor pointer
       transition all 0.3s
