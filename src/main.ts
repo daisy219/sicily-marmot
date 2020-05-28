@@ -9,22 +9,11 @@ import router from './router/index';
 import store from './vuex/store';
 import Layout from '@/layout/index.vue';
 import CodeCard from '@/components/my_code.vue';
-import Snow from '@/animate/snow.vue';
+// import Snow from '@/animate/snow.vue';
 import { yymmddhhmmss } from '@/utils/utils';
 
 import { EventBus } from '@/utils/event_bus/event_bus';
 import { EventType } from '@/utils/event_bus/event_type';
-
-/**  vue 富文本编辑器 */
-// @ts-ignore
-import VueQuillEditor from 'vue-quill-editor';
-import 'quill/dist/quill.core.css';
-import 'quill/dist/quill.snow.css';
-import 'quill/dist/quill.bubble.css';
-import 'highlight.js/styles/a11y-dark.css';
-/**  vue 富文本编辑器  */
-
-
 
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -34,9 +23,8 @@ Vue.prototype.$$eventType = EventType;
 Vue.prototype.$$eventBus = EventBus;
 
 Vue.use(ElementUI);
-Vue.use(VueQuillEditor);
 Vue.component('layout', Layout);
-Vue.component('snow', Snow);
+// Vue.component('snow', Snow);
 Vue.component('code-card', CodeCard);
 
 // ---------------------------------项目信息------------------------------
