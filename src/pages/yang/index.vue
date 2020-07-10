@@ -46,7 +46,7 @@ export default class Yang extends Vue {
   /** 获取静态列表 */
   private async get_list() {
     const result = await YangService.get_list();
-    const result_alive = await Services.get_list({ author : 'zy' });
+    const result_alive = await Services.get_list({ author : 'daisy' });
     this.list = result_alive.data.concat(result.list);
   }
 
@@ -68,7 +68,7 @@ export default class Yang extends Vue {
     <el-timeline>
       <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="yyyymmdd(new Date(item.updated_at))" placement="top" :color="'#ff6e7f'">
         <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="to_detail(item)">
-          <el-image style="width: 100px; height: 100px" class="fl" :src="item.img" :fit="'cover'">
+          <el-image style="width: 100px; height: 100px" class="fl" :src="item.saveImageUrl" :fit="'cover'">
             <div slot="error" class="image-slot">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#iconduanqun"></use>
@@ -107,6 +107,7 @@ export default class Yang extends Vue {
       transform scale(1.02, 1.02)
     .card_content
       width calc(100% - 100px)
+      padding-left 20px
       .item_title
         font-size 18px
         line-height 50px

@@ -44,9 +44,9 @@ export default class ListCard extends Vue {
         <div class="title text_overflow">{{ item.title }}</div>
         <div class="desc">{{ item.info }}</div>
         <div class="align-right">
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span>
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>html</span>
+          <!-- <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
+          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span> -->
+          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>{{ item.hasFolder || '--' }}</span>
         </div>
         <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>
       </div>
@@ -61,8 +61,8 @@ export default class ListCard extends Vue {
         <div class="title text_overflow">{{ item.title }}</div>
         <div class="desc">{{ item.info }}</div>
         <div class="align-right">
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span>
+          <!-- <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
+          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span> -->
           <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>{{ item.hasFolder || '--' }}</span>
         </div>
         <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>

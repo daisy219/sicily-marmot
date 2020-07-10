@@ -96,6 +96,7 @@ export default class Ming extends Vue {
       transform scale(1.02, 1.02)
     .card_content
       width calc(100% - 100px)
+      padding-left 20px
       .item_title
         font-size 18px
         line-height 50px

@@ -30,7 +30,7 @@ export default class Classify extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
-    this.get_newest_list();
+    this.get_all_list();
     this.get_folder_and_tag_list();
   }
   // private mounted() {}
@@ -43,11 +43,13 @@ export default class Classify extends Vue {
   private page: number = 1;
   private pageSize: number = 10;
   private total: number = 0;
+  private currentClassify: string = 'all';
   /* ------------------------ WATCH ------------------------ */
 
   /* ------------------------ METHODS ------------------------ */
   /** 获取最新列表 */
-  private async get_newest_list() {
+  private async get_all_list() {
+    this.currentClassify = 'all';
     this.list_loading = true;
     const params = {
       page: this.page,
@@ -72,19 +74,16 @@ export default class Classify extends Vue {
     this.tag_list = result.data.tagList;
   }
 
-  /** 点击文件夹 */
-  private async into_folder(info: FolderItemType) {
-    this.newest_list = info.folderHasPaper || [];
-  }
 
   /** 翻页 */
   private currentChangeHandle(page: number) {
     this.page = page;
-    this.get_newest_list();
+    this.get_all_list();
   }
 
   /** 根据文件夹或标签获取内容 */
   private async get_folder_or_tag_content(type: string, name: string) {
+    this.currentClassify = name;
     const params = type === 'folder' ? { hasFolder: name } : { hasTags: name };
     this.list_loading = true;
     try {
@@ -111,7 +110,7 @@ export default class Classify extends Vue {
           <svg class="icon" aria-hidden="true">
             <use xlink:href="#iconhuodong"></use>
           </svg>
-          <span>all</span>
+          <span>{{ currentClassify }}</span>
         </div>
         <big-card v-if="newest_list && newest_list.length !== 0" :newest-list="newest_list"/>
         <my-pagination :current-page="page" :total="total" :page-size="pageSize" @currentChange="currentChangeHandle"/>
@@ -135,6 +134,10 @@ export default class Classify extends Vue {
             <el-image style="width: 60px; height: 60px" :src="item.cover" :fit="'cover'" class="fl turn_big"/>
             <div :class="['folder_name', 'fl', {'lemon': skin === 'lemon_theme', 'cherry': skin === 'cherry_theme', 'peach': skin === 'peach_theme'}]">{{ item.folderName }}</div>
           </div>
+          <div class="folder_item clearfix" @click="currentChangeHandle(1)">
+            <el-image style="width: 60px; height: 60px" :src="require('@/assets/images/all.png')" :fit="'cover'" class="fl turn_big"/>
+            <div :class="['folder_name', 'fl', {'lemon': skin === 'lemon_theme', 'cherry': skin === 'cherry_theme', 'peach': skin === 'peach_theme'}]">全部</div>
+          </div>
         </div>
         <div class="tag_module">
           <div class="common_title">
@@ -145,6 +148,7 @@ export default class Classify extends Vue {
           </div>
         </div>
         <div class="tag_group">
+          <span class="tag_item" @click="currentChangeHandle(1)">全部</span>
           <span class="tag_item" v-for="item in tag_list" :key="item._id" @click="get_folder_or_tag_content('tag', item.name)">{{ item.name }}</span>
         </div>
       </el-col>

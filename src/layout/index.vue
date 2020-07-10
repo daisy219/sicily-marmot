@@ -71,13 +71,13 @@ export default class Layout extends Vue {
 	<div class="header">
 		<div class="header_contain clearfix">
       <div class="logo fl" id="logo"></div>
-      <div class="fl search">
+      <!-- <div class="fl search">
         <el-input v-model="search_value" size="mini">
           <svg slot="suffix" class="icon" aria-hidden="true">
             <use xlink:href="#iconsousuo2"></use>
           </svg>
         </el-input>
-      </div>
+      </div> -->
 			<div class="menu">
         <div v-for="item in MODULES_INFO" :key="item.route" :class="['menu_item', {'active': $route.name === item.route}]">
           <div @click="enter_page(item.route)" v-if="!item.has_children">

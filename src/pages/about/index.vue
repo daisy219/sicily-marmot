@@ -125,13 +125,15 @@ export default class About extends Vue {
       <el-row v-if="life_list && life_list.length !== 0" class="list_content" :gutter="20">
         <el-col :span="6" v-for="item in life_list" :key="item._id">
           <div class="list_item">
-            <el-image class="list_img" :src="item.saveImageUrl" :fit="'cover'" @click.native="to_detail(item)">
-              <div slot="error" class="image-slot">
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#iconICON-"></use>
-                </svg>
-              </div>
-            </el-image>
+            <div class="list_img_wrap">
+              <el-image class="list_img" :src="item.saveImageUrl" :fit="'cover'" @click.native="to_detail(item)">
+                <div slot="error" class="image-slot">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#iconICON-"></use>
+                  </svg>
+                </div>
+              </el-image>
+            </div>
             <div class="item_info">
               <p class="item_title">{{ item.title }}</p>
               <p class="item_desc clearfix"><span class="fl">{{ item.author }}</span><span class="fr">{{ yyyymmdd(new Date(item.updated_at)) }}</span></p>
@@ -215,15 +217,18 @@ export default class About extends Vue {
     .list_content
       .list_item
         border-radius 4px
-        box-shadow 0 0 4px rgb(212, 35, 122)
+        border 1px solid #EBEEF5
         margin-bottom 20px
         overflow hidden
+        .list_img_wrap
+          overflow hidden
+          width 100%
+          height 100px
         .list_img
           width 100%
           height 100px
           cursor pointer
           transition all 0.2s
-          overflow hidden
           &:hover
             transform scale(1.2)
           .image-slot
@@ -234,7 +239,6 @@ export default class About extends Vue {
               width 100%
               font-size 50px
         .item_info
-          box-shadow 0 1px 4px $light_border_color
           padding 0 20px
           height 50px
           .item_title

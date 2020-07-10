@@ -102,7 +102,7 @@ export default class Home extends Vue {
       <el-col :span="12" class="top_item" v-for="item in top_list" :key="item._id" @mouseenter.native="$set(item, 'title_show', true)" 
         @mouseleave.native="$set(item, 'title_show', false)"
         @click.native="to_detail(item)">
-        <el-image class="item_img" :src="item.saveImageUrl" :fit="'cover'">
+        <el-image class="item_img" :src="item.cover" :fit="'cover'">
           <div slot="error" class="image-slot">
             <el-image src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg" :fit="'cover'" />
           </div>
