@@ -186,12 +186,13 @@ export default class Classify extends Vue {
     .tag_item
       font-size 14px
       line-height 30px
-      padding 0 10px
+      padding 0 5px
       border-radius 4px
       border 1px solid rgb(100, 145, 115)
       color rgb(100, 145, 115)
       margin 5px
       cursor pointer
+      white-space nowrap
       transition all 0.3s
       &:hover
         background-color #f0f9eb
