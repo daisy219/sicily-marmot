@@ -183,6 +183,8 @@ export default class Classify extends Vue {
       &:hover
         font_color('cherry')
   .tag_group
+    display flex
+    flex-wrap wrap
     .tag_item
       font-size 14px
       line-height 30px
@@ -192,7 +194,6 @@ export default class Classify extends Vue {
       color rgb(100, 145, 115)
       margin 5px
       cursor pointer
-      white-space nowrap
       transition all 0.3s
       &:hover
         background-color #f0f9eb

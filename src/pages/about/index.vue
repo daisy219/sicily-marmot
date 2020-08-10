@@ -135,7 +135,7 @@ export default class About extends Vue {
               </el-image>
             </div>
             <div class="item_info">
-              <p class="item_title">{{ item.title }}</p>
+              <p class="item_title text_overflow" :title="item.title">{{ item.title }}</p>
               <p class="item_desc clearfix"><span class="fl">{{ item.author }}</span><span class="fr">{{ yyyymmdd(new Date(item.updated_at)) }}</span></p>
             </div>
           </div>
@@ -244,6 +244,7 @@ export default class About extends Vue {
           .item_title
             font-size 14px
             line-height 28px
+            width 100%
           .item_desc
             font-size 12px
             line-height 20px
