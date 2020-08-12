@@ -53,11 +53,10 @@ export default class Ming extends Vue {
 </script>
 
 <template>
-<layout>
   <div class="common_page_1000_container module_ming_page">
     <el-timeline>
       <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="yyyymmdd(new Date(item.updated_at))" placement="top" :color="'rgb(255, 221, 80)'">
-        <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="$router.push({name: 'ming_detail_articleTemplate', query: {id: item._id}})">
+        <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="$router.push({name: 'content', query: {id: item._id}})">
           <el-image style="width: 100px; height: 100px" class="fl" :src="item.saveImageUrl" :fit="'cover'">
             <div slot="error" class="image-slot">
               <svg class="icon" aria-hidden="true">
@@ -73,7 +72,6 @@ export default class Ming extends Vue {
       </el-timeline-item>
     </el-timeline>
   </div>
-</layout>
 </template>
 <style lang="stylus">
 // @import '~@/assets/stylus/var'

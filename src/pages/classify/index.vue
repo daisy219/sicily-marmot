@@ -102,7 +102,6 @@ export default class Classify extends Vue {
 </script>
 
 <template>
-<layout>
   <div class="common_page_1200_container module_classify_page">
     <el-row :gutter="40">
       <el-col :span="16" v-loading="list_loading">
@@ -154,7 +153,6 @@ export default class Classify extends Vue {
       </el-col>
     </el-row>
   </div>
-</layout>
 </template>
 
 <style lang="stylus" scoped>

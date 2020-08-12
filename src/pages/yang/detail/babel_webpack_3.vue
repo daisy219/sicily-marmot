@@ -46,7 +46,6 @@ export default class BabelPage3 extends Vue {
 </script>
 
 <template>
-<layout>
   <div class="common_page_1000_container yang_detail_babel3 common_detail_main">
     <div class="common_detail_big_title">从零开始搭建babel-webpack架子（三）</div>
 
@@ -95,7 +94,6 @@ export default class BabelPage3 extends Vue {
     <code-card :code-list="DESCRIPTION_CODE.SEVENTEEN" pre/>
 
   </div>
-</layout>
 </template>
 
 <style lang="stylus" scoped>

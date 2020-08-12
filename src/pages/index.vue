@@ -1,27 +1,42 @@
-import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
+<script lang="ts">
+/* COMPONENT DOCUMENT
+ * author: zhaoyang
+ * date: 2020/8/12
+ * desc: 主页
+ */
 
-@Component
-export default class Mixins extends Vue {
+import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
+import { Getter, Action } from 'vuex-class';
+
+@Component({
+  name: 'index',
+  components: {},
+})
+export default class Index extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
-  // @Prop() private parentData!: any;
-  // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
-  // @Getter private some_getter!: any;
-  // @Action private some_action!: () => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
-    // this.test();
   }
-  // private mounted() {}
 
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   /* ------------------------ WATCH ------------------------ */
-  // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-  private test() {
-    console.log('aaa');
-  }
 }
+
+</script>
+
+<template>
+<div class="module_index">
+<layout>
+  <router-view />
+</layout>
+</div>
+</template>
+
+<style lang="stylus" scoped>
+@import '~@/assets/stylus/var'
+</style>

@@ -16,14 +16,12 @@ import {
   TEXT_MODULE_QUESTION,
   CODE_MODULE_QUESTION,
   } from '@/constant/yang_detail/git';
-import Mixins from './_part/mixins';
 
 @Component({
   name: 'yang-detail-git',
   components: {
     'yang-detail-git': YangDetailGit,
   },
-  mixins: [Mixins],
 })
 export default class YangDetailGit extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -58,7 +56,6 @@ export default class YangDetailGit extends Vue {
 </script>
 
 <template>
-<layout>
   <div class="common_page_1000_container yang_detail_git common_detail_main">
     <div class="common_detail_big_title">git 常用积累</div>
 
@@ -78,7 +75,6 @@ export default class YangDetailGit extends Vue {
     <div class="common_content_text">{{ TEXT_MODULE_QUESTION }}</div>
     <code-card :code-list="CODE_MODULE_QUESTION" code-type="cmd"/>
   </div>
-</layout>
 </template>
 
 <style lang="stylus" scoped>

@@ -80,7 +80,7 @@ export default class Home extends Vue {
 
   /** 进入详情 */
   private to_detail(info: ListItemType) {
-    this.$router.push({name: info.author === 'superOldman' ? 'ming_detail_articleTemplate' : 'yang_detail', query: { id: info._id }});
+    this.$router.push({name: 'content', query: { id: info._id }});
   }
 
 }
@@ -88,7 +88,6 @@ export default class Home extends Vue {
 </script>
 
 <template>
-<layout>
 <div class="module_home clearfix common_page_1000_container">
   <!-- 置顶模块 -->
   <div class="set_top_module" v-loading="top_loading">
@@ -124,7 +123,6 @@ export default class Home extends Vue {
     <big-card :newest-list="newest_list"/>
   </div>
 </div>
-</layout>
 </template>
 
 <style lang="stylus" scoped>

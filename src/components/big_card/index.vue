@@ -30,7 +30,7 @@ export default class ListCard extends Vue {
 
   /* ------------------------ METHODS ------------------------ */
   private to_detail(info: ListItemType) {
-    this.$router.push({name: info.author === 'superOldman' ? 'ming_detail_articleTemplate' : 'yang_detail', query: { id: info._id }});
+    this.$router.push({name: 'content', query: { id: info._id }});
   }
 }
 

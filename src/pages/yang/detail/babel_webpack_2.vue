@@ -46,7 +46,6 @@ export default class BabelPage2 extends Vue {
 </script>
 
 <template>
-<layout>
   <div class="common_page_1000_container yang_detail_babel2 common_detail_main">
     <div class="common_detail_big_title">从零开始搭建babel-webpack架子（二）</div>
 
@@ -89,7 +88,6 @@ export default class BabelPage2 extends Vue {
 
 
   </div>
-</layout>
 </template>
 
 <style lang="stylus" scoped>

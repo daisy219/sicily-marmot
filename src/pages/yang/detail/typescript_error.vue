@@ -46,10 +46,8 @@ export default class TsError extends Vue {
 </script>
 
 <template>
-<layout>
   <div class="common_page_1000_container module_ts_error">
   </div>
-</layout>
 </template>
 
 <style lang="stylus" scoped>

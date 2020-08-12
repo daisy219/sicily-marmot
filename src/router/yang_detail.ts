@@ -1,4 +1,4 @@
-import YangDetail from '@/pages/yang/detail/index.vue';
+
 import YangDetailGit from '@/pages/yang/detail/git.vue';
 import YangDetailUnicode from '@/pages/yang/detail/unicode.vue';
 import YangDetailBabel1 from '@/pages/yang/detail/babel_webpack_1.vue';
@@ -6,11 +6,6 @@ import YangDetailBabel2 from '@/pages/yang/detail/babel_webpack_2.vue';
 import YangDetailBabel3 from '@/pages/yang/detail/babel_webpack_3.vue';
 
 const yang_router: COMMON_TYPE.RouterType[] = [
-  {
-    path: '/yang_detail',
-    name: 'yang_detail',
-    component: YangDetail,
-  },
   {
     path: '/yang_detail_git',
     name: 'yang_detail_git',

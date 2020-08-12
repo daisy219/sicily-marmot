@@ -10,10 +10,10 @@ import { Getter, Action } from 'vuex-class';
 
 import SkmService from '@/services/skm';
 @Component({
-  name: 'ming_detail_articleTemplate',
+  name: 'detail_articleTemplate',
   components: {},
 })
-export default class YangDetailTemplate extends Vue {
+export default class ContentDetailTemplate extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
@@ -39,8 +39,7 @@ export default class YangDetailTemplate extends Vue {
 </script>
 
 <template>
-<div class="module_detail_page">
-<layout>
+  <div class="module_detail_page">
     <link rel='stylesheet' href='./static/editor.md-master/css/editormd.min.css' />
     <div v-if="detail" class="common_page_1000_container common_detail_main">
       <div class="common_detail_big_title">{{ detail.title }}</div>
@@ -49,8 +48,7 @@ export default class YangDetailTemplate extends Vue {
         <div v-html="detail.content"></div>
       </div>
     </div>
-</layout>
-</div>
+  </div>
 </template>
 
 <style lang="stylus" scoped>

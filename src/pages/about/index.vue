@@ -90,14 +90,13 @@ export default class About extends Vue {
 
   /** 进入详情 */
   private to_detail(info: ListItemType) {
-    this.$router.push({name: info.author === 'superOldman' ? 'ming_detail_articleTemplate' : 'yang_detail', query: { id: info._id }});
+    this.$router.push({name: 'content', query: { id: info._id }});
   }
 }
 
 </script>
 
 <template>
-<layout>
   <div class="common_page_1000_container module_about_page">
     <!-- 博客简介 -->
     <div class="common_title">
@@ -197,7 +196,6 @@ export default class About extends Vue {
       </div>
     </div>
   </div>
-</layout>
 </template>
 
 <style lang="stylus">

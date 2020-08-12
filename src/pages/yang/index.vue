@@ -55,7 +55,7 @@ export default class Yang extends Vue {
     if (info.route_name) {
       this.$router.push({ name: info.route_name });
     } else {
-      this.$router.push({ name: 'yang_detail', query: {id: info._id} });
+      this.$router.push({ name: 'content', query: {id: info._id} });
     }
   }
 }
@@ -63,7 +63,6 @@ export default class Yang extends Vue {
 </script>
 
 <template>
-<layout>
   <div class="common_page_1000_container module_yang_page">
     <el-timeline>
       <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="yyyymmdd(new Date(item.updated_at))" placement="top" :color="'#ff6e7f'">
@@ -83,7 +82,6 @@ export default class Yang extends Vue {
       </el-timeline-item>
     </el-timeline>
   </div>
-</layout>
 </template>
 
 <style lang="stylus">
