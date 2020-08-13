@@ -231,3 +231,21 @@ export function get_scroll_bar_width(): number {
 
   return scroll_bar_width;
 }
+
+/**
+ * 适配
+ * @param { stirng } class_name
+ * @param { string } bigger - 大于分界宽度的样式
+ * @param { string } smaller - 小于分界宽度的样式
+ * @param { number } split - 分界宽度，默认1200
+ */
+export function reset_media(class_name: string, bigger: string, smaller: string, split = 1200) {
+  const contain_class_arr = document.getElementsByClassName(class_name);
+  Array.prototype.forEach.call(contain_class_arr, (item) => {
+    if (window.innerWidth >= split) {
+      item.setAttribute('style', bigger);
+    } else {
+      item.setAttribute('style', smaller);
+    }
+  });
+}

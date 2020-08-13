@@ -39,7 +39,7 @@ export default class ContentDetailTemplate extends Vue {
 </script>
 
 <template>
-  <div class="module_detail_page">
+  <div class="module_detail_page common_page_1000_container">
     <div class="detail_top" @click="$router.go(-1)">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#iconicon-test"></use>
@@ -47,7 +47,7 @@ export default class ContentDetailTemplate extends Vue {
       <span class="gp_back">返回</span>
     </div>
     <link rel='stylesheet' href='./static/editor.md-master/css/editormd.min.css' />
-    <div v-if="detail" class="common_page_1000_container common_detail_main">
+    <div v-if="detail" class="common_detail_main">
       <div class="common_detail_big_title">{{ detail.title }}</div>
       <div class="common_content_info">{{ detail.info }}</div>
       <div class="markdown-body editormd-preview-container">
@@ -62,7 +62,6 @@ export default class ContentDetailTemplate extends Vue {
 
 .module_detail_page
   .detail_top
-    width 1000px
     margin 0 auto
     padding 10px
     cursor pointer

@@ -62,12 +62,21 @@ body
   padding 20px
 .common_page_1000_container
   background rgba(255, 255, 255, 0.6)
-  width 1000px
   margin 0 auto
   // background-color $nav_bg_color
   border-radius 5px
   min-height 800px
   padding 20px
+@media screen and (min-width: 1000px) {
+  .common_page_1000_container {
+    width 1000px
+  }
+}
+@media screen and (max-width: 1000px) {
+  .common_page_1000_container {
+    width 90%
+  }
+}
 // 无数据情况
 .common_no_data
   text-align center

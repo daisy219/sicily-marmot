@@ -88,8 +88,7 @@ export default class Yang extends Vue {
 @import '~@/assets/stylus/var'
 
 .module_yang_page
-  max-width 900px
-  padding-left 180px
+  // padding-left 180px
   .card_item
     height 100px
     cursor pointer

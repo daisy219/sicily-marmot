@@ -8,6 +8,7 @@
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import ScrollToTop from '@/components/scroll_to_top/index.vue';
+import { reset_media } from '@/utils/dom';
 
 @Component({
   name: 'app',
@@ -21,22 +22,34 @@ export default class App extends Vue {
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
-  // @Getter private some_getter!: any;
-  // @Action private some_action!: () => void;
+  @Getter private inner_width!: number;
+  @Action private change_inner_width_action!: (type: number) => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
-  // private created() {}
-  // private mounted() {}
-
+  private created() {
+    window.addEventListener('resize', this.resize_handle);
+  }
+  private mounted() {
+    this.reset_media();
+  }
+  private beforeDestroy() {
+    window.removeEventListener('resize', this.resize_handle); 
+  }
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
-  // private my_data: string = 'some thing'; // data
   // get computed_data(): string { return 'computed' } // computed
 
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
   /* ------------------------ METHODS ------------------------ */
-  // private some_method(): void {}
+  private resize_handle() {
+    this.reset_media();
+    this.change_inner_width_action(window.innerWidth);
+  }
+
+  private reset_media() {
+    reset_media('common_page_1000_container', 'width: 1000px', 'width: 85%');
+  }
 
 }
 

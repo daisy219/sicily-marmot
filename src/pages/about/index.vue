@@ -21,7 +21,7 @@ export default class About extends Vue {
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
-  // @Getter private some_getter!: any;
+  @Getter private inner_width!: number;
   // @Action private some_action!: () => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
@@ -51,6 +51,10 @@ export default class About extends Vue {
     '在这里分享一点点经验',
     '希望每天都有收获，每天都有收获就好',
   ];
+  private get col_span() {
+    return this.inner_width > 1000 ? 6
+      : this.inner_width > 700 ? 8 : this.inner_width > 500 ? 12 : 24;
+  }
   /* ------------------------ WATCH ------------------------ */
   // @Watch('some_thing') private some_thing_changed(val: any, oldVal: any) {}
 
@@ -122,7 +126,7 @@ export default class About extends Vue {
     </div>
     <div class="special_content">
       <el-row v-if="life_list && life_list.length !== 0" class="list_content" :gutter="20">
-        <el-col :span="6" v-for="item in life_list" :key="item._id">
+        <el-col :span="col_span" v-for="item in life_list" :key="item._id">
           <div class="list_item">
             <div class="list_img_wrap">
               <el-image class="list_img" :src="item.saveImageUrl" :fit="'cover'" @click.native="to_detail(item)">

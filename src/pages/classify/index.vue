@@ -27,6 +27,7 @@ export default class Classify extends Vue {
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
   @Getter private skin!: any;
+  @Getter private inner_width!: number;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
@@ -102,26 +103,9 @@ export default class Classify extends Vue {
 </script>
 
 <template>
-  <div class="common_page_1200_container module_classify_page">
+  <div class="common_page_1000_container module_classify_page">
     <el-row :gutter="40">
-      <el-col :span="16" v-loading="list_loading">
-        <div class="common_title">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#iconhuodong"></use>
-          </svg>
-          <span>{{ currentClassify }}</span>
-        </div>
-        <big-card v-if="newest_list && newest_list.length !== 0" :newest-list="newest_list"/>
-        <my-pagination :current-page="page" :total="total" :page-size="pageSize" @currentChange="currentChangeHandle"/>
-
-        <div class="common_no_data" v-if="!newest_list || newest_list.length === 0">
-          <svg class="icon" aria-hidden="true">
-            <use xlink:href="#iconzanwushuju"></use>
-          </svg>
-          <p>暂无数据</p>
-        </div>
-      </el-col>
-      <el-col :span="8">
+      <el-col :span="inner_width > 1000 ? 8 : 24">
         <div class="folder_module">
           <div class="common_title">
             <svg class="icon" aria-hidden="true">
@@ -151,6 +135,24 @@ export default class Classify extends Vue {
           <span class="tag_item" v-for="item in tag_list" :key="item._id" @click="get_folder_or_tag_content('tag', item.name)">{{ item.name }}</span>
         </div>
       </el-col>
+      <el-col :span="inner_width > 1000 ? 16 : 24" v-loading="list_loading">
+        <div class="common_title">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#iconhuodong"></use>
+          </svg>
+          <span>{{ currentClassify }}</span>
+        </div>
+        <big-card v-if="newest_list && newest_list.length !== 0" :newest-list="newest_list"/>
+        <my-pagination :current-page="page" :total="total" :page-size="pageSize" @currentChange="currentChangeHandle"/>
+
+        <div class="common_no_data" v-if="!newest_list || newest_list.length === 0">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#iconzanwushuju"></use>
+          </svg>
+          <p>暂无数据</p>
+        </div>
+      </el-col>
+
     </el-row>
   </div>
 </template>

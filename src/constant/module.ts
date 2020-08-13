@@ -46,17 +46,21 @@ export const SKIN_MODULES: any[] = [
   {
     icon: 'iconxue',
     title: 'snow_theme',
+    font: '#606266',
   },
   {
     icon: 'iconICON-',
     title: 'peach_theme',
+    font: '#ee9ca7',
   },
   {
     icon: 'iconICON-1',
     title: 'lemon_theme',
+    font: '#FFD200',
   },
   {
     icon: 'iconICON-4',
     title: 'cherry_theme',
+    font: '#c31432',
   },
 ];

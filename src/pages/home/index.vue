@@ -24,7 +24,7 @@ export default class Home extends Vue {
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
-  // @Getter private some_getter!: any;
+  @Getter private inner_width!: number;
   // @Action private some_action!: () => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
@@ -35,7 +35,6 @@ export default class Home extends Vue {
   private mounted() {
     // this.bg_animate();
   }
-
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private yyyymmdd = yyyymmdd;
   private top_loading: boolean = false;
@@ -98,7 +97,7 @@ export default class Home extends Vue {
       <span>top && important</span>
     </div>
     <el-row class="top_content">
-      <el-col :span="12" class="top_item" v-for="item in top_list" :key="item._id" @mouseenter.native="$set(item, 'title_show', true)" 
+      <el-col :span="inner_width < 800 ? 24 : 12" class="top_item" v-for="item in top_list" :key="item._id" @mouseenter.native="$set(item, 'title_show', true)" 
         @mouseleave.native="$set(item, 'title_show', false)"
         @click.native="to_detail(item)">
         <el-image class="item_img" :src="item.cover" :fit="'cover'">
@@ -128,7 +127,7 @@ export default class Home extends Vue {
 <style lang="stylus" scoped>
 @import '~@/assets/stylus/var'
 .module_home
-  max-width 1000px
+  width 100%
   .item_img
     border-radius 4px
     width 100%

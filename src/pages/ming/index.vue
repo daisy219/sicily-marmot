@@ -77,8 +77,7 @@ export default class Ming extends Vue {
 // @import '~@/assets/stylus/var'
 
 .module_ming_page
-  max-width 900px
-  padding-left 180px
+  // padding-left 180px
   .card_item
     height 100px
     cursor pointer

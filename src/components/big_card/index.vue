@@ -19,6 +19,7 @@ export default class ListCard extends Vue {
   @Prop({ type: Array, default() { return []; } }) private newestList!: any[];
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
+  @Getter private inner_width!: number;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
@@ -39,16 +40,18 @@ export default class ListCard extends Vue {
 <template>
 <div class="module_list_card">
   <el-row v-for="(item, index) in newestList" :key="item._id" class="newest_item" :gutter="20" @click.native="to_detail(item)">
-    <el-col :span="12" class="item_col">
+    <el-col :span="12" :class="['item_col', {'position_relative': inner_width > 800}]">
       <div class="newest_content" v-show="index % 2 !== 0">
         <div class="title text_overflow">{{ item.title }}</div>
         <div class="desc">{{ item.info }}</div>
-        <div class="align-right">
-          <!-- <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span> -->
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>{{ item.hasFolder || '--' }}</span>
+        <div class="position_bottom">
+          <div class="align-right">
+            <!-- <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
+            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span> -->
+            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>{{ item.hasFolder || '--' }}</span>
+          </div>
+          <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>
         </div>
-        <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>
       </div>
       <el-image v-show="index % 2 === 0" class="item_img turn_big" :src="item.saveImageUrl" :fit="'cover'">
         <div slot="error" class="image-slot">
@@ -60,12 +63,14 @@ export default class ListCard extends Vue {
       <div class="newest_content" v-show="index % 2 === 0">
         <div class="title text_overflow">{{ item.title }}</div>
         <div class="desc">{{ item.info }}</div>
-        <div class="align-right">
-          <!-- <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span> -->
-          <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>{{ item.hasFolder || '--' }}</span>
+        <div class="position_bottom">
+          <div class="align-right">
+            <!-- <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
+            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconzan"></use></svg>12</span> -->
+            <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconxinbaniconshangchuan-"></use></svg>{{ item.hasFolder || '--' }}</span>
+          </div>
+          <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>
         </div>
-        <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>
       </div>
       <el-image v-show="index % 2 !== 0" class="item_img turn_big" :src="item.saveImageUrl" :fit="'cover'" >
         <div slot="error" class="image-slot">
@@ -88,11 +93,14 @@ export default class ListCard extends Vue {
     cursor pointer
     box-shadow 0px 0px 15px #909399
     transition all 0.2s
+    padding-bottom 50px
     &:hover
       transform scale(1.01, 1.01)
     .item_col
       height 100%
       overflow hidden
+    .position_relative
+      position relative
     .newest_content
       .title
         font-size 18px
@@ -104,15 +112,19 @@ export default class ListCard extends Vue {
         font-size 14px
         color $font_grey_color
         line-height 30px
-        height 170px
-      .create
-        font-size 12px
-        line-height 30px
-        color $font_light_color
-        text-align right
-        padding-right 20px
-      .icon_line
-        margin-right 20px
-        font-size 14px
-        color $font_grey_color
+        multi_text_overflow(5)
+      .position_bottom
+        position absolute
+        bottom 10px
+        right 0
+        .create
+          font-size 12px
+          line-height 30px
+          color $font_light_color
+          text-align right
+          padding-right 20px
+        .icon_line
+          margin-right 20px
+          font-size 14px
+          color $font_grey_color
 </style>
