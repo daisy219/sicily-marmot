@@ -34,7 +34,7 @@ export default class App extends Vue {
     this.reset_media();
   }
   private beforeDestroy() {
-    window.removeEventListener('resize', this.resize_handle); 
+    window.removeEventListener('resize', this.resize_handle);
   }
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   // get computed_data(): string { return 'computed' } // computed

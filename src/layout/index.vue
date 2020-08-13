@@ -36,7 +36,7 @@ export default class Layout extends Vue {
     this.reset_media();
   }
   private beforeDestroy() {
-    window.removeEventListener('resize', this.resize_handle); 
+    window.removeEventListener('resize', this.resize_handle);
   }
   /* ------------------------ COMPONENT STATE (data & computed & model) ------------------------ */
   private SKIN_MODULES = SKIN_MODULES;
@@ -57,7 +57,7 @@ export default class Layout extends Vue {
     if (this.inner_width > 1000) {
       return MODULES_INFO;
     } else if (this.inner_width < 450) {
-      return 0
+      return 0;
     } else {
       return MODULES_INFO.slice(0, this.wrap_length);
     }
@@ -117,7 +117,7 @@ export default class Layout extends Vue {
     Array.prototype.forEach.call(menu_item_collection, (item) => {
       item.style.setProperty('color', '#999');
       if (item.className.includes('active')) {
-        item.style.setProperty('color', SKIN_MODULES.find(a => a.title === this.skin).font);
+        item.style.setProperty('color', SKIN_MODULES.find((a: any) => a.title === this.skin).font);
       }
     });
   }
