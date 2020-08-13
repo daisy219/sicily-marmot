@@ -27,6 +27,7 @@ export default class App extends Vue {
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
+    this.change_inner_width_action(window.innerWidth);
     window.addEventListener('resize', this.resize_handle);
   }
   private mounted() {

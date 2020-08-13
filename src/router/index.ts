@@ -29,9 +29,9 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      // redirect: () => {
-      //   return 'home';
-      // },
+      redirect: () => {
+        return 'home';
+      },
       component: Index,
       children: [
         {
