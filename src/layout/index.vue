@@ -56,6 +56,8 @@ export default class Layout extends Vue {
   private get MODULES_INFO() {
     if (this.inner_width > 1000) {
       return MODULES_INFO;
+    } else if (this.inner_width < 450) {
+      return 0
     } else {
       return MODULES_INFO.slice(0, this.wrap_length);
     }
@@ -65,6 +67,8 @@ export default class Layout extends Vue {
   private get MORE_MODULES_INFO() {
     if (this.inner_width > 1000) {
       return 0;
+    } else if (this.inner_width < 450) {
+      return MODULES_INFO;
     } else {
       return MODULES_INFO.slice(this.wrap_length, MODULES_INFO.length);
     }
