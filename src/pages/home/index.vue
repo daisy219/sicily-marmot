@@ -137,12 +137,11 @@ export default class Home extends Vue {
     .top_content
       margin 0 auto
       width 100%
-      height 200px
       .top_item
-        height 100%
+        height 200px
         position relative
         cursor pointer
-        padding 0 10px
+        padding 10px
         .item_img
           box-shadow 5px 5px 15px #888
         .top_item_title
