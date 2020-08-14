@@ -127,7 +127,6 @@ export default class Home extends Vue {
 <style lang="stylus" scoped>
 @import '~@/assets/stylus/var'
 .module_home
-  width 100%
   .item_img
     border-radius 4px
     width 100%
