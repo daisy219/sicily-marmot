@@ -18,7 +18,7 @@ export default class ScrollToTop extends Vue {
   // @Emit('event_name') private handler() {}
 
   /* ------------------------ VUEX (vuex getter & vuex action) ------------------------ */
-  // @Getter private some_getter!: any;
+  @Getter private inner_width!: number;
   // @Action private some_action!: () => void;
 
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
@@ -54,10 +54,20 @@ export default class ScrollToTop extends Vue {
 
 <template>
 <div class="module_scroll_to_top">
-  <div :class="['line', {'long': backToTop}]"></div>
-  <svg class="icon" aria-hidden="true" @click="scroll_to_top">
-    <use xlink:href="#iconmaozhao"></use>
-  </svg>
+  <div v-if="inner_width > 1200">
+    <div :class="['line', {'long': backToTop}]"></div>
+    <svg class="icon" aria-hidden="true" @click="scroll_to_top">
+      <use xlink:href="#iconmaozhao"></use>
+    </svg>
+  </div>
+  <div v-else>
+    <transition name="el-fade-in-linear">
+      <svg class="btn_icon" aria-hidden="true" @click="scroll_to_top" v-show="backToTop">
+        <use xlink:href="#iconhuidaodingbu"></use>
+      </svg>
+    </transition>
+  </div>
+
 </div>
 </template>
 
@@ -66,7 +76,6 @@ export default class ScrollToTop extends Vue {
 
 .module_scroll_to_top
   position relative
-  
   .line
     margin-left 22px
     transform translateX(-50%)
@@ -86,4 +95,10 @@ export default class ScrollToTop extends Vue {
     transition all 0.3s
     &:hover
       transform rotate(180deg)
+  .btn_icon
+    width 60px
+    position fixed
+    bottom -20px
+    right 10px
+    cursor pointer
 </style>
