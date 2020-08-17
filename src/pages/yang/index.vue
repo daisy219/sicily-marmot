@@ -75,7 +75,7 @@ export default class Yang extends Vue {
             </div>
           </el-image>
           <div class="fl card_content">
-            <p class="item_title">{{ item.title }}</p>
+            <p class="item_title text_overflow">{{ item.title }}</p>
             <p class="item_info">{{ item.info }}</p>
           </div>
         </el-card>
@@ -92,6 +92,7 @@ export default class Yang extends Vue {
   .card_item
     height 100px
     cursor pointer
+    padding-right 10px
     transition all 0.2s
     .el-image
       .image-slot
@@ -106,6 +107,7 @@ export default class Yang extends Vue {
       width calc(100% - 100px)
       padding-left 20px
       .item_title
+        width 100%
         font-size 18px
         line-height 50px
       .item_info

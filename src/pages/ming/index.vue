@@ -65,7 +65,7 @@ export default class Ming extends Vue {
             </div>
           </el-image>
           <div class="fl card_content">
-            <p class="item_title">{{ item.title }}</p>
+            <p class="item_title text_overflow">{{ item.title }}</p>
             <p class="item_info">{{ item.info }}</p>
           </div>
         </el-card>
@@ -74,7 +74,7 @@ export default class Ming extends Vue {
   </div>
 </template>
 <style lang="stylus">
-// @import '~@/assets/stylus/var'
+@import '~@/assets/stylus/var'
 
 .module_ming_page
   // padding-left 180px
@@ -82,6 +82,7 @@ export default class Ming extends Vue {
     height 100px
     cursor pointer
     transition all 0.2s
+    padding-right 10px
     .el-image
       .image-slot
         height 100px
@@ -95,6 +96,7 @@ export default class Ming extends Vue {
       width calc(100% - 100px)
       padding-left 20px
       .item_title
+        width 100%
         font-size 18px
         line-height 50px
       .item_info

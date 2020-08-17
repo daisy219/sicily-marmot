@@ -49,7 +49,7 @@ export default class App extends Vue {
   }
 
   private reset_media() {
-    reset_media('common_page_1000_container', 'width: 1000px', 'width: 85%');
+    reset_media('common_page_1000_container', 'width: 1000px', 'width: 100%');
   }
 
 }
