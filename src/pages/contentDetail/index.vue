@@ -48,8 +48,8 @@ export default class ContentDetailTemplate extends Vue {
     </div>
     <link rel='stylesheet' href='./static/editor.md-master/css/editormd.min.css' />
     <div v-if="detail" class="common_detail_main">
-      <div class="common_detail_big_title">{{ detail.title }}</div>
-      <div class="common_content_info">{{ detail.info }}</div>
+      <h1 class="common_detail_big_title">{{ detail.title }}</h1>
+      <h2 class="common_content_info">{{ detail.info }}</h2>
       <div class="markdown-body editormd-preview-container">
         <div v-html="detail.content"></div>
       </div>

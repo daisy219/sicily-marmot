@@ -10,10 +10,12 @@ import { Getter, Action } from 'vuex-class';
 import { yyyymmdd } from '@/utils/utils';
 import { ListItemType } from '@/typing/page';
 import Service from '@/services/common';
+import CommonMixin from '@/mixin/common';
 
 @Component({
   name: 'about',
   components: {},
+  mixins: [CommonMixin],
 })
 export default class About extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -94,6 +96,7 @@ export default class About extends Vue {
 
   /** 进入详情 */
   private to_detail(info: ListItemType) {
+    (this as any).set_title(info.title);
     this.$router.push({name: 'content', query: { id: info._id }});
   }
 }
@@ -129,7 +132,7 @@ export default class About extends Vue {
         <el-col :span="col_span" v-for="item in life_list" :key="item._id">
           <div class="list_item">
             <div class="list_img_wrap">
-              <el-image class="list_img" :src="item.saveImageUrl" :fit="'cover'" @click.native="to_detail(item)">
+              <el-image class="list_img" :alt="item.title" :src="item.saveImageUrl" :fit="'cover'" @click.native="to_detail(item)">
                 <div slot="error" class="image-slot">
                   <svg class="icon" aria-hidden="true">
                     <use xlink:href="#iconICON-"></use>
@@ -138,8 +141,8 @@ export default class About extends Vue {
               </el-image>
             </div>
             <div class="item_info">
-              <p class="item_title text_overflow" :title="item.title">{{ item.title }}</p>
-              <p class="item_desc clearfix"><span class="fl">{{ item.author }}</span><span class="fr">{{ yyyymmdd(new Date(item.updated_at)) }}</span></p>
+              <h1 class="item_title text_overflow" :title="item.title">{{ item.title }}</h1>
+              <h2 class="item_desc clearfix"><span class="fl">{{ item.author }}</span><span class="fr">{{ yyyymmdd(new Date(item.updated_at)) }}</span></h2>
             </div>
           </div>
           

@@ -8,16 +8,18 @@
 import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import { ListItemType } from '@/typing/page.d.ts';
+import { yyyymmdd } from '@/utils/utils';
 
 import ListCard from '@/components/list_card/index.vue';
 import SkmService from '@/services/common';
-import { yyyymmdd } from '@/utils/utils';
+import CommonMixin from '@/mixin/common';
 
 @Component({
   name: 'ming',
   components: {
     'list-card': ListCard,
   },
+  mixins: [CommonMixin],
 })
 export default class Ming extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -48,6 +50,11 @@ export default class Ming extends Vue {
     const { data } = await SkmService.get_list(params);
     this.list = data;
   }
+
+  private to_detail(item: ListItemType) {
+    (this as any).set_title(item.title);
+    this.$router.push({name: 'content', query: {id: item._id}});
+  }
 }
 
 </script>
@@ -56,8 +63,8 @@ export default class Ming extends Vue {
   <div class="common_page_1000_container module_ming_page">
     <el-timeline>
       <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="yyyymmdd(new Date(item.updated_at))" placement="top" :color="'rgb(255, 221, 80)'">
-        <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="$router.push({name: 'content', query: {id: item._id}})">
-          <el-image style="width: 100px; height: 100px" class="fl" :src="item.saveImageUrl" :fit="'cover'">
+        <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="to_detail(item)">
+          <el-image :alt="item.title" style="width: 100px; height: 100px" class="fl" :src="item.saveImageUrl" :fit="'cover'">
             <div slot="error" class="image-slot">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#iconshoubing"></use>
@@ -65,8 +72,8 @@ export default class Ming extends Vue {
             </div>
           </el-image>
           <div class="fl card_content">
-            <p class="item_title text_overflow">{{ item.title }}</p>
-            <p class="item_info">{{ item.info }}</p>
+            <h1 class="item_title text_overflow">{{ item.title }}</h1>
+            <h2 class="item_info">{{ item.info }}</h2>
           </div>
         </el-card>
       </el-timeline-item>

@@ -114,7 +114,7 @@ export default class Classify extends Vue {
             <span>folder</span>
           </div>
           <div v-for="item in folder_list" :key="item._id" class="folder_item clearfix" @click="get_folder_or_tag_content('folder', item.folderName)">
-            <el-image style="width: 60px; height: 60px" :src="item.cover" :fit="'cover'" class="fl turn_big"/>
+            <el-image :alt="item.folderName" style="width: 60px; height: 60px" :src="item.cover" :fit="'cover'" class="fl turn_big"/>
             <div :class="['folder_name', 'fl', {'lemon': skin === 'lemon_theme', 'cherry': skin === 'cherry_theme', 'peach': skin === 'peach_theme'}]">{{ item.folderName }}</div>
           </div>
           <div class="folder_item clearfix" @click="currentChangeHandle(1)">

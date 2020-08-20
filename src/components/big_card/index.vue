@@ -9,10 +9,12 @@ import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import { yyyymmdd } from '@/utils/utils';
 import { ListItemType } from '@/typing/page';
+import CommonMixin from '@/mixin/common';
 
 @Component({
   name: 'big-card',
   components: {},
+  mixins: [CommonMixin],
 })
 export default class ListCard extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -31,6 +33,7 @@ export default class ListCard extends Vue {
 
   /* ------------------------ METHODS ------------------------ */
   private to_detail(info: ListItemType) {
+    (this as any).set_title(info.title);
     this.$router.push({name: 'content', query: { id: info._id }});
   }
 }
@@ -42,8 +45,8 @@ export default class ListCard extends Vue {
   <el-row v-for="(item, index) in newestList" :key="item._id" class="newest_item" :gutter="20" @click.native="to_detail(item)">
     <el-col :span="12" :class="['item_col', {'position_relative': inner_width > 800}]">
       <div class="newest_content" v-show="index % 2 !== 0">
-        <div class="title text_overflow">{{ item.title }}</div>
-        <div class="desc">{{ item.info }}</div>
+        <h1 class="title text_overflow">{{ item.title }}</h1>
+        <h2 class="desc">{{ item.info }}</h2>
         <div class="position_bottom">
           <div class="align-right">
             <!-- <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
@@ -53,7 +56,7 @@ export default class ListCard extends Vue {
           <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>
         </div>
       </div>
-      <el-image v-show="index % 2 === 0" class="item_img turn_big" :src="item.saveImageUrl" :fit="'cover'">
+      <el-image :alt="item.title" v-show="index % 2 === 0" class="item_img turn_big" :src="item.saveImageUrl" :fit="'cover'">
         <div slot="error" class="image-slot">
           <el-image src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg" :fit="'cover'" />
         </div>
@@ -61,8 +64,8 @@ export default class ListCard extends Vue {
     </el-col>
     <el-col :span="12" class="item_col">
       <div class="newest_content" v-show="index % 2 === 0">
-        <div class="title text_overflow">{{ item.title }}</div>
-        <div class="desc">{{ item.info }}</div>
+        <h1 class="title text_overflow">{{ item.title }}</h1>
+        <h2 class="desc">{{ item.info }}</h2>
         <div class="position_bottom">
           <div class="align-right">
             <!-- <span class="icon_line"><svg class="icon" aria-hidden="true"><use xlink:href="#iconguankan"></use></svg>12</span>
@@ -72,7 +75,7 @@ export default class ListCard extends Vue {
           <div class="create">创建时间：{{ yyyymmdd(new Date(item.updated_at)) }}</div>
         </div>
       </div>
-      <el-image v-show="index % 2 !== 0" class="item_img turn_big" :src="item.saveImageUrl" :fit="'cover'" >
+      <el-image :alt="item.title" v-show="index % 2 !== 0" class="item_img turn_big" :src="item.saveImageUrl" :fit="'cover'" >
         <div slot="error" class="image-slot">
           <el-image src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg" :fit="'cover'" />
         </div>

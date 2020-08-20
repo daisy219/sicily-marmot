@@ -11,12 +11,14 @@ import { ListItemType } from '@/typing/page';
 
 import BigCard from '@/components/big_card/index.vue';
 import Service from '@/services/common';
+import CommonMixin from '@/mixin/common';
 
 @Component({
   name: 'home',
   components: {
     'big-card': BigCard,
   },
+  mixins: [CommonMixin],
 })
 export default class Home extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -79,6 +81,7 @@ export default class Home extends Vue {
 
   /** 进入详情 */
   private to_detail(info: ListItemType) {
+    (this as any).set_title(info.title);
     this.$router.push({name: 'content', query: { id: info._id }});
   }
 
@@ -100,13 +103,13 @@ export default class Home extends Vue {
       <el-col :span="inner_width < 800 ? 24 : 12" class="top_item" v-for="item in top_list" :key="item._id" @mouseenter.native="$set(item, 'title_show', true)" 
         @mouseleave.native="$set(item, 'title_show', false)"
         @click.native="to_detail(item)">
-        <el-image class="item_img" :src="item.cover" :fit="'cover'">
+        <el-image :alt="item.title" class="item_img" :src="item.cover" :fit="'cover'">
           <div slot="error" class="image-slot">
             <el-image src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg" :fit="'cover'" />
           </div>
         </el-image>
         <transition name="el-zoom-in-center">
-          <div class="top_item_title" v-show="item.title_show">{{ item.title }}</div>
+          <h1 class="top_item_title" v-show="item.title_show">{{ item.title }}</h1>
         </transition>
       </el-col>
     </el-row>

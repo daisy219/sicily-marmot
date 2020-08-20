@@ -38,31 +38,49 @@ const router =  new Router({
           path: '/home',
           name: 'home',
           component: Home,
+          meta: {
+            title: 'sicily-marmot',
+          },
         },
         {
           path: '/yang',
           name: 'yang',
           component: Yang,
+          meta: {
+            title: 'sicily-marmot',
+          },
         },
         {
           path: '/ming',
           name: 'ming',
           component: Ming,
+          meta: {
+            title: 'sicily-marmot',
+          },
         },
         {
           path: '/classify',
           name: 'classify',
           component: Classify,
+          meta: {
+            title: 'sicily-marmot',
+          },
         },
         {
           path: '/about',
           name: 'about',
           component: About,
+          meta: {
+            title: 'sicily-marmot',
+          },
         },
         {
           path: '/content',
           name: 'content',
           component: Content,
+          meta: {
+            title: 'sicily-marmot',
+          },
         },
         ...YangRouter,
       ],
@@ -74,6 +92,9 @@ const router =  new Router({
 router.beforeEach((to, from, next) => {
   // console.log(to, from, next);
   from_current_top_scroll_to();
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  }
   next();
 });
 

@@ -72,6 +72,9 @@ declare namespace COMMON_TYPE {
     path: string;
     name: string;
     component: any;
+    meta?: {
+      title?: string,
+    }
   }
   export interface StringDictionaryType<T = any> {
     [key: string]: T;

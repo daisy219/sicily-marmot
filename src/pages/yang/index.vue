@@ -9,6 +9,7 @@ import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import { ListItemType } from '@/typing/page.d.ts';
 import { yyyymmdd } from '@/utils/utils';
+import CommonMixin from '@/mixin/common';
 
 
 import ListCard from '@/components/list_card/index.vue';
@@ -20,6 +21,7 @@ import Services from '@/services/common';
   components: {
     'list-card': ListCard,
   },
+  mixins: [CommonMixin],
 })
 export default class Yang extends Vue {
   /* ------------------------ INPUT & OUTPUT ------------------------ */
@@ -52,6 +54,7 @@ export default class Yang extends Vue {
 
   /** 获取数据库列表 */
   private async to_detail(info: any) {
+    (this as any).set_title(info.title);
     if (info.route_name) {
       this.$router.push({ name: info.route_name });
     } else {
@@ -67,7 +70,7 @@ export default class Yang extends Vue {
     <el-timeline>
       <el-timeline-item v-for="(item, index) in list" :key="index" :timestamp="yyyymmdd(new Date(item.updated_at))" placement="top" :color="'#ff6e7f'">
         <el-card class="card_item clearfix" :body-style="{ padding: '0px' }" @click.native="to_detail(item)">
-          <el-image style="width: 100px; height: 100px" class="fl" :src="item.saveImageUrl" :fit="'cover'">
+          <el-image :alt="item.title" style="width: 100px; height: 100px" class="fl" :src="item.saveImageUrl" :fit="'cover'">
             <div slot="error" class="image-slot">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#iconduanqun"></use>
@@ -75,8 +78,8 @@ export default class Yang extends Vue {
             </div>
           </el-image>
           <div class="fl card_content">
-            <p class="item_title text_overflow">{{ item.title }}</p>
-            <p class="item_info">{{ item.info }}</p>
+            <h1 class="item_title text_overflow">{{ item.title }}</h1>
+            <h2 class="item_info">{{ item.info }}</h2>
           </div>
         </el-card>
       </el-timeline-item>
