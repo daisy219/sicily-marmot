@@ -7,18 +7,18 @@ module.exports = {
   publicPath: './',
   // server 配置
   devServer: {
-      host: '0.0.0.0',
-      port: 9000,
-      open: false,
-      // proxy: {
-      //   '/public': {
-      //     target: 'https://static.yancey.app',
-      //     changeOrigin: true,
-      //     pathRewrite: {
-      //       '^/public/images': '/'
-      //     }
-      //   }
-      // }
+    host: '0.0.0.0',
+    port: 9000,
+    open: false,
+    proxy: {
+      '/api': {
+        target: 'http://47.96.2.170:3000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/'
+        }
+      }
+    }
   },
   chainWebpack: config => {
     // alias
