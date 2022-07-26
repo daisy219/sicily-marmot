@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/pages/home/index.vue';
-import Yang from '@/pages/yang/index.vue';
-import Ming from '@/pages/ming/index.vue';
-import Classify from '@/pages/classify/index.vue';
-import About from '@/pages/about/index.vue';
-import Content from '@/pages/contentDetail/index.vue';
-import Index from '@/pages/index.vue';
+const Home = () => import('@/pages/home/index.vue')
+const Yang = () => import('@/pages/yang/index.vue')
+const Ming = () => import('@/pages/ming/index.vue')
+const Classify = () => import('@/pages/classify/index.vue')
+const About = () => import('@/pages/about/index.vue')
+const Content = () => import('@/pages/contentDetail/index.vue')
+const Index = () => import('@/pages/index.vue')
 
 import YangRouter from './yang_detail';
 
@@ -22,7 +22,7 @@ Router.prototype.push = function push(location: any) {
   return originalPush.call(this, location).catch((err: any) => err);
 };
 
-const router =  new Router({
+const router = new Router({
   // mode: 'history',
   mode: 'hash',
   base: process.env.BASE_URL,

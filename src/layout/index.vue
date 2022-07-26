@@ -26,6 +26,7 @@ export default class Layout extends Vue {
   /* ------------------------ LIFECYCLE HOOKS (created & mounted & ...) ------------------------ */
   private created() {
     window.addEventListener('resize', this.resize_handle);
+    this.nowDate = new Date().getFullYear()
   }
 
   private mounted() {
@@ -46,6 +47,7 @@ export default class Layout extends Vue {
   private more_menu_link_show: boolean = false;
   private operate_width: number = 1000 - 600;
   private one_menu_width: number = 120;
+  private nowDate: number = 0;
 
   /** 展示在外面菜单的模块数组长度 */
   private get wrap_length() {
@@ -206,7 +208,7 @@ export default class Layout extends Vue {
 	  <slot />
   </div>
 	<div class="footer" v-show="showFoot">
-			<p>© 2019-2020 Sicily marmot 版权所有<a href="http://www.beian.miit.gov.cn" target="_blank">沪ICP备19043258号-1</a></p>
+			<p>© 2019-{{nowDate}} Sicily marmot 版权所有<a href="https://beian.miit.gov.cn" target="_blank">沪ICP备19043258号-1</a></p>
 	</div>
 </div>
 </template>
